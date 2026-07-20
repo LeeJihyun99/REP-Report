@@ -31,7 +31,7 @@ teacherMode: false
 
 # If this flag is set to "true", the template artefacts (which come as part of the tool) are displayed.
 # If you want to see only your own content, set this flag to "false"
-withTemplates: true
+withTemplates: false
 
 
 

@@ -1,7 +1,7 @@
 ---
 type: author
-acronym: fkr
+acronym: lee
 isTemplate: true
-nickname: Fabian Krampe
-aboutMe: I work at TH Köln, lecturing and developing classroom software. 
+nickname: Jihyun Lee
+aboutMe: I study Master Medieninformatik at TH Köln. 
 ---
