@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<h1>{% t authors.navLabel %}</h1>
+
+{% t authors.summary %}
+
+<table>
+    <thead>
+    <tr>
+        <th width="20%" colspan="2"></th>
+        <th width="15%" colspan="{{ site.data.metadata.size }}">{% t authors.numberOfArtifacts%}</th>
+    </tr>
+    <tr>
+        <th>&nbsp;</th>
+        <th>Nickname</th>
+        {% for artefactType in site.data.metadata %}
+            <th>{{ artefactType[1].prefix }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% if site.withTemplates %}
+        {% assign collection = site.authors | sort: nickname %}
+    {% else %}
+        {% assign collection = site.authors | where_exp: "item", "item.isTemplate == Nil" | sort: nickname %}
+    {% endif %}
+
+    {% for author in collection %}
+        <tr>
+            {% include /functions/checks/check-author.html myArtefact=author myErrorString="" myWarningString="" %}
+            {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=author.todo %}
+            <td><a href="{{ site.url }}{{ author.url | relative_url }}">{{ iconString }}</a></td>
+
+            <td><a href="{{ site.url }}{{ author.url | relative_url }}">{{ author.nickname }}</a></td>
+
+            {% include /functions/calc-artefacts-per-author.html myAuthor=author %}
+            {% assign numOfArtefacts = numOfArtefactsString | split: ";" %}
+            {% for num in numOfArtefacts %}
+                <td>{% if num == "0" %}&nbsp;{% else %}{{ num }}{% endif %}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

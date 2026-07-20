@@ -1,0 +1,45 @@
+---
+layout: latex
+jekyll-hyperlink-glossary: false
+---
+
+{% assign sortField = site.data.metadata["functionalRequirement"].sortField %}
+{% if site.withTemplates %}
+    {% assign collection = site.functionalRequirements %}
+{% else %}
+    {% assign collection = site.functionalRequirements | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+{% assign collection = collection | sort: sortField %}
+
+{% for functionalRequirement in collection %}
+    \begin{slide}
+
+    {% include /functions/get-artefact-name.html myArtefact=functionalRequirement myIdFormat="prefix" %}
+    {\fontsize{40}{48}\selectfont {{ artefactName }} }
+
+    {% include /functions/get-sentence-template.html myRequirement=functionalRequirement %}
+    {\fontsize{20}{24}\selectfont {{ sentenceTemplateString }} }
+
+    \vspace{1cm}
+
+    {% if functionalRequirement.goals %}
+        {\tiny
+        \textbf{This requirement contributes to the following goal(s):}
+        \begin{itemize}
+            \setlength\itemsep{0.1cm}
+
+            {% for goalRef in functionalRequirement.goals %}
+                {% assign goal = site.goals | where_exp: "item", "item.acronym == goalRef" | first %}
+                {% include /functions/get-artefact-name.html myArtefact=goal myIdFormat="prefix" %}
+                \item {{ artefactName }}
+            {% endfor %}
+        \end{itemize} }
+    {% endif %}
+    \end{slide}
+{% endfor %}
+
+{% if collection.size == 0 %}
+    \begin{slide}
+        There are no functional requirements (yet)!
+    \end{slide}
+{% endif %}

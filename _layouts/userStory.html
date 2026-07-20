@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+{% include /functions/print-teacherbuttons.html myArtefact=page %}
+{% include /functions/print-page-navigation.html myArtefact=page %}
+{% include /functions/get-artefact-name.html myArtefact=page myIdFormat="postfixWithBrackets" %}
+
+<h1>User Story {{ artefactName }}</h1>
+
+<p class="centralDescription">
+    <b>{% t userStories.As %}</b>
+    {% include /functions/get-link-to-artefact.html myRef=page.asA myTypeString="stakeholderRole" myIdFormat="none" %}
+    {{ artefactLink }}, <b>{% t userStories.iWantTo %}</b> {{ page.iWantTo }}
+    <b>{% t userStories.soThat %}</b> {{ page.soThat }}.
+</p>
+
+
+<dl>
+    <dt>{% t global.BelongsToFr %}</dt>
+    {% include /functions/get-link-to-artefact.html myRef=page.functionalRequirement
+            myTypeString="functionalRequirement" myIdFormat="prefix" %}
+    <dd>{{ artefactLink }}</dd>
+
+    {% include /functions/print-authors.html page=page %}
+    {% include /functions/print-history.html myArtefact=page %}
+    {% include /functions/checks/check-userStory.html myArtefact=page %}
+    {% include /functions/print-detailed-check-messages.html errors=errorString warnings=warningString todos=page.todo %}
+</dl>
+
+
+{{ page.content }}

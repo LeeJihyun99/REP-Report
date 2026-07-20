@@ -1,0 +1,45 @@
+---
+layout: default
+---
+{% assign sortField = site.data.metadata["systemContextElement"].sortField %}
+{% assign collection = site.systemContextElements | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+<h1>{% t systemContext.headerOverview %} ({{ collection.size }})</h1>
+
+{% t systemContext.summary %}
+
+
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="10%">ID</th>
+        <th width="60%">Name</th>
+        <th width="60%">{% t global.type %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for systemContextElement in collection %}
+    <tr>
+        {% include /functions/checks/check-systemContextElement.html myArtefact=systemContextElement %}
+        {% include /functions/get-check-icon.html errors=errorString warnings=warningString
+                todos=systemContextElement.todo %}
+        <td>{{ iconString }}</td>
+
+        {% include /functions/get-globalid.html myArtefact=systemContextElement %}
+        <td><a href="{{ site.url }}{{ systemContextElement.url | relative_url }}">{{ globalId }}</a></td>
+
+        {% include /functions/get-artefact-name.html myArtefact=systemContextElement %}
+        <td><a href="{{ site.url }}{{ systemContextElement.url | relative_url }}">{{ artefactName }}</a></td>
+
+        {% include /functions/get-system-context-subtype.html mySystemContextElement=systemContextElement %}
+        <td><a href="{{ site.url }}{{ systemContextElement.url | relative_url }}">{{ subTypeString }}</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,51 @@
+{% assign type = include.myType %}
+{% assign msgList = include.myMsgList %}
+{% assign idList = include.myIdList %}
+{% assign itemList = include.myItemList %}
+{% assign nickname = include.myNickname %}
+
+{% if type == "error" %}
+	{% assign keyword = site.translations[site.lang].global.errorMsgs %}
+	{% assign iconPath = "/assets/alert-16.png" %}
+{% elsif type == "warning" %}
+	{% assign keyword = site.translations[site.lang].global.warnings %}
+	{% assign iconPath = "/assets/warning-16.png" %}
+{% elsif type == "todo" %}
+	{% assign keyword = site.translations[site.lang].global.todos %}
+	{% assign iconPath = "/assets/clipboard-4-16.png" %}
+{% endif %}
+
+<h2>{{ msgList.size }} {{ keyword }} für {{ nickname }}</h2>
+
+{% if msgList.size > 0 %}
+<table>
+	<thead>
+	<tr>
+		<th width="5%"></th>
+		<th width="60%">{{ keyword }}</th>
+		<th width="30%">Artefakt</th>
+	</tr>
+	</thead>
+	<tbody>
+	{% capture iconString %}<img src="{{ site.url }}{{ iconPath | relative_url }}" style="min-height: 16px; min-width: 16px;"/>{% endcapture %}
+	{% assign counterEnd = msgList.size | minus: 1 %}
+	{% for counter in (0..counterEnd) %}
+		{% assign item = itemList[counter] %}
+		{% assign id = idList[counter] %}
+		{% assign msg = msgList[counter] %}
+		<tr>
+			<td>{{ iconString }}</td>
+			<td><a href="{{ site.url }}{{ item.url | relative_url }}">{{ msg }}</a></td>
+			<td><a href="{{ site.url }}{{ item.url | relative_url }}">{{ id }}</a></td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% else %}
+<p>
+	{% t authors.yeehaw %} {{ keyword }}!
+</p>
+{% endif %}
+
+
+

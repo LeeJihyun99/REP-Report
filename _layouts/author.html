@@ -1,0 +1,89 @@
+---
+layout: default
+---
+
+<h1>{% t authors.author %} »{{ page.nickname }}«</h1>
+
+{% if page.aboutMe %}
+<p>"{{ page.aboutMe }}"</p>
+{% endif %}
+
+<h2>{% t authors.allArtifacts %}</h2>
+
+{% t authors.summaryDetail1 %} {{ page.nickname }} {% t authors.summaryDetail2 %}
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="10%">ID</th>
+        <th width="45%">{% t global.artifact %}</th>
+        <th width="30%">{% t authors.coAuthors %}</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% assign authorErrorList = "" | split: ";" %}
+    {% assign authorErrorItemList = "" | split: ";" %}
+    {% assign authorErrorIdList = "" | split: ";" %}
+    {% assign authorWarningList = "" | split: ";" %}
+    {% assign authorWarningItemList = "" | split: ";" %}
+    {% assign authorWarningIdList = "" | split: ";" %}
+    {% assign authorTodoList = "" | split: ";" %}
+    {% assign authorTodoItemList = "" | split: ";" %}
+    {% assign authorTodoIdList = "" | split: ";" %}
+
+    {% for artefactType in site.data.metadata %}
+        {% assign artefactTypeName = artefactType[0] %}
+        {% assign collectionName = artefactType[1].collection | append: "" %}
+        {% assign collection = site[collectionName] %}
+        {% assign authorRef = page.acronym %}
+        {% assign authorItems = collection | where_exp: "item", "item.author contains authorRef" %}
+
+        {% for item in authorItems %}
+            {% include /functions/get-globalid.html myArtefact=item %}
+            </tr>
+                {% include /functions/checks/check-general-artefact.html myArtefact=item %}
+                {% assign foundErrors = errorString | split: ";" %}
+                {% for issue in foundErrors %}
+                    {% assign authorErrorList = authorErrorList | push: issue %}
+                    {% assign authorErrorItemList = authorErrorItemList | push: item %}
+                    {% assign authorErrorIdList = authorErrorIdList | push: globalId %}
+                {% endfor %}
+                {% assign foundWarnings = warningString | split: ";" %}
+                {% for issue in foundWarnings %}
+                    {% assign authorWarningList = authorWarningList | push: issue %}
+                    {% assign authorWarningItemList = authorWarningItemList | push: item %}
+                    {% assign authorWarningIdList = authorWarningIdList | push: globalId %}
+                {% endfor %}
+                {% for issue in item.todo %}
+                    {% assign authorTodoList = authorTodoList | push: issue %}
+                    {% assign authorTodoItemList = authorTodoItemList | push: item %}
+                    {% assign authorTodoIdList = authorTodoIdList | push: globalId %}
+                {% endfor %}
+                {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=item.todo %}
+                <td>{{ iconString }}</td>
+
+                <td><a href='{{ site.url }}{{ item.url | relative_url }}'>{{ globalId }}</a></td>
+
+                {% include /functions/get-artefact-name.html myArtefact=item %}
+                <td><a href='{{ site.url }}{{item.url | relative_url }}'>{{ artefactName }} </a></td>
+
+                {% include /functions/resolve-names.html myAuthor=item.author myExclude=page %}
+                <td>{{ authorString }}</td>
+            </tr>
+        {% endfor %}
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% include /functions/print-author-messages.html myType="error" myMsgList=authorErrorList
+        myIdList=authorErrorIdList  myItemList=authorErrorItemList myNickname=page.nickname %}
+
+{% include /functions/print-author-messages.html myType="warning" myMsgList=authorWarningList
+        myIdList=authorWarningIdList  myItemList=authorWarningItemList myNickname=page.nickname %}
+
+{% include /functions/print-author-messages.html myType="todo" myMsgList=authorTodoList
+        myIdList=authorTodoIdList  myItemList=authorTodoItemList myNickname=page.nickname %}
+

@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+{% include /functions/print-teacherbuttons.html myArtefact=page %}
+{% include /functions/print-page-navigation.html myArtefact=page %}
+
+{% include /functions/get-artefact-name.html myArtefact=page myIdFormat="postfixWithBrackets" %}
+{% if page.belongsTo == Nil %}
+    <h1>{% t goals.mainGoalHeader %} {{ artefactName }}</h1>
+{% else %}
+    <h1>{% t goals.subGoalHeader %} {{ artefactName }}</h1>
+{% endif %}
+
+<p class="centralDescription">{{ page.goalText }}</p>
+
+<dl>
+    {% if page.belongsTo == Nil %}
+        {% assign thisAcronym = page.acronym %}
+        {% assign foundSubGoals = site.goals | where_exp: "goal", "goal.belongsTo == thisAcronym" %}
+        {% if foundSubGoals.size > 0 %}
+            <dt>{% t goals.subGoals %}</dt>
+            {% for foundSubGoal in foundSubGoals %}
+                {% include /functions/get-artefact-name.html myArtefact=foundSubGoal myIdFormat="postfix" %}
+                <dd><a href="{{ site.url }}{{ foundSubGoal.url | relative_url }}">{{ artefactName }}</a></dd>
+            {% endfor %}
+        {% endif %}
+    {% else %}
+        <dt>{% t goals.partOf %}</dt>
+        {% include /functions/get-link-to-artefact.html myRef=page.belongsTo myTypeString="goal"
+                myIdFormat="postfix" %}
+        <dd>{{ artefactLink }}</dd>
+    {% endif %}
+
+    {% include /functions/print-sources.html mySources=page.sources %}
+    {% include /functions/print-authors.html page=page %}
+    {% include /functions/print-history.html myArtefact=page %}
+    {% include /functions/checks/check-goal.html myArtefact=page %}
+    {% include /functions/print-detailed-check-messages.html errors=errorString warnings=warningString todos=page.todo %}
+</dl>
+
+
+{{ page.content }}

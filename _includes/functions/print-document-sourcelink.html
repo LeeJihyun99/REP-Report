@@ -1,0 +1,26 @@
+{% assign documentSource = include.myDocumentSource %}
+
+{% assign docAcronym = documentSource.reference[1] %}
+{% assign document = site[documents] | where_exp: "doc", "doc.acronym == docAcronym" | first %}
+{%
+{% if documentSource.reference[2] != Nil %}
+    {% assign postFix = " (" | append: documentSource.reference[2] | append: ")" %}
+{% else %}
+    {% assign postFix = "" %}
+{% endif %}
+
+
+{% assign docAcronym = documentSource.reference[1] %}
+
+
+{% if sources != Nil and sources.size > 0 %}
+    <dt>{% t sources.dtLabel %}</dt>
+    {% for source in page.sources %}
+        {% assign sourceType = source.reference[0] %}
+        {% if sourceType == "document" %}
+        {% elsif sourceType == "interview" %}
+        {% elsif sourceType == "survey" %}
+        {% elsif sourceType == "workshop" %}
+        <dd>{{ source.reference[0] }} ({{ source.reference[1] }}), used for: {{ source.usedFor }}</dd>
+    {% endfor %}
+{% endif %}

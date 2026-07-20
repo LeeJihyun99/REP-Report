@@ -1,0 +1,27 @@
+{% assign localHashString = include.myHashString %}
+{% assign localKey = include.myKey %}
+{% assign localNewValue = include.myNewValue %}
+
+{% comment %}   This helper method emulates a hashmap. It puts 'newValue' at the 'key' position.
+                The hash is represented like this: value1$$key1__value2$$key2__ ... etc.
+                (value and key are switched so that we can later sort this according to values)
+{% endcomment %}
+
+{% assign listTail = localHashString | split: "__" %}
+{% assign listFront = "" | split: ";" %}
+{% assign returnHashString = "undef" %}
+{% for counter in (0..999) %}
+    {% if listTail.size == 0 %} {% break %} {% endif %}
+    {% assign currentEntry = listTail | first %}
+    {% assign listTail = listTail | shift %}
+    {% assign entryList = currentEntry | split: "$$" %}
+    {% if entryList[1] == localKey %}
+        {% assign currentEntry = localNewValue | append: "$$" | append: entryList[1] %}
+        {% break %}
+    {% else %}
+        {% assign listFront = listFront | push: currentEntry %}
+    {% endif %}
+{% endfor %}
+
+{% assign returnList = listFront | push: currentEntry | concat: listTail %}
+{% assign returnHashString = returnList | join: "__" %}

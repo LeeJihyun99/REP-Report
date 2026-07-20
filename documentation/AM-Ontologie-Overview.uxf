@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>455</x>
+      <y>595</y>
+      <w>112</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Stakeholder
+--
+name
+contact details
+knowledge
+interest in the project
+communication history</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>609</y>
+      <w>98</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Goal</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>532</x>
+      <y>455</y>
+      <w>196</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1..*
+figures in &gt;</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>455</x>
+      <y>448</y>
+      <w>84</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>Persona
+--
+name
+age 
+role
+picture</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>714</x>
+      <y>448</y>
+      <w>112</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Scenario
+--
+scenario_type: Enum</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>763</x>
+      <y>483</y>
+      <w>77</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=*
+m2=*
+expresses &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>609</y>
+      <w>182</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+m2=1..*
+has &gt;</panel_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>294</y>
+      <w>161</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Functional Requirement
+--
+priority: {MUST, SHOULD, WILL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>805</x>
+      <y>308</y>
+      <w>168</w>
+      <h>315</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=*
+m2=1..*
+serves &gt;</panel_attributes>
+    <additional_attributes>40.0;10.0;160.0;10.0;160.0;380.0;10.0;380.0;10.0;430.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>749</x>
+      <y>217</y>
+      <w>161</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Non-Functional Requirement
+--
+priority: {MUST, SHOULD, WILL}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>819</x>
+      <y>231</y>
+      <w>217</w>
+      <h>406</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=*
+m2=1..*
+serves &gt;</panel_attributes>
+    <additional_attributes>130.0;10.0;230.0;10.0;230.0;550.0;10.0;550.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>763</x>
+      <y>329</y>
+      <w>98</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=*
+m2=*
+is expressed by &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>231</x>
+      <y>259</y>
+      <w>119</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Use Case
+--
+name
+description
+trigger
+precondition
+postcondition
+main scenario
+alternative scenario
+exception scenario
+activity diagram</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>385</y>
+      <w>56</w>
+      <h>231</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=*
+m2=1
+main 
+actor &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>238</x>
+      <y>602</y>
+      <w>98</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Stakeholder Role
+--
+rolename</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>385</y>
+      <w>70</w>
+      <h>231</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=*
+m2=*
+contributing 
+actor &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>343</x>
+      <y>602</y>
+      <w>126</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=*
+m2=1..*
+&lt; represents</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>231</x>
+      <y>84</y>
+      <w>119</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Use Case Collection
+--
+name
+description
+use case diagram</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>140</y>
+      <w>21</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>154</y>
+      <w>35</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=1..*
+m2=*</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>525</x>
+      <y>154</y>
+      <w>119</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Priorization
+--
+method
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>343</x>
+      <y>301</y>
+      <w>343</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=*
+m2=1..*
+&lt; important for</panel_attributes>
+    <additional_attributes>10.0;20.0;470.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>329</x>
+      <y>609</y>
+      <w>35</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;30.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>315</x>
+      <y>518</y>
+      <w>196</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m1=*
+m2=1..*
+&lt; covers aspects of</panel_attributes>
+    <additional_attributes>260.0;10.0;260.0;60.0;10.0;60.0;10.0;120.0</additional_attributes>
+  </element>
+</diagram>

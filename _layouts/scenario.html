@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+{% include /functions/print-teacherbuttons.html myArtefact=page %}
+{% include /functions/print-page-navigation.html myArtefact=page %}
+{% include /functions/get-artefact-name.html myArtefact=page myIdFormat="postfixWithBrackets" %}
+
+<h1>{% t scenarios.headerDetail %} {{ artefactName }}</h1>
+
+<dl>
+    <dt>{% t scenarios.personaFor %}</dt>
+    {% include /functions/get-link-to-artefact.html myRef=page.persona myTypeString="persona" myIdFormat="prefix" %}
+    <dd>{{ artefactLink }}</dd>
+
+    <dt>{% t scenarios.scenarioTypesHeader %}</dt>
+    {% include /functions/get-scenarioType-linklist.html scenario=page format="detail" %}
+    {{ linkString }}
+
+    {% assign personaAcronym = page.persona %}
+    {% assign otherScenForSamePersona = site.scenarios | where_exp: "scen", "scen.persona == personaAcronym" %}
+    {% if otherScenForSamePersona.size > 1 %}
+        <dt>{% t scenarios.otherScenarios %}</dt>
+        {% for otherScen in otherScenForSamePersona %}
+            {% if otherScen.acronym != page.acronym %}
+                {% include /functions/get-link-to-artefact.html myRef=otherScen.acronym myTypeString="scenario" myIdFormat="prefix" %}
+                <dd>{{ artefactLink }}</dd>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% include /functions/print-sources.html mySources=page.sources %}
+    {% include /functions/print-authors.html page=page %}
+    {% include /functions/print-history.html myArtefact=page %}
+    {% include /functions/checks/check-scenario.html myArtefact=page %}
+    {% include /functions/print-detailed-check-messages.html errors=errorString warnings=warningString
+                                todos=page.todo %}
+</dl>
+
+{% assign myContent = page.content | raw_content %}
+{% include /functions/annotate-scenarioType-in-content.html myContent=myContent scenarioTypes=page.scenarioTypes %}
+{% include /functions/annotate-sentence-numbers-in-content.html myContent=contentString %}
+
+{{ contentString }}

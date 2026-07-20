@@ -1,0 +1,15 @@
+{% assign myAdditionalDocuments = include.additionalDocuments %}
+
+{% if myAdditionalDocuments != Nil and myAdditionalDocuments.size > 0 %}
+    <dt>{% t global.additionalDocuments %}</dt>
+    {% if myAdditionalDocuments.size > 1 %}
+        {% assign listStyle = " style='display: list-item;margin: 0 0 0 60px;'" %}
+    {% else %}
+        {% assign listStyle = "" %}
+    {% endif %}
+    {% for documentation in myAdditionalDocuments %}
+        <dd{{ listStyle }}>
+            <a href="{{ site.url }}{{ documentation.url | relative_url }}" target="_blank">{{ documentation.purpose }}</a>
+        </dd>
+    {% endfor %}
+{% endif %}

@@ -1,0 +1,59 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+        myErrorString="" myWarningString="" %}
+{% assign myPurpose = site.translations[site.lang].global.relatedStakeholderRole %}
+{% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact myCheckedRef=artefact.stakeholderRole
+        myCheckedRefType="stakeholderRole" asList=true emptyMeansError=true
+        myPurpose=myPurpose myErrorString=errorString myWarningString=warningString %}
+{% include /functions/checks/generic/check-sources.html myArtefact=artefact
+		myErrorString=errorString myWarningString=warningString %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 530 - 549 reserved for Stakeholder **** {% endcomment %}
+
+{% comment %}---------- relationshipToProject -----------{% endcomment %}
+{% if artefact.relationshipToProject != Nil %}
+    {% if artefact.relationshipToProject.size < 10 %}
+        {% assign myMsg = site.translations[site.lang].genericErrors.relationshipToProjectTooShort %}
+        {% include /functions/define-message.html ignore=artefact.ignore msgno="w530" msg=myMsg %}
+        {% assign warningList = warningList | push: out_msg %}
+    {% endif %}
+{% else %}
+    {% assign myMsg = site.translations[site.lang].genericErrors.relationshipToProjectMissing %}
+    {% include /functions/define-message.html ignore=artefact.ignore msgno="e531" msg=myMsg %}
+    {% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- subtype -----------{% endcomment %}
+{% if artefact.subtype %}
+    {% if artefact.subtype != "person" and artefact.subtype != "group" %}
+        {% assign myMsg = site.translations[site.lang].stakeholders.invalidSubtype | append: ": " |
+                    append: artefact.implementationStatus %}
+        {% include /functions/define-message.html ignore=artefact.ignore msgno="e532" msg=myMsg %}
+        {% assign errorList = errorList | push: out_msg %}
+    {% endif %}
+{% else %}
+    {% assign myMsg = site.translations[site.lang].stakeholders.subtypeMissing %}
+    {% include /functions/define-message.html ignore=artefact.ignore msgno="e533" msg=myMsg %}
+    {% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- interviews -----------{% endcomment %}
+{% assign interviews = site.interviews | where: "stakeholder", artefact.acronym %}
+{% if interviews.size == 0 %}
+    {% assign myMsg = site.translations[site.lang].stakeholders.interviewMissing %}
+    {% include /functions/define-message.html ignore=artefact.ignore msgno="w534" msg=myMsg %}
+    {% assign warningList = warningList | push: out_msg %}
+{% endif %}
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

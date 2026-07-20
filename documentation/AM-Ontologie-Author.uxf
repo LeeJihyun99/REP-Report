@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>297</x>
+      <y>36</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Stakeholder</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>432</x>
+      <y>126</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Author
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>225</x>
+      <y>99</y>
+      <w>126</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Goal</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>108</x>
+      <y>18</y>
+      <w>126</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Author has a 
+relationship 
+to everything
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>243</x>
+      <y>180</y>
+      <w>108</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Persona</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>288</x>
+      <y>234</y>
+      <w>99</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Scenario</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>432</x>
+      <y>0</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Source</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>567</x>
+      <y>54</y>
+      <w>162</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Functional Requirement</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>612</x>
+      <y>108</y>
+      <w>207</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Non-Functional Requirement</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>468</x>
+      <y>18</y>
+      <w>45</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=*</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>513</x>
+      <y>108</y>
+      <w>117</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=*</panel_attributes>
+    <additional_attributes>10.0;40.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>144</y>
+      <w>117</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=*</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>135</y>
+      <w>108</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=*</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>99</y>
+      <w>108</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=*</panel_attributes>
+    <additional_attributes>100.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>54</y>
+      <w>108</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=*</panel_attributes>
+    <additional_attributes>100.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>495</x>
+      <y>63</y>
+      <w>90</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=*</panel_attributes>
+    <additional_attributes>10.0;70.0;80.0;10.0</additional_attributes>
+  </element>
+</diagram>

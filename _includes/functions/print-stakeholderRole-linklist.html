@@ -1,0 +1,12 @@
+{% assign myStakeholderRoles = include.stakeholderRoles %}
+{% assign mySeparator = include.separator | default: ",<br/>" %}
+
+{% assign linkList = "" | split: ";" %}
+{% for shr in myStakeholderRoles %}
+    {% include /functions/get-link-to-artefact.html myRef=shr myTypeString="stakeholderRole"
+            myIdFormat="none" %}
+    {% assign linkList = linkList | push: artefactLink %}
+{% endfor %}
+
+
+{% assign linkString = linkList | join: mySeparator %}

@@ -1,0 +1,45 @@
+---
+layout: default
+---
+{% assign sortField = site.data.metadata["scenario"].sortField %}
+{% assign collection = site.scenarios | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+<h1>{% t scenarios.headerOverview %} ({{ collection.size }})</h1>
+
+{% t scenarios.summary %}
+
+
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="8%">ID</th>
+        <th width="45%">{% t global.Title %}</th>
+        <th width="45%">{% t scenarios.scenarioTypesHeader %}</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for scenario in collection %}
+        <tr>
+            {% include /functions/checks/check-scenario.html myArtefact=scenario %}
+            {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=scenario.todo %}
+            <td>{{ iconString }}</td>
+
+            {% include /functions/get-globalid.html myArtefact=scenario %}
+            <td><a href="{{ site.url }}{{ scenario.url | relative_url }}">{{ globalId }}</a></td>
+
+            {% include /functions/get-artefact-name.html myArtefact=scenario %}
+            <td><a href="{{ site.url }}{{ scenario.url | relative_url }}">{{ artefactName }}</a></td>
+
+            {% include /functions/get-scenarioType-linklist.html scenario=scenario format="overview" %}
+            <td>{{ linkString }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,60 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" %}
+{% include /functions/checks/generic/check-sources.html myArtefact=artefact
+		myErrorString=errorString myWarningString=warningString %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 810 - 829 reserved for SystemContextElement **** {% endcomment %}
+
+{% comment %}---------- title -----------{% endcomment %}
+{% if artefact.title %}
+	{% if artefact.title.size < 3 %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.titleTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w810" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% else %}
+	{% assign myMsg = site.translations[site.lang].genericErrors.titleMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e811" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+
+{% comment %}---------- subtype -----------{% endcomment %}
+{% include /functions/get-system-context-subtype.html mySystemContextElement=artefact %}
+{% if subTypeString == "-" %}
+	{% assign myMsg = site.translations[site.lang].systemContext.subtypeMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e812" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% elsif subTypeString == "???" %}
+	{% assign myMsg = "Subtype '" | append: artefact.subtype | append: "' " |
+			append: site.translations[site.lang].systemContext.subtypeInvalid %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e813" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- description -----------{% endcomment %}
+{% if artefact.description != Nil %}
+    {% if artefact.description.size < 10 %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.descriptionTooShort %}
+        {% include /functions/define-message.html ignore=artefact.ignore msgno="w814" msg=myMsg %}
+        {% assign warningList = warningList | push: out_msg %}
+    {% endif %}
+{% else %}
+	{% assign myMsg = site.translations[site.lang].genericErrors.descriptionMissing %}
+    {% include /functions/define-message.html ignore=artefact.ignore msgno="e815" msg=myMsg %}
+    {% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

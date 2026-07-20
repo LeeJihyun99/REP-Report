@@ -1,0 +1,26 @@
+{% assign localArtefact = include.myArtefact %}
+
+{% if site.teacherMode == true %}
+    {% assign type = localArtefact.type  %}
+    {% assign typeMetadata = site.data.metadata[type] %}
+    {% assign localKey = localArtefact.type | append: ";" | append: localArtefact.acronym %}
+    <div class="teachergrid">
+        <button id="t00" onclick="setGrading( '{{ localKey }}', 0 )">0</button>
+        <button id="t05" onclick="setGrading( '{{ localKey }}', 5 )">0.5</button>
+        <button id="t10" onclick="setGrading( '{{ localKey }}', 10 )">1</button>
+        <button id="t15" onclick="setGrading( '{{ localKey }}', 15 )">1.5</button>
+        <button id="t20" onclick="setGrading( '{{ localKey }}', 20 )" >2</button>
+        <button id="t25" onclick="setGrading( '{{ localKey }}', 25 )">2.5</button>
+        <button id="t30" onclick="setGrading( '{{ localKey }}', 30 )">3</button>
+        <button onclick="exportData()">Prepare</button>
+        <a id="results">Download CSV</a><br>
+        <p>{{ typeMetadata.grading.p00 }}</p>
+        <p>{{ typeMetadata.grading.p05 }}</p>
+        <p>{{ typeMetadata.grading.p10 }}</p>
+        <p>{{ typeMetadata.grading.p15 }}</p>
+        <p>{{ typeMetadata.grading.p20 }}</p>
+        <p>{{ typeMetadata.grading.p25 }}</p>
+        <p>{{ typeMetadata.grading.p30 }}</p>
+        <button class="teacherbutton" onclick="resetAll()">Reset</button>
+</div>
+{% endif %}

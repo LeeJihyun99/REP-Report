@@ -1,0 +1,42 @@
+---
+layout: default
+---
+{% assign sortField = site.data.metadata["workshop"].sortField %}
+{% assign collection = site.workshops | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+<h1>{% t workshops.navLabel %} ({{ collection.size }})</h1>
+
+{% t workshops.summary %}
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="40%">{% t global.intention %}</th>
+        <th width="20%">{% t global.method %}</th>
+        <th width="20%">{% t global.participants %}</th>
+        <th width="10%">{% t global.Date %}</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for workshop in collection %}
+    <tr>
+        {% include /functions/checks/check-workshop.html myArtefact=workshop %}
+        {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=workshop.todo %}
+        <td>{{ iconString }}</td>
+
+        {% include /functions/get-artefact-name.html myArtefact=workshop myIdFormat="prefix" %}
+        <td><a href="{{ site.url }}{{ workshop.url | relative_url }}">{{ artefactName }}</a></td>
+        <td>{{ workshop.method.name  }}</td>
+        {% include /functions/print-stakeholderRole-linklist.html stakeholderRoles=workshop.stakeholderRoles %}
+        <td>{{ linkString }}</td>
+        <td>{{ workshop.date | date: "%d.%m.%Y" }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+{% assign sources = include.mySources %}
+{% assign label = include.myLabel | default: site.translations[site.lang].sources.dtLabel %}
+
+
+{% if sources.size > 1 %}
+    {% assign listStyle = " style='display: list-item;margin: 0 0 0 60px;'" %}
+{% else %}
+    {% assign listStyle = "" %}
+{% endif %}
+{% if sources != Nil and sources.size > 0 %}
+    <dt>{{ label }}</dt>
+    {% for source in sources %}
+        <dd{{ listStyle }}>
+        {% assign refType = source.reference[0] %}
+        {% assign localAcronym = source.reference[1] %}
+        {% if source.reference[2] != Nil %}
+            {% assign comment = ", " | append: source.reference[2] %}
+        {% else %}
+            {% assign comment = "" %}
+        {% endif %}
+        {% if source.usedFor != Nil %}
+            {% assign usedFor = ". " | append: source.usedFor | append: "." %}
+        {% else %}
+            {% assign usedFor = "" %}
+        {% endif %}
+        {% include /functions/get-link-to-artefact.html myRef=localAcronym
+                            myTypeString=refType myIdFormat="postfix" %}
+        {{ artefactLink }}{{ comment }}{{ usedFor }}
+        </dd>
+    {% endfor %}
+{% endif %}

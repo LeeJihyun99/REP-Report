@@ -1,0 +1,28 @@
+---
+layout: default
+---
+{% include /functions/print-teacherbuttons.html myArtefact=page %}
+{% include /functions/print-page-navigation.html myArtefact=page %}
+
+{% include /functions/get-artefact-name.html myArtefact=page myIdFormat="postfixWithBrackets" %}
+<h1>{% t nonFunctionalRequirements.detailHeader %} {{ artefactName }}</h1>
+
+<p class="centralDescription">{{ page.nfrText }}</p>
+
+<dl>
+    <dt>{% t global.contributesToGoals %}</dt>
+    {% if page.goals %}
+        {% for goalRef in page.goals %}
+            {% include /functions/get-link-to-artefact.html myRef=goalRef myTypeString="goal" myIdFormat="prefix" %}
+            <dd>{{ artefactLink }}</dd>
+        {% endfor %}
+    {% endif %}
+
+    {% include /functions/print-sources.html mySources=page.sources %}
+    {% include /functions/print-authors.html page=page %}
+    {% include /functions/print-history.html myArtefact=page %}
+    {% include /functions/checks/check-nonFunctionalRequirement.html myArtefact=page %}
+    {% include /functions/print-detailed-check-messages.html errors=errorString warnings=warningString todos=page.todo %}
+</dl>
+
+{{ page.content }}

@@ -1,0 +1,92 @@
+---
+layout: default
+---
+
+{% include /functions/print-teacherbuttons.html myArtefact=page %}
+
+{% include /functions/print-page-navigation.html myArtefact=page %}
+
+{% include /functions/get-artefact-name.html myArtefact=page myIdFormat="postfixWithBrackets" %}
+<h1>{% t stakeholderRoles.header %} {{ artefactName }}</h1>
+
+<p class="centralDescription">{{ page.description }}</p>
+
+<dl>
+    {% include /functions/find-artefacts-referencing-stakeholder-role.html
+            myStakeholderRole=page myType="stakeholder" myCollection=site.stakeholders %}
+    {% assign stakeholderLinkList = linksString | split: ";" %}
+    {% if stakeholderLinkList.size > 0 %}
+        <dt>{% t stakeholderRoles.withRole %}</dt>
+        {% for link in stakeholderLinkList %}
+            <dd>{{ link }}</dd>
+        {% endfor %}
+    {% endif %}
+
+    {% comment %}--- Suche die Interviews, Surveys, Workshops zu der Stakeholder-Rolle ---{% endcomment %}
+
+    {% assign stakeholderAcronymList = acronymString | split: ";" %}
+    {% assign interviewList = "" | split: ";" %}
+    {% for stakeholderAcronym in stakeholderAcronymList %}
+        {% assign foundInterviews = site.interviews | where: "stakeholder", stakeholderAcronym %}
+        {% assign interviewList = interviewList | concat: foundInterviews %}
+    {% endfor %}
+
+    {% include /functions/find-artefacts-referencing-stakeholder-role.html
+            myStakeholderRole=page myType="survey" myCollection=site.surveys withID=true %}
+    {% assign surveyLinkList = linksString | split: ";" %}
+
+    {% include /functions/find-artefacts-referencing-stakeholder-role.html
+            myStakeholderRole=page myType="workshop" myCollection=site.workshops withID=true %}
+    {% assign workshopLinkList = linksString | split: ";" %}
+
+    {% if interviewList.size > 0 or surveyLinkList.size > 0 or workshopLinkList.size > 0 %}
+        <dt>{% t stakeholderRoles.interviewsWorkshopsSurveys %}</dt>
+        {% for interview in interviewList %}
+            {% include /functions/get-artefact-name.html myArtefact=interview myIdFormat="prefix" %}
+            <dd><a href="{{ site.url }}{{ interview.url | relative_url }}">{{ artefactName }}</a></dd>
+        {% endfor %}
+        {% for surveyLink in surveyLinkList %}
+           <dd>{{ surveyLink }}</dd>
+        {% endfor %}
+        {% for workshopLink in workshopLinkList %}
+            <dd>{{ workshopLink }}</dd>
+        {% endfor %}
+    {% endif %}
+
+    {% comment %}--- Suche die Artefakte, bei denen die Rolle vorkommen ---{% endcomment %}
+
+    {% include /functions/find-artefacts-referencing-stakeholder-role.html
+            myStakeholderRole=page myType="persona" myCollection=site.personas withID=true %}
+    {% assign personaLinkList = linksString | split: ";" %}
+
+    {% include /functions/find-artefacts-referencing-stakeholder-role.html
+            myStakeholderRole=page myType="useCase" myCollection=site.useCases withID=true %}
+    {% assign useCaseLinkList = linksString | split: ";" %}
+
+    {% include /functions/find-artefacts-referencing-stakeholder-role.html
+            myStakeholderRole=page myType="userStory" myCollection=site.userStories withID=true %}
+    {% assign userStoryLinkList = linksString | split: ";" %}
+
+    {% if personaLinkList.size > 0 or userStoryLinkList.size > 0 %}
+        <dt>{% t stakeholderRoles.whereAsActor %}</dt>
+        {% for personaLink in personaLinkList %}
+            <dd>{{ personaLink }}</dd>
+        {% endfor %}
+        {% for userCaseLink in useCaseLinkList %}
+            <dd>{{ userCaseLink }}</dd>
+        {% endfor %}
+        {% for userStoryLink in userStoryLinkList %}
+            <dd>{{ userStoryLink }}</dd>
+        {% endfor %}
+    {% endif %}
+
+    {% assign sourceLabel = site.translations[site.lang].stakeholderRoles.sources %}
+    {% include /functions/print-sources.html mySources=page.sources myLabel=sourceLabel %}
+    {% include /functions/print-authors.html page=page %}
+    {% include /functions/print-history.html myArtefact=page %}
+    {% include /functions/checks/check-stakeholderRole.html myArtefact=page %}
+    {% include /functions/print-detailed-check-messages.html errors=errorString warnings=warningString todos=page.todo %}
+</dl>
+
+
+{{ page.content }}

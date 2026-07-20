@@ -1,0 +1,20 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 610 - 629 reserved for Review **** {% endcomment %}
+
+{% comment %}---------- ??? add here ??? -----------{% endcomment %}
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

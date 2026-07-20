@@ -1,0 +1,36 @@
+{% assign myScenario = include.scenario %}
+{% assign myFormat = include.format | default: "overview" %}
+
+{% assign myScenarioTypes = myScenario.scenarioTypes %}
+{% assign linkList = "" | split: ";" %}
+{% assign counter = 0 %}
+
+{% if myScenarioTypes.size > 1 %}
+    {% assign listStyle = " style='display: list-item;margin: 0 0 0 60px;'" %}
+{% else %}
+    {% assign listStyle = "" %}
+{% endif %}
+{% for scenarioType in myScenarioTypes %}
+    {% assign counter = counter | plus: 1 %}
+    {% assign scenName = site.translations[site.lang].scenarios.type[scenarioType] %}
+    {% assign idStr = scenName | remove: " " | append: counter %}
+    {% assign scenExplanation = site.translations[site.lang].scenarios.typeExplanation[scenarioType] %}
+    {% if myFormat == "overview" %}
+        {% assign urlString = myScenario.url | append: '#' | append: idStr | relative_url %}
+        {% capture artefactLink %}<a href="{{ site.url }}{{ urlString }}">{{ scenName }}</a>{% endcapture %}
+    {% elsif myFormat == "detail" %}
+        {% capture artefactLink %}
+             <dd{{ listStyle }}><a href="#{{ idStr }}">{{ scenName }}</a> ({{ scenExplanation }})</dd>
+        {% endcapture %}
+    {% endif %}
+    {% assign linkList = linkList | push: artefactLink %}
+{% endfor %}
+
+{% assign linkString = "none" %}
+{% if linkList.size > 0 %}
+    {% if myFormat == "overview" %}
+        {% assign linkString = linkList | join: ", " %}
+    {% elsif myFormat == "detail" %}
+        {% assign linkString = linkList | join: " " %}
+    {% endif %}
+{% endif %}

@@ -1,0 +1,41 @@
+---
+layout: default
+---
+{% assign sortField = site.data.metadata["survey"].sortField %}
+{% assign collection = site.surveys | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+<h1>{% t surveys.navLabel %} ({{ collection.size }})</h1>
+
+{% t surveys.summary %}
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="50%">{% t global.intention %}</th>
+        <th width="20%">{% t surveys.targetGroup %}</th>
+        <th width="15%">{% t surveys.numberOfParticipants %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for survey in collection %}
+    <tr>
+        {% include /functions/checks/check-survey.html myArtefact=survey %}
+        {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=workshop.todo %}
+        <td>{{ iconString }}</td>
+
+        {% include /functions/get-artefact-name.html myArtefact=survey myIdFormat="prefix" %}
+        <td><a href="{{ site.url }}{{ survey.url | relative_url }}">{{ artefactName }}</a></td>
+
+        {% include /functions/print-stakeholderRole-linklist.html stakeholderRoles=survey.stakeholderRoles %}
+        <td>{{ linkString }}</td>
+
+        <td>{{ survey.numberOfParticipants }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

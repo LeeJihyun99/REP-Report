@@ -1,0 +1,12 @@
+{% assign myParticipants = include.participants %}
+{% assign myLocalStakeholderRoles = include.stakeholderRoles %}
+
+<dt>{% t global.participants %}</dt>
+{% include /functions/print-stakeholderRole-linklist.html stakeholderRoles=myLocalStakeholderRoles separator=" and " %}
+<dd>
+    {% t global.inTotal %} <b>{{ myParticipants.numberOfParticipants }}</b>, {% t global.fromAGroupOf %}
+    {{ myParticipants.referenceGroupSize }}.
+    {% if myLocalStakeholderRoles.size > 1 %}{% t global.participantsBelongToPlural %}{% else %}{% t global.participantsBelongTo %}{% endif %}
+    {{ linkString }}. {% t global.targetGroupConsistsOf %} {{ myParticipants.referenceGroupDefinition }}.
+    {{ myParticipants.approachedBy }}
+</dd>

@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+{% assign sortField = site.data.metadata["literatureReference"].sortField %}
+{% assign collection = site.literatureReferences | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+<h1>{% t literatureReferences.headerOverview %} ({{ collection.size }})</h1>
+
+{% t literatureReferences.summary %}
+
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="8%">ID</th>
+        <th width="15%">{% t literatureReferences.documentAuthor %}</th>
+        <th width="45%">{% t global.Title %}</th>
+        <th width="15%">{% t literatureReferences.documentType %}</th>
+        <th width="7%">{% t literatureReferences.publishingDate %}</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for literatureReference in collection %}
+        <tr>
+            {% include /functions/checks/check-literatureReference.html myArtefact=literatureReference %}
+            {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=literatureReference.todo %}
+            <td>{{ iconString }}</td>
+
+            {% include /functions/get-globalid.html myArtefact=literatureReference %}
+            <td><a href="{{ site.url }}{{ literatureReference.url | relative_url }}">{{ globalId }}</a></td>
+            <td>{{ literatureReference.documentAuthor }}</td>
+            <td><a href="{{ site.url }}{{ literatureReference.url | relative_url }}">{{ literatureReference.title }}</a></td>
+            <td>{{ literatureReference.documentType }}</td>
+            <td>{{ literatureReference.publishingDate }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

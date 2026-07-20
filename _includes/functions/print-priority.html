@@ -1,0 +1,16 @@
+{% assign localPrioScore = include.myPrioScore %}
+{% assign collectionName = include.myCollectionName %}
+
+<dt>{% t global.prioScore %}</dt>
+
+{% if localPrioScore == Nil %}
+    <dd>{% t global.priorityNotRated %}</dd>
+{% else %}
+    {% assign localCollection = site[collectionName] %}
+    {% if site.withTemplates %}
+    {% else %}
+        {% assign localCollection = localCollection | where_exp: "item", "item.isTemplate == Nil" %}
+    {% endif %}
+    {% assign maxValue = localCollection | sort: "prioScore", "first" | reverse | first %}
+    <dd>{{ localPrioScore }} ({% t global.ofTotalPrio %} {{ maxValue.prioScore }})</dd>
+{% endif %}

@@ -1,0 +1,12 @@
+{% assign errorString = include.errors %}
+{% assign warningString = include.warnings %}
+{% assign todoList = include.todos %}
+
+{% assign iconString = "&nbsp;" %}
+{% if errorString.size > 0 %}
+    {% capture iconString %}<img src="{{ site.url }}{{ '/assets/alert-16.png' | relative_url }}" style="min-height: 16px; min-width: 16px;"/>{% endcapture %}
+{% elsif warningString.size > 0 %}
+    {% capture iconString %}<img src="{{ site.url }}{{ '/assets/warning-16.png' | relative_url }}" style="min-height: 16px; min-width: 16px;"/>{% endcapture %}
+{% elsif todoList.size > 0 %}
+    {% capture iconString %}<img src="{{ site.url }}{{ '/assets/clipboard-4-16.png' | relative_url }}" style="min-height: 16px; min-width: 16px;"/>{% endcapture %}
+{% endif %}

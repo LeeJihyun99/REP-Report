@@ -1,0 +1,145 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" %}
+{% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact myCheckedRef=artefact.primaryActor
+		myCheckedRefType="stakeholderRole" asList=false emptyMeansError=true
+		myPurpose="'primaryActor'" myErrorString=errorString myWarningString=warningString %}
+{% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact myCheckedRef=artefact.secondaryActors
+		myCheckedRefType="stakeholderRole" asList=true emptyMeansError=false
+		myPurpose="'secondaryActors'" myErrorString=errorString myWarningString=warningString %}
+{% assign purposeStr = site.translations[site.lang].global.relatedFR %}
+{% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact myCheckedRef=artefact.functionalRequirement
+		myCheckedRefType="functionalRequirement" asList=false emptyMeansError=true
+		myPurpose=purposeStr myErrorString=errorString myWarningString=warningString %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 670 - 689 reserved for Use Case **** {% endcomment %}
+
+{% comment %}---------- title -----------{% endcomment %}
+{% if artefact.title %}
+	{% if artefact.title.size < 10 %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.TitleTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w670" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% else %}
+	{% assign myMsg = site.translations[site.lang].genericErrors.TitleMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e671" msg="Titel fehlt!" %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- description -----------{% endcomment %}
+{% if artefact.description %}
+	{% if artefact.description.size < 20 %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.DescriptionTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w672" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% else %}
+	{% assign myMsg = site.translations[site.lang].genericErrors.DescriptionMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e673" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- precondition -----------{% endcomment %}
+{% if artefact.precondition %}
+	{% if artefact.precondition.size < 15 %}
+		{% assign myMsg = site.translations[site.lang].useCases.PreconditionTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w674" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% else %}
+	{% assign myMsg = site.translations[site.lang].useCases.PreconditionMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e675" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- postcondition -----------{% endcomment %}
+{% if artefact.postcondition %}
+	{% if artefact.postcondition.size < 15 %}
+		{% assign myMsg = site.translations[site.lang].useCases.PostconditionTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w676" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% else %}
+	{% assign myMsg = site.translations[site.lang].useCases.PostconditionMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e677" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- trigger -----------{% endcomment %}
+{% if artefact.trigger %}
+	{% if artefact.trigger.size < 15 %}
+		{% assign myMsg = site.translations[site.lang].useCases.TriggerTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w678" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% else %}
+	{% assign myMsg = site.translations[site.lang].useCases.TriggerMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e679" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- contained in UC diagram? -----------{% endcomment %}
+{% assign localAcronym = artefact.acronym %}
+{% assign relatedUseCaseDiagrams = site.useCaseDiagrams |
+		where_exp: "ucd", "ucd.useCasesDetailedWithScenario contains localAcronym" %}
+{% if relatedUseCaseDiagrams.size == 0 %}
+	{% assign myMsg = site.translations[site.lang].useCases.NotPartOfDiagram %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="w680" msg=myMsg %}
+	{% assign warningList = warningList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- mainScenario -----------{% endcomment %}
+{% if artefact.mainScenario == Nil or artefact.mainScenario.size == 0 %}
+	{% assign myMsg = site.translations[site.lang].useCases.MainScenarioMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e681" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- alternativeScenario -----------{% endcomment %}
+{% if artefact.alternativeScenario == Nil or artefact.alternativeScenario.size == 0 %}
+	{% assign myMsg = site.translations[site.lang].useCases.AlternativeScenarioMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="w682" msg=myMsg %}
+	{% assign warningList = warningList | push: out_msg %}
+{% else %}
+	{% for alternative in artefact.alternativeScenario %}
+		{% if alternative["alternative"] == Nil or alternative["alternative"].size == 0 %}
+			{% assign myMsg = site.translations[site.lang].useCases.AlternativeScenarioEmptyBlock %}
+			{% include /functions/define-message.html ignore=artefact.ignore msgno="w683" msg=myMsg %}
+			{% assign warningList = warningList | push: out_msg %}
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+{% comment %}---------- exceptionScenario -----------{% endcomment %}
+{% if artefact.exceptionScenario == Nil or artefact.exceptionScenario.size == 0 %}
+	{% assign myMsg = site.translations[site.lang].useCases.ExceptionScenarioScenarioMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="w684" msg=myMsg %}
+	{% assign warningList = warningList | push: out_msg %}
+{% else %}
+	{% for exception in artefact.exceptionScenario %}
+		{% if exception["exception"] == Nil or exception["exception"].size == 0 %}
+			{% assign myMsg = site.translations[site.lang].useCases.ExceptionScenarioEmptyBlock %}
+			{% include /functions/define-message.html ignore=artefact.ignore msgno="w685" msg=myMsg %}
+			{% assign warningList = warningList | push: out_msg %}
+		{% endif %}
+		{% if exception["diffentPostCondition"] == Nil %}
+			{% assign myMsg = site.translations[site.lang].useCases.ExceptionScenarioPostConditionMissing %}
+			{% include /functions/define-message.html ignore=artefact.ignore msgno="e686" msg=myMsg %}
+			{% assign errorList = errorList | push: out_msg %}
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

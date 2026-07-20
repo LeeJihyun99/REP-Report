@@ -1,0 +1,285 @@
+---
+---
+
+@import "{{ site.theme }}";
+/* Only for Minima! */
+a {
+  &:visited {
+    color: #2a7ae2;
+  }
+}
+#header {
+  z-index: 100;
+  left:0;
+  top: 0px;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  background: #353535;
+  border-bottom: 4px solid #434343;
+  box-shadow: 0px 1px 3px rgba(0,0,0,.25);
+
+
+  nav {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 10px;
+    background: blue;
+    margin: 6px auto;
+
+    li {
+      font-family: 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: normal;
+      list-style: none;
+      display: inline;
+      color: white;
+      line-height: 50px;
+      text-shadow: 0px 1px 0px rgba(0,0,0,.2);
+      font-size: 14px;
+
+      a {
+        color: black;
+        font-weight: bold;
+        border: 1px solid #5d910b;
+        background: linear-gradient(#93bd20, #659e10);
+        border-radius: 2px;
+        box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0,0,0,.7);
+
+        background-color: #93bd20;
+        padding: 10px 12px;
+        margin-top: 6px;
+        line-height:14px;
+        font-size:14px;
+        display:inline-block;
+        text-align:center;
+
+        &:hover {
+          background: linear-gradient(#749619, #527f0e);
+          background-color: #659e10;
+          border: 1px solid #527f0e;
+          box-shadow: inset 0px 1px 1px rgba(0,0,0,.2), 0px 1px 0px rgba(0,0,0,.0);
+        }
+      }
+
+      &.sig {
+        float: left;
+        margin-left: 6px;
+      }
+
+      &.team {
+        float: left;
+        margin-left: 6px;
+      }
+
+      &.title {
+        float: left;
+        margin-left: 12px;
+        margin-right: 6px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+h1 {
+  font-size: 32px;
+  line-height: 1.3em;
+  margin-top: 1em;
+}
+h2 {
+  font-size: 24px;
+  line-height: 1.3em;
+  margin-top: 1.8em;
+}
+h3 {
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.3em;
+  margin-top: 1.8em;
+}
+footer {
+  z-index: 100;
+  left: 0;
+  bottom: 0px;
+  height: 40px;
+  width: 100%;
+  position: fixed;
+  background: #353535;
+  border-top: 4px solid #434343;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, .25);
+  display: inline-block;
+  text-align: center;
+  a {
+    font-size: 12px;
+  }
+}
+th {
+  font-size: 16px;
+  color: white;
+}
+.wrapper {
+  max-width:1000px;
+  margin:0 auto;
+  position:relative;
+  padding: 0 20px;
+}
+section {
+  max-width: 1000px;
+  padding: 30px 0px 50px 0px;
+  margin: 20px 0;
+  margin-top: 80px;
+}
+
+/* The navigation menu */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  top:0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/* Navigation links */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+/* The subnavigation menu */
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+/* Subnav button */
+.subnav .subnavbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Add a red background color to navigation links on hover */
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: #93bd20;
+  color: black
+}
+
+/* Style the subnav content - positioned absolute */
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #93bd20;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Style the subnav links */
+.subnav-content a {
+  float: left;
+  color: black;
+  text-decoration: none;
+}
+
+
+/* Add a grey background color on hover */
+.subnav-content a:hover {
+  background-color: #eee;
+  color: black;
+}
+
+/* When you move the mouse over the subnav container, open the subnav content */
+.subnav:hover .subnav-content {
+  display: block;
+}
+
+
+subnav ul {
+  display: inline-block;
+}
+
+// the following is only for theme "minima"
+dt {
+  font-family: 'OpenSansSemibold', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  color: darken(#828282, 25%) !important;
+  font-weight: bold !important;
+}
+th {
+  color: darken(#828282, 25%) !important;
+}
+dd {
+  margin: 0 0 0 40px;
+}
+.subnav-content {
+  background-color: darken(#fdfdfd, 25%);
+}
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: darken(#fdfdfd, 25%);
+  color: black
+}
+.subnav-content a:hover {
+  background-color: #eee;
+  color: black;
+}
+
+.teachergrid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+.teachergrid button {
+  background-color: #e0e0e0;
+  border: none;
+  color: black;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.teachergrid p {
+  font-size: 10px;
+}
+
+.centralDescription {
+  font-size: 130%;
+  font-style: italic;
+}
+
+ol {
+  counter-reset: list;
+}
+ol > li {
+  list-style: none;
+  position: relative;
+}
+ol > li:before {
+  counter-increment: list;
+  content: counter(list) ") ";
+  position: absolute;
+  left: -1.4em;
+}

@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{% assign sortField = site.data.metadata["userStory"].sortField %}
+{% assign collection = site.userStories | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+<h1>{% t userStories.navLabel %} ({{ collection.size }})</h1>
+
+{% t userStories.Summary %}
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="10%">ID</th>
+        <th width="50%">{% t global.Title %}</th>
+        <th width="30%">{% t global.BelongsToFr %}</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for userStory in collection %}
+    <tr>
+        {% include /functions/checks/check-userStory.html myArtefact=userStory %}
+        {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=userStory.todo %}
+        <td>{{ iconString }}</td>
+
+        {% include /functions/get-globalid.html myArtefact=userStory %}
+        <td><a href="{{ site.url }}{{ userStory.url | relative_url }}">{{ globalId }}</a></td>
+
+        {% include /functions/get-artefact-name.html myArtefact=userStory %}
+        <td><a href="{{ site.url }}{{ userStory.url | relative_url }}">{{ artefactName }}</a></td>
+
+        {% include /functions/get-link-to-artefact.html myRef=userStory.functionalRequirement
+        myTypeString="functionalRequirement" myIdFormat="prefix" %}
+        <td>{{ artefactLink }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,67 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" %}
+{% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact myCheckedRef=artefact.asA
+		myCheckedRefType="stakeholderRole" asList=false emptyMeansError=true
+		myPurpose="'asA'" myErrorString=errorString myWarningString=warningString %}
+{% assign purposeStr = site.translations[site.lang].global.relatedFR %}
+{% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact myCheckedRef=artefact.functionalRequirement
+		myCheckedRefType="functionalRequirement" asList=false emptyMeansError=true
+		myPurpose=purposeStr myErrorString=errorString myWarningString=warningString %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 690 - 709 reserved for User Story **** {% endcomment %}
+
+{% comment %}---------- title -----------{% endcomment %}
+{% if artefact.title %}
+	{% if artefact.title.size < 10 %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.TitleTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w690" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% else %}
+	{% assign myMsg = site.translations[site.lang].genericErrors.TitleMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e691" msg="Titel fehlt!" %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+
+{% comment %}---------- iWantTo -----------{% endcomment %}
+{% if artefact.iWantTo != Nil %}
+	{% if artefact.iWantTo.size < 15 %}
+		{% assign myMsg = site.translations[site.lang].userStories.IWantToTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w692" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% else %}
+	{% assign myMsg = site.translations[site.lang].userStories.IWantToMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e693" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+
+{% comment %}---------- forThisReason -----------{% endcomment %}
+{% if artefact.soThat != Nil  %}
+	{% if artefact.soThat.size < 15 %}
+		{% assign myMsg = site.translations[site.lang].userStories.SoThatTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w694" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% else %}
+	{% assign myMsg = site.translations[site.lang].userStories.SoThatMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e695" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

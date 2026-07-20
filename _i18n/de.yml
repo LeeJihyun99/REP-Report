@@ -1,0 +1,540 @@
+#-------------------
+authors:
+  dtLabel: Autor(en)
+  navLabel: Übersicht Autor*innen (mit Artefakten)
+  summary: >
+    <p>In dieser Übersicht sind die verantwortlichen Autor*innen für die Inhalte dieser Website aufgeschlüsselt.
+       Da dies eine öffentliche Webpräsenz ist, ist es empfohlen, keine Klarnamen zu verwenden, sondern stattdessen Nicknames.
+       Diese Seite können die Autor*innen im Rahmen der Qualitätssicherung verwenden, um alle erstellten
+       Lastenheft-Artefakte nach den Verantwortlichen gegliedert durchzugehen. Durch Klicken auf den Nickname gelangt
+       man zu einer detaillierten Liste mit Artefakten, an den der/die Autor*in beteiligt war, sowie einer Liste von
+       noch offenen Fehlern, Warnungen und Todos.</p>
+  numberOfArtifacts: Anzahl Artefakte, für die Autor*in (mit)verantwortlich ist
+  summaryDetail1: <p>Nachfolgend sind alle von
+  summaryDetail2: (mit-)erstellten Artefakte aufgelistet. Wenn es Co-Autor*innen gibt, sind diese ebenfalls aufgelistet.</p>
+  author: Autor*in
+  allArtifacts: Alle Artefakte
+  coAuthors: Ko-Autor(en)
+  yeehaw: Yeehaw, keine
+#-------------------
+domainModels:
+  navLabel: Domänenmodelle
+  headerOverview: Domänenmodelle
+  headerDetail: Domänenmodell
+  summary: >
+    <p>Auf Basis der ermittelten Geschäftsobjekte kann ein Domänenmodell erstellt werden. Zusätzlich zum Glossar
+    bildet das Domänenmodell ab, wie ein Begriff / Geschäftsobjekt in Beziehung zu anderen Begriffen steht.
+    Die Umsetzung als einfaches UML-Klassendiagramm ist auch für IT-Laien gut verständlich.<p>
+#-------------------
+reviews:
+  navLabel: Reviews
+  detailHeader: Reviews
+  summary: >
+    <p>TBD Zusammenfassung Reviews</p>
+  review_of: Review von
+  artefact: Überprüftes Artefakt
+  type: Reviewtyp
+#-------------------
+functionalRequirements:
+  navLabel: Funktionale Anforderungen
+  detailHeader: Funktionale Anforderung
+  summary: >
+    <p>Funktionale Anforderungen beschreiben die gewünschte Funktionalität eines Systems, dessen
+        Verhalten und dessen Daten. Dabei kondensiert man die Anforderungen an ein IT-System in eine Menge
+        von kompakten (ein Satz!) Forderungen, die man gut priorisieren und in eine Projektplanung überführen kann.
+    </p><p>Solche Ein-Satz-Anforderungen können oft unterschiedlich interpretiert werden.
+        Um diesem Problem entgegenzuwirken, sollten potentielle sprachliche Unklarheiten eliminiert
+        und Anforderungen mittels Satzschablonen eindeutig formuliert werden. Es gibt drei Arten von
+        funktionalen Anforderungen, deren Satzschablonen sich jeweils (leicht) unterscheiden: <ul>
+        <li><b>Selbstständige Systemaktivität</b>: Das System startet einen Prozess selbstständig und führt ihn aus.
+             Der Nutzer tritt dabei nicht in Erscheinung.</li>
+        <li><b>Benutzerinteraktion</b>: Das System stellt dem Nutzer eine Funktionalität zur Verfügung, die
+            dieser selbst startet, etwa durch eine Eingabe.</li>
+        <li><b>Schnittstellenanforderung</b>: Das System führt eine Aktion in Abhängigkeit von Dritten aus. Dritte
+            sind hier z.B. anfragende Drittsystem, aber <i>nicht</i> der Benutzer.</li></ul></p>
+  implementationStatus:
+    header: Implementierungs-Status
+    open: offen
+    inProgress: wird gerade implementiert
+    implemented: bereits implementiert
+    invalidStatus: Ungültigen Implementierungs-Status gefunden (erlaubt sind 'open', 'inProgress' und 'implemented')
+  sentenceTemplate:
+    header: Satzschablone
+    theSystem:
+      will: wird
+      should: sollte
+      must: muss
+    beAbleToDoWhat: in der Lage sein
+    theSystemUppercase: Das System
+    theSystemLowercase: das System
+    provideTheAbilityTo: in die Lage versetzen
+    toDoWhat: zu tun (???)
+    missing: >
+      Es ist keine Satzschablone angegeben. Eins der Felder 'interfaceRequirementTemplate',
+      'independentSystemActionTemplate' oder 'userInteractionTemplate' muss vorhanden sein.
+    theSystemMissing: Feld 'theSystem' fehlt! Erlaubte Werte sind 'must', 'should' oder 'will'.
+    theSystemInvalid: Feld 'theSystem' ist ungültig (erlaubte Werte sind 'must', 'should' oder 'will')
+    beAbleToDoWhatMissing: Feld 'beAbleToDoWhat' fehlt!
+    doWhatMissing: Feld 'doWhat' fehlt!
+    provideTheAbilityToMissing: Feld 'provideTheAbilityTo' fehlt!
+  independentSystemActionTemplate: Selbstständige Systemaktivität
+  userInteractionTemplate: Benutzerinteraktion
+  interfaceRequirementTemplate: Schnittstellenanforderung
+  type: Typ der funktionalen Anforderung
+#-------------------
+genericErrors:
+  noRef: Es gibt keine Referenz für
+  reference: Referenz
+  existsMoreThanOnce: exististiert mehr als einmal!
+  noAuthor: Kein(e) Autor(en) (Feld 'author') angegeben!
+  moreThanThreeAuthors: Mehr als 3 Autoren (Feld 'author') - ist das so gewünscht?
+  authorDoesntExist: Autor*in in Feld 'author' exististiert nicht
+  doubleAcronym: Acronym existiert mehrfach! Acronyms müssen eindeutig sein (innerhalb eines Artefact-Typs)
+  acronymMissing: Acronym fehlt!
+  titleTooShort: Titel scheint zu kurz zu sein.
+  titleMissing: Titel fehlt!
+  descriptionTooShort: Beschreibung ('description') scheint zu kurz zu sein.
+  descriptionMissing: Beschreibung ('description') fehlt!
+  nameTooShort: Name ('name') scheint zu kurz zu sein.
+  nameMissing: Name ('name') fehlt!
+  diagramMissing: Diagramm fehlt!
+  dateMissing: Datum fehlt!
+  timeMissing: Uhrzeit fehlt!
+  locationMissing: Ortsangabe fehlt!
+  intentionMissing: Feld 'intention' fehlt!
+  participantsMissing: Datenblock 'Teilnehmer' fehlt!
+  participantsNumberOfParticipantsMissing: Feld 'participants.numberOfParticipants' fehlt!
+  participantsReferenceGroupDefinitionFehlt: Feld 'participants.referenceGroupDefinition' fehlt!
+  participantsReferenceGroupSizeMissing: Feld 'participants.referenceGroupSize' fehlt!
+  participantsApproachedByMissing: Feld 'participants.approachedBy' fehlt!
+  additionalDocumentsUrlMissing: Bei der zusätzlichen Dokumentation fehlt eine URL (Feld 'additionalDocuments.url').
+  additionalDocumentsPurposeMissing: Bei der zusätzlichen Dokumentation fehlt ein Zweck (Feld 'additionalDocuments.purpose').
+  relationshipToProjectTooShort: Beschreibung der Beziehung zum Projekt (relationshipToProject) scheint zu kurz zu sein.
+  relationshipToProjectMissing: Beziehung zum Projekt (relationshipToProject) fehlt!
+  acronymNotSameAsFilename: Das Akronym sollte mit dem Dateinamen übereinstimmen - das ist nicht der Fall.
+  noNesting: Hierarchien, die durch ein Feld wie 'belongsTo' ausgedrückt werden, dürfen nicht verschachtelt sein. D.h. der Parent, auf das Sie verweisen, darf nicht selbst auf einen anderen Parent verweisen.
+  methodMissing: Feld 'method' fehlt!
+  methodNameMissing: Name der Methode muss angegeben werden (Feld method.name)
+  methodDescriptionMissing: Es ist keine Methodenbeschreibung angegeben (Feld 'method.description') - Absicht?
+  conductingMissing: Datenblock 'conducting' fehlt!
+  conductingDateMissing: Feld 'conducting.date' fehlt!
+  conductingTimeFromMissing: Feld 'conducting.timeFrom' fehlt!
+  conductingTimeUntilMissing: Feld 'conducting.timeUntil' fehlt!
+  conductingLocationMissing: Feld 'conducting.location' fehlt!
+#-------------------
+global:
+  for: für
+  and: und
+  between: zwischen
+  clock: Uhr
+  SeeAlso: Siehe auch
+  andAlso: sowie
+  Description: Beschreibung
+  Sources: Quellen
+  type: Typ
+  Title: Titel
+  Date: Datum
+  definition: Definition
+  diagram: Diagramm
+  intention: Intention
+  participants: Teilnehmerkreis
+  additionalDocuments: Zusätzliche Dokumentation
+  inTotal: Insgesamt
+  fromAGroupOf: aus einer Gesamtgruppegröße von
+  targetGroupConsistsOf: Die Zielgruppe besteht aus
+  participantsBelongTo: Die Teilnehmer*innen gehören zu der Stakeholder-Rolle
+  participantsBelongToPlural: Die Teilnehmer*innen gehören zu den Stakeholder-Rollen
+  relatedStakeholderRole: zugeordnete Stakeholder-Rolle
+  relationshipToProject: Beziehung zum Projekt
+  age: Alter
+  method: Methode
+  event:
+    relatedStakeholderRole: Teilnehmerkreis (als Stakeholder-Rolle)
+    happenedOn: Der Workshop fand statt am
+    conducting: Workshop-Durchführung
+    locationWas: Der Ort des Workshops war
+  prioScore: Priorität
+  priorityNotRated: nicht bewertet (möglicherweise in erster Priorisierungs-Runde nicht berücksichtigt)
+  ofTotalPrio: von maximal
+  artifact: Artefakt
+  errorMsgs: Fehlermeldungen
+  warnings: Warnungen
+  todos: Todos
+  navbar:
+    context: Kontext
+    informal: Informell
+    formal: Formal
+    detailed: Detailliert
+    qs: Qualitätssicherung
+    sources: Quellen
+    about: Über dieses Tool
+    tutorial: Kurzanleitung
+    version: Version
+    faq: FAQ
+  contributesToGoals: Zahlt ein auf Ziel(e)
+  BelongsToFr: Gehört zu funktionaler Anforderung
+  MainlyBelongsToFr: Gehört hauptsächlich zu funktionaler Anforderung
+  relatedFR: zugehörige funktionale Anforderung
+#-------------------
+glossary:
+  navLabel: Glossar
+  headerOverview: Glossar
+  header: Glossareintrag
+  summary: >
+    <p>Ziel eines Glossars ist das Bilden eines gemeinsamen Wortschatzes zwischen allen Projektbeteiligten.
+    Dies erleichtert die Kommunikation mit den Stakeholdern und beugt Missverständnissen aufgrund fehlender, unklarer
+    oder mehrdeutiger Definitionen vor. Das fachliche Glossar entsteht (und wird erweitert durch) Gespräche mit
+    Stakeholdern, Fachexperten der jeweiligen Domäne und durch Recherche in anderen Quellen wie etwa interner
+    Dokumentation und Fachliteratur.</p><p>Daumenregel: Wer die Domäne nicht kennt, unterschätzt ihre Komplexität.</p>
+  definitionMissing: Feld 'definition' fehlt!
+  relevanceMissing: Feld 'relevance' fehlt!
+  relevance: Relevanz für das geplante Software-System
+#-------------------
+goals:
+  navLabel: Ziele
+  summary: >
+    <p>Ein <b>Ziel</b> ist die intentionale Beschreibung eines charakteristischen Merkmals
+    des zu entwickelnden Systems bzw. des zugehörigen Entwicklungsprozesses. Sie dienen dem Schaffen eines
+    gemeinsamen Systemverständnisses. Ziele sind lösungs-agnostisch, d.h. sie beschreiben, <i>was</i> das
+    System erreichen will, aber nicht <i>wie</i>.</p>
+  headerOverview: Goals
+  header: Goal
+  subAndMainGoals: Alle Haupt- und Unterziele
+  subAndMainGoalsExplanation: >
+    <p>Für einige Ziele sind auch Unterziele definiert. Hauptziele sind fett, Unterziele eingerückt darunter
+    dargestellt.</p>
+  showSubAndMainGoals: Unterziele einblenden
+  onlyMainGoals: Nur Hauptziele
+  onlyMainGoalsExplanation: >
+    <p>Für einige Ziele sind auch Unterziele definiert. Diese sind jetzt der Übersichtlichkeit halber ausgeblendet.</p>
+  showOnlyMainGoals: Nur Hauptziele anzeigen
+  errGoalTextMissing: Feld 'goalText' darf nicht fehlen oder leer sein!
+  goalTextTooShort: Feld 'goalText' scheint sehr kurz zu sein!
+  mainGoalHeader: Hauptziel
+  subGoalHeader: Unterziel
+  subGoals: Unterziele
+  partOf: Teil des übergreifenden Ziels ...
+#-------------------
+interviews:
+  navLabel: Interviews
+  transscriptUrlErrMsg: transcriptUrl fehlt!
+  questionnaireUrlErrMsg: questionnaireUrl fehlt!
+  stakeholderPurpose: zugehöriger Stakeholder
+  details: Details
+  dateMissing: Datum des Interviews fehlt!
+  durationMissing: Dauer des Interviews fehlt!
+  conducted: Das Interview wurde geführt am
+  lasted: Es dauerte
+  locationErrMsg: Der Ort (Feld 'location') des Interviews muss angegeben sein. Erlaubte Optionen sind 'videoconf' oder 'f2f'.
+  videoconf: als Videokonferenz
+  f2f: in Form eines persönlichen Treffens
+  with: Interview mit
+  results: Resultate
+  forTheInterviewExists: Zu dem Interview gibt es
+  transscript: ein Interview-Protokoll
+  questionnaire: einen Frageleitfaden
+  summary: >
+    <p>Ein <b>Interview</b> ist eine Form der Befragung mit dem Ziel, Informationen über eine fachliche Domäne,
+    Hintergründe, technische Zusammenhänge und/oder persönliche Meinungen zu ermitteln.</p>
+  transscriptTableHeader: Interview-Protokoll
+  partnerTableHeader: Interviewpartner (Stakeholder)
+#-------------------
+kano:
+  kanoType: Kano-Typ
+  excitement: Begeisterung
+  basic: Basis
+  performance: Leistung
+  invalidType: Ungültigen Kano-Typ gefunden (erlaubt sind 'basic', 'performance' und 'excitement')
+  typeMissing: Kano-Typ fehlt!
+  reasoningTooShort: Begründung für Kano-Faktor scheint zu kurz zu sein!
+  reasoningMissing: Begründung für Kano-Faktor fehlt!
+#-------------------
+literatureReferences:
+  navLabel: Dokumente & Literatur
+  headerOverview: Dokumente und Literatur
+  documentAuthorMissing: Autor  (Feld 'documentAuthor') ist nicht gesetzt - ist das gewollt?
+  documentTypeMissing: Typ des Dokuments (Feld 'documentType') ist nicht gesetzt - ist das gewollt?
+  publisherMissing: Verlag des Dokuments (Feld 'publisher') ist nicht gesetzt - ist das gewollt?
+  documentUrlMissing: URL des Dokuments (Feld 'url') ist nicht gesetzt - ist das gewollt?
+  publishingDateMissing: Datum des Dokuments (Feld 'publishingDate') ist nicht gesetzt - ist das gewollt?
+  summary: >
+    <p>Ein <b>Literaturverweis</b> ist ein Verweis auf eine Quelle, die in der Literatur oder (als Onlinequelle) im
+    Web zu finden ist. Daneben werden hier auch (in der Regel unveröffentlichte oder interne) <b>Dokumente</b>
+    aufgelistet, die für das zu erstellende Softwaresystem von Bedeutung sind.</p>
+  documentAuthor: Autor(en) des Dokuments
+  publishingDate: Veröffentlicht
+  documentType: Dokumententyp
+  publisher: Verlag
+#-------------------
+nonFunctionalRequirements:
+  navLabel: Nichtfunktionale Anforderungen
+  detailHeader: Nichtfunktionale Anforderung
+  summary: >
+    <p><b>Nichtfunktionale Anforderungen</b> umfassen alle Anforderungen, die nicht den funktionalen Anforderungen
+    zugeordnet werden können. Sie beschreiben wichtige Qualitätseigenschaften und Randbedingungen des zu
+    entwickelnden Systems.</p>
+  nfrText: Ausführlicher Text
+  nfrTextMissing: Feld 'nfrText' darf nicht fehlen oder leer sein!
+  nfrTextTooShort: Feld 'nfrText' scheint sehr kurz zu sein!
+#-------------------
+personas:
+  navLabel: Personas
+  summary: >
+    <p>Personas sind fiktive Personen, die typische Nutzer einer Zielgruppe darstellen. Eine Persona sollte
+    die wichtigsten Merkmale der Zielgruppe aufweisen. Welche Eigenschaften und Details für eine Persona
+    wichtig sind, hängt vom zu entwerfenden Softwaresystem ab - eine Fitness-App erfordert andere Persona
+    Beschreibungen als ein Kundenverwaltungssystem für Versicherungen. Personas werden in einem kurzen
+    narrativen Format erstellt, und basieren auf realen Menschen.</p><p>In der nachfolgenden Tabelle sind
+    primäre (= besonders relevante) Personas fett gedruckt.<p>
+  relatedScenariosHeader: Zugehörige Szenarien
+  ageMissing: Feld 'age' darf nicht fehlen oder leer sein!
+  primaryPersona: Primäre Persona
+  secondaryPersona: Sekundäre Persona
+  scenariosFor: Szenarien für diese Persona
+#-------------------
+priorization:
+  navLabel: Priorisierung
+  detailHeader: Priorisierung-Workshop
+  summary: >
+    <p>Priorisierung ist notwendig, um Anforderungen voneinander zu trennen (wichtig und unwichtiger),
+    sowie Ordnung in ein Projekt zu bringen und den Projekterfolg sicherzustellen. Diese können je nach
+    Projekt durch Ad-hoc-, analytische und agile Techniken verwirklicht werden. An dieser Stelle
+    werden einerseits Hilfsmittel für den Priorisierungsprozess dargestellt, und andererseits auch die
+    Ergebnisse der Priorisierung.</p>
+  inputForProcess: Input für den Priorisierungsprozess
+  paperPrintable: Liste der funktionalen Anforderungen, für den Ausdruck auf Papier
+  paperPrintableLink: Unter diesem Link
+  paperPrintableSummary: >
+    gibt es eine PDF-Version aller funktionalen Anforderungen. Diese ist für den Ausdruck auf DIN-A4 (Querformat)
+    optimiert und kann für die Priorisierung in Workshops genutzt werden.
+  results: Priorisierungsergebnisse
+  mostImportantGoals: Wichtigste Ziele (für CAF/PMI)
+  mostImportantGoalsSummary: >
+    <p>Die nachfolgende Tabelle kann genutzt werden, um für die "Consider all facts / plus-minus-interesting"-Methode
+    (CAF/PMI) die Kriterien auszuwählen. Diese Kriterien leiten sich üblicherweise aus den Zielen des Softwaresystems
+    ab. Die Ziele sind gegen die funktionalen Anforderungen aufgetragen.
+    <b>Die am häufigsten referenzierten Ziele stehen dabei am weitesten links</b>. Hauptziele werden in der
+    Zählung doppelt gewertet.</p>
+  workshops: Priorisierungs-Workshops
+  workshopSummary: <p>Nachfolgend sind der/die Workshop(s) zur Priorisierung der Anforderungen aufgelistet.</p>
+  relatedStakeholderRole: Teilnehmerkreis (als Stakeholder-Rolle)
+#-------------------
+scenarios:
+  navLabel: Szenarien
+  summary: >
+    <p><b>Szenarien</b> beschreiben Situationen, in denen Menschen mit einem System interagieren (Handlungsstrang).
+    Diese Situationen haben einen klar definierten Kontext. Szenarien dienen einerseits zur informellen
+    Erfassung von Anforderungen an ein System, und andererseits zur Evaluation eines Systems bzgl.
+    formalisierter Ziele und Anforderungen.</p><p>Szenarien orientieren sich an den zuvor erstellten Personas.
+    Sie können sich auf die aktuelle Situation beziehen (IST-Szenario) oder auf die zukünftige (verbesserte) Situation
+    (SOLL-Szenario). Szenarien fokussieren sich dabei auf die allgemeinen Aktivitäten der Menschen, und weniger auf
+    konkrete Interaktionen. Zudem beinhalten diese die Nutzungsumgebung der Anwendung oder des Systems,
+    die Nutzungsdauer, die Unterbrechungswahrscheinlichkeit und die Nutzung anderer Anwendungen.</p>
+  headerOverview: Szenarien
+  headerDetail: Szenario
+  scenarioTypeMissing: Kein(e) Szenariotyp(en) angegeben!
+  invalidScenarioType: >
+    Ungültiger Szenariotyp! Gültige Optionen sind 'main', 'alternative', 'exception', 'positive', 'negative',
+    'misuse', 'instance', 'type', 'systeminternal', 'explanatory', 'descriptive', 'explorative' und 'other'.
+  scenarioTypeUntagged: >
+    Alle scenarioTypes, die Sie im Front Matter aufführen, müssen als Tags im Content-Teil erscheinen, formatiert
+    mit einem '$' am Anfang (z.B. $alternative). Ein solches Tag fehlt bei
+  type:
+    main: Hauptszenario
+    alternative: Alternativszenario
+    exception: Ausnahmeszenario
+    positive: Positivszenario
+    negative: Negativszenario
+    misuse: Missbrauchsszenario
+    instance: Instanzszenario
+    type: Typszenario
+    systeminternal: System-internes Szenario
+    explanatory: Erklärendes Szenario
+    descriptive: Descriptivszenario
+    explorative: Explorativszenario
+    other: Sonstiges Szenario
+  typeExplanation:
+    main: Standard-Szenario, das als Regelfall der Bedienung des Systems zur Erfüllung eines Ziels führt
+    alternative: Selten bzw. im Ausnahmefall beschrittener Weg der Interaktion mit dem System, der aber auch zur Erfüllung des Ziels führt
+    exception: Ausnahme in der Interaktion mit dem System, bei dem aufgrund von besonderen Bedingungen das gewünschte Ziel nicht erreicht wird
+    positive: Interaktionsfolge, die zur Erfüllung eines Ziels führt
+    negative: Interaktionsfolge, die zur Nichterfüllung eines Ziels führt
+    misuse: beschreibt eine unerwünschte, nicht intendierte Verwendung des Systems
+    instance: Konkrete Interaktionen mit konkreten Ein- und Ausgaben zwischen konkreten Personen und Systemen
+    type: hoher Abstraktionsgrad, enthält System-Interaktionen mit Typen von Akteuren mit generischen Aktivitäten
+    systeminternal: Systeminterne Interaktionen in Form von Interaktionsfolgen zwischen Systembestandteilen, bei sehr technischen Anforderungen
+    explanatory: Begründung und Erklärung von Interaktionen in Szenarioform, mischt u.U. Nutzen und Ziele mit in das Szenario hinein
+    descriptive: nüchtern-beschreibende Darstellung der Interaktionen mit dem System
+    explorative: hat starken 'Brainstorming-Charakter', passt gut in eine frühe Phase der Anforderungsermittlung
+    other: sonstiger Szenariotyp, nicht durch die anderen Optionen erfasst
+  scenarioTypesHeader: Abgedeckte Szenario-Typen
+  personaFor: Persona für dieses Szenario
+  otherScenarios: Andere Szenarien für diese Persona
+#-------------------
+sources:
+  missing: Für dieses Artefakt sind keine Quellen angegeben!
+  dtLabel: Quelle(n)
+  wrongSourceType: >
+    Source type ist falsch. Format ist [sourceType, sourceRef, comment]. SourceType kann 'literatureReference',
+    'interview', 'workshop' oder 'survey' sein.
+  usedFor: genutzt um
+  usedForMissing: Feld 'usedFor' fehlt
+  atSourceRef: bei Source-Referenz
+  usedForPurpose: Hier sollte man angeben, in welcher Weise man die Quelle nutzt.
+#-------------------
+stakeholderRoles:
+  navLabel: Stakeholder-Rollen
+  summary: >
+    <p><b>Stakeholder-Rollen</b> sind verallgemeinerte, "typische" Rollen von Stakeholdern, die dann etwa in
+    Use Cases Verwendung finden können. Ein Beispiel: "Prof. Dr. Erika Kaminsky, Professorin für angewandte
+    Mathematik" wäre ein Stakeholder, während "Professor*in" die Stakeholder-Rolle ist.</p>
+  headerOverview: Stakeholder-Rollen
+  header: Stakeholder-Rolle
+  interviewsWorkshopsSurveys: Interviews, Workshops und Surveys für diese Rolle
+  withRole: Stakeholder mit dieser Rolle
+  sources: Zusätzliche Quelle(n) als Beleg für diese Rolle
+  noStakeholder: Zu dieser Stakeholder-Rolle gibt es keinen Stakeholder!
+  whereAsActor: Wo tritt diese Stakeholder-Rolle als Aktor auf?
+#-------------------
+stakeholders:
+  navLabel: Stakeholder
+  anonymous: Auf Wunsch des Stakeholders wird der Klarname hier nicht genannt. Stattdessen wird ein Pseudonym verwendet.
+  summary: >
+    <p>Ein <b>Stakeholder</b> ist eine Person oder eine Organisation, die direkten Einfluss auf die Anforderungen
+    des betrachteten Systems hat, und / oder ein Interesse an dem zu entwickelnden System. Stakeholder sind stets
+    <i>konkrete</i> Personen oder Organisationen.</p>
+    <p>Stakeholder werden diesem Webtool ausschließlich mit öffentlich verfügbaren Angaben dargestellt, oder mit
+    Informationen, in deren Veröffentlichung die Person oder Organisation eingewilligt hat (z.B. im Rahmen
+    einer Expertenbefragung). Unter Umständen sind Namen und Kontaktdetails anonymisiert. In diesem Fall wird der
+    Stakeholder durch ein Pseudonym bezeichnet.</p>
+  stakeholderRoleTabHeader: Stakeholder-Rolle
+  invalidSubtype: Ungültigen Subtype gefunden (erlaubt sind 'person' und 'group')
+  subtypeMissing: Subtype fehlt (erlaubt sind 'person' und 'group')
+  interviewMissing: Gibt es kein Interview für diesen Stakeholder?
+  stakeholderRole: Stakeholder-Rolle, zu der dieser Stakeholder gehört
+  interviewWith: Interview(s) mit diesem Stakeholder
+  group: (Gruppe)
+#-------------------
+surveys:
+  navLabel: Umfragen
+  summary: >
+    <p>Durch eine Umfrage lassen sich viele potentielle Nutzer mit geringen Aufwand erreichen. Zusätzlich
+    fühlen sich die Probanden und Befragten nicht einem Druck durch eine reale Person ausgesetzt,
+    so wie es bei einem Interview der Fall ist.</p>
+  detailHeader: Umfrage
+  relatedStakeholderRole: Teilnehmerkreis (als Stakeholder-Rolle)
+  numberOfParticipants: Anzahl Teilnehmer*innen
+  targetGroup: Zielgruppe
+  conducting: Durchführung der Umfrage
+  wasOpen: Die Umfrage war geöffnet vom
+  openUntil: bis
+  conductingMissing: Datenblock 'conducting' fehlt!
+  conductingFromMissing: Feld 'conducting.from' fehlt!
+  conductingUntilMissing: Feld 'conducting.until' fehlt!
+  conductingDistributionMissing: Feld 'conducting.distribution' fehlt!
+#-------------------
+systemContext:
+  navLabel: Systemkontext
+  summary: >
+    <p>Der <b>Systemkontext</b> ist der Teil der Umgebung des Systems, der für die Definition und das
+    Verständnis der Systemanforderungen relevant ist, selbst aber nicht gestalt- oder veränderbar ist.</p>
+  headerOverview: Systemkontext
+  header: Systemkontext-Element
+  subtypeInvalid: existiert nicht. Erlaubt sind itsystem, process, event, document, regulation und otherConstraint.
+  subtypeMissing: Subtype fehlt!
+  itsystem: IT-System
+  process: Prozess
+  regulation: Gesetz / Standard / Norm
+  event: Fachliches Ereignis
+  document: Dokument
+  otherConstraint: Sonstiger Fachdomänen-Begriff
+  Competitor: Mitbewerber
+#-------------------
+teacherMode:
+  exportCSVNavLabel: Alles als CSV exportieren
+#-------------------
+useCaseDiagrams:
+  navLabel: Use-Case-Diagramme
+  summary: >
+    <p>Ein <b>Use-Case-Diagramm</b> nutzt UML-Notation, um alle Use Cases zu einem bestimmten Aspekt, beispielsweise
+       einer funktionalen Anforderungen, intuitiv verständlich in einer graphischen Übersicht darzustellen.</p>
+  ucdForFR: Use-Case-Diagramm zu funktionaler Anforderung
+  diagramSummary: >
+    <p>Folgende Use Cases sind im nachfolgenden Diagramm dargestellt. Wenn es zu einem Use Case eine ausführliche
+    Version mit Szenarien gibt, so ist diese verlinkt.</p>
+  detailedUC: >
+    Use Cases mit detailliertem Szenario! (Wenn es diese Use Cases doch gibt, dann tragen Sie bitte das
+    entsprechende Use-Case-Akronym in die Liste zu Feld 'useCasesDetailedWithScenario' ein)
+  diagramRefMissing: Diagramm-Referenz fehlt!
+  noNonSpecifiedUseCases: Es sind keine sonstigen Use Cases (nicht detailliert ausgeführt) für das Diagramm angegeben.
+  useCaseFRRefInconsistent: >
+    Die Referenzen der funktionalen Anforderungen im Use-Case-Diagramm und im Use Case stimmen nicht überein!
+  inDiagram: Im Diagramm
+  inUseCase: im Use Case
+  OtherFr: Sonstige umgesetzte funktionale Anforderungen (in den einzelnen Use Cases)
+#-------------------
+useCases:
+  navLabel: Use Cases
+  summary: >
+    <p>Ein <b>Use Case</b> bündelt alle möglichen Szenarien, die eintreten können, wenn ein Akteur versucht,
+       mit Hilfe des betrachteten Systems ein bestimmtes fachliches Ziel zu erreichen. Er beschreibt,
+       was inhaltlich beim Versuch der Zielerreichung passieren kann und abstrahiert von konkreten technischen
+       Lösungen.</p>
+  ContainedInDiagram: Enthalten in Use-Case-Diagramm
+  Header: Use-Case-Header
+  PrimaryActor: Primärer Aktor
+  SecondaryActors: Sekundäre(r) Aktor(en)
+  Trigger: Auslöser
+  Precondition: Vorbedingung
+  Postcondition: Nachbedingung
+  MainScenario: Hauptszenario
+  AlternativeScenario: Alternativszenario
+  ExceptionScenario: Ausnahmeszenario
+  Alternative: Alternative
+  Exception: Ausnahme
+  ContinueWith: Weiter mit
+  DiffentPostCondition: Veränderte Nachbedingung
+  PreconditionTooShort: Vorbedingung ('precondition') scheint zu kurz zu sein.
+  PreconditionMissing: Vorbedingung ('precondition') fehlt!
+  PostconditionTooShort: Nachbedingung ('postcondition') scheint zu kurz zu sein.
+  PostconditionMissing: Nachbedingung ('postcondition') fehlt!
+  TriggerTooShort: Auslöser ('trigger') scheint zu kurz zu sein.
+  TriggerMissing: Auslöser ('trigger') fehlt!
+  NotPartOfDiagram: Dieser Use Case taucht auf keinem Use-Case-Diagramm auf.
+  MainScenarioMissing: Kein Hauptszenario angegeben (Block 'mainScenario' fehlt oder ist leer)!
+  AlternativeScenarioMissing: >
+    Kein Alternativszenario angegeben (Block 'alternativeScenario' fehlt oder ist leer)!
+    (Wenn das gewollt ist, kann man diese Warnung - wie alle anderen - mittels Feld 'ignore' ausblenden)
+  AlternativeScenarioEmptyBlock: Das Alternativszenario enthält einen leeren Block!
+  ExceptionScenarioMissing: >
+    Kein Ausnahmeszenario angegeben (Block 'exceptionScenario' fehlt oder ist leer)!
+    (Wenn das gewollt ist, kann man diese Warnung - wie alle anderen - mittels Feld 'ignore' ausblenden)
+  ExceptionScenarioEmptyBlock: Das Ausnahmeszenario enthält einen leeren Block!
+  ExceptionScenarioPostConditionMissing: Veränderte Nachbedingung fehlt in einem Ausnahmeszenario-Block!
+#-------------------
+userStories:
+  navLabel: User Stories
+  Summary: >
+    <p>Agile Anforderungen werden (anders als bei der dokumentenzentrierten Anfoderungsermittlung, die auf einem
+    Wasserfall-Entwicklungsprozess abgestimmt ist) zunächst nur grob festgehalten. Eine detaillierte
+    Spezifikation erfolgt erst unmittelbar vor der Implementierung, dann in der Regel als User Stories.</p>
+    <p>Dieses Tool ist auf die dokumentenzentrierten Anfoderungsermittlung ("Wasserfall") ausgerichtet.
+    User Stories für das agile Backlog werden hier, der methodischen Vollständigkeit halber,
+    punktuell aus den priorisierten funktionalen Anforderungen abgeleitet. In der Praxis würde man das so
+    nicht machen, sondern direkt das Backlog erstellen. An dieser Stelle (aber nur hier!) bildet dieses Tool daher
+    <b>kein realistisches Vorgehen</b> ab - für ein agiles Prozess würde man auf die Mehrzahl der anderen
+    Artefakte in diesem Tool verzichten.</p>
+  As: Als
+  iWantTo: möchte ich
+  soThat: damit
+  IWantToTooShort: Feld 'iWantTo' scheint zu kurz zu sein.
+  IWantToMissing: Feld 'iWantTo' fehlt!
+  SoThatTooShort: Feld 'soThat' scheint zu kurz zu sein.
+  SoThatMissing: Feld 'soThat' fehlt!
+#-------------------
+workshops:
+  navLabel: Workshops
+  summary: >
+    <p>Workshops sind methodisch vorbereitete, auf bestimmte Stakeholder-Rollen fokussierte Veranstaltung zur
+    Informations- und Anforderungsgewinnung. Sie erfordern eine sorgfältige Vor- und Nachbereitung sowie eine
+    Moderation während der Durchführung. Sowohl Präsenz- wie Online-Formate sind möglich.</p>

@@ -1,0 +1,62 @@
+{% assign artefact = include.myArtefact %}
+{% assign errorString = include.myErrorString %}
+{% assign warningString = include.myWarningString %}
+{% assign sourcelistCanBeEmpty = include.mySourcelistCanBeEmpty | default: false %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 090 - 109 reserved for source ref issues **** {% endcomment %}
+
+{% comment %}---------- sources exist? -----------{% endcomment %}
+{% if sourcelistCanBeEmpty %}
+{% else %}
+	{% if artefact.sources == Nil or artefact.sources.size == 0 %}
+		{% assign myMsg = site.translations[site.lang].sources.missing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w090" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% endif %}
+
+{% if artefact.sources != Nil %}
+	{% for source in artefact.sources %}
+
+		{% comment %}---------- sourceType -----------{% endcomment %}
+		{% assign sourceType = source.reference[0] %}
+		{% if sourceType != "literatureReference" and sourceType != "interview"
+									and sourceType != "workshop" and sourceType != "survey" %}
+			{% assign myMsg = site.translations[site.lang].sources.wrongSourceType %}
+			{% include /functions/define-message.html ignore=artefact.ignore msgno="e091" msg=myMsg %}
+			{% assign errorList = errorList | push: out_msg %}
+		{% endif %}
+
+		{% comment %}---------- sourceRef -----------{% endcomment %}
+		{% assign sourceRef = source.reference[1] %}
+		{% include /functions/get-link-to-artefact.html myRef=sourceRef myTypeString=sourceType %}
+		{% if artefactRefErrorString == "none" %}
+			{% assign myMsg = noRefMsg | append: " " | append: sourceRef | append: "." %}
+			{% include /functions/define-message.html ignore=localArtefact.ignore msgno="e092" msg=myMsg %}
+			{% assign errorList = errorList | push: out_msg %}
+		{% elsif artefactRefErrorString == ">1" %}
+			{% assign myMsg = site.translations[site.lang].genericErrors.reference | append: " " | append: sourceRef |
+					append: " " | append: site.translations[site.lang].genericErrors.existsMoreThanOnce %}
+			{% include /functions/define-message.html ignore=localArtefact.ignore msgno="e093" msg=myMsg %}
+			{% assign errorList = errorList | push: out_msg %}
+		{% endif %}
+
+		{% comment %}---------- usedFor -----------{% endcomment %}
+		{% if source.usedFor == Nil %}
+			{% assign myMsg = site.translations[site.lang].sources.usedForMissing | append: " " |
+					append: site.translations[site.lang].sources.atSourceRef | append: " " |
+					append: sourceRef | append: ". " | append: site.translations[site.lang].sources.usedForPurpose %}
+			{% include /functions/define-message.html ignore=artefact.ignore msgno="w094" msg=myMsg %}
+			{% assign warningList = warningList | push: out_msg %}
+		{% endif %}
+
+
+	{% endfor %}
+{% endif %}
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

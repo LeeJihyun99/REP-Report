@@ -1,0 +1,19 @@
+{% assign goalRef = include.myGoalRef %}
+
+{% assign foundRef = goalRef %}
+{% for counter in (1..999) %}
+    {% assign topGoalRef = foundRef %}
+    {% assign goalList = site.goals | where: "acronym", foundRef %}
+    {% if goalList.size > 0 %}
+        {% assign foundGoal = goalList[0] %}
+        {% if foundGoal.partOfLargerGoal %}
+            {% assign foundRef = foundGoal.partOfLargerGoal %}
+        {% else %}
+            {% break %}
+        {% endif %}
+    {% else %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+
+

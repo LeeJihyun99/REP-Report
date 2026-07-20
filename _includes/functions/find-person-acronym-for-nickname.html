@@ -1,0 +1,12 @@
+{% assign nickname = include.myNickname %}
+
+{% assign personAcronym = "???" %}
+{% comment %} This is terribly tedious, but neither sort nor where_exp works here ... {% endcomment %}
+{% for person in site.data.people %}
+    {% if person[1].nickname == nickname %}
+        {% assign personAcronym = person[0] %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+
+

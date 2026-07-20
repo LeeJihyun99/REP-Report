@@ -1,0 +1,27 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" withoutResponsibleCheck=true %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 570 - 589 reserved for author **** {% endcomment %}
+
+{% comment %}---------- nickname -----------{% endcomment %}
+
+{% if artefact.nickname %}
+{% else %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e570"
+			msg="Es muss für eine(n) Autor*in ein Nickname angegeben sein." %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

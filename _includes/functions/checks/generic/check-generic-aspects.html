@@ -1,0 +1,84 @@
+{% assign artefact = include.myArtefact %}
+{% assign errorString = include.myErrorString %}
+{% assign warningString = include.myWarningString %}
+{% assign withoutResponsibleCheck = include.withoutResponsibleCheck %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 000 - 049 reserved for generic issues **** {% endcomment %}
+
+{% comment %}---------- type -----------{% endcomment %}
+{% if artefact.type %}
+{% else %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e001" msg="Type fehlt!" %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- acronym -----------{% endcomment %}
+{% assign doubleAcronym = site.translations[site.lang].genericErrors.doubleAcronym %}
+{% assign acronymMissing = site.translations[site.lang].genericErrors.acronymMissing %}
+{% if artefact.acronym != Nil %}
+	{% assign thisType = artefact.type %}
+	{% assign thisAcronym = artefact.acronym %}
+	{% assign thisMetadata = site.data.metadata[thisType] %}
+	{%- comment -%} -- append: "" makes it a real string, for whatever reason, doesn't work otherwise -- {%- endcomment -%}
+	{% assign collectionName = thisMetadata.collection | append: "" %}
+	{% assign collection = site[collectionName] %}
+	{% assign foundArtefacts = collection | where:"acronym", thisAcronym %}
+	{% if foundArtefacts.size > 1 %}
+		{% assign myMsg = doubleAcronym | append: ": " | append: thisAcronym %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e002" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+{% else %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e003" msg=acronymMissing %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- author -----------{% endcomment %}
+{% assign noAuthorMsg = site.translations[site.lang].genericErrors.noAuthor %}
+{% assign moreThanThreeAuthors = site.translations[site.lang].genericErrors.moreThanThreeAuthors %}
+{% assign authorDoesntExist = site.translations[site.lang].genericErrors.authorDoesntExist %}
+
+{% if withoutResponsibleCheck %}
+{% else %}
+	{% if artefact.author %}
+		{% if artefact.author.size == 0 %}
+			{% include /functions/define-message.html ignore=artefact.ignore msgno="e004" msg=noAuthorMsg %}
+			{% assign errorList = errorList | push: out_msg %}
+		{% else %}
+			{% if artefact.author.size > 3 %}
+				{% include /functions/define-message.html ignore=artefact.ignore msgno="w005"
+						msg=moreThanThreeAuthors %}
+				{% assign warningList = warningList | push: out_msg %}
+			{% endif %}
+			{% for authorAcronym in artefact.author %}
+				{% assign foundAuthors = site.authors | where_exp: "author", "author.acronym == authorAcronym" %}
+				{% if foundAuthors.size == 0 %}
+					{% assign myMsg = authorDoesntExist | append: ": " | append: authorAcronym %}
+					{% include /functions/define-message.html ignore=artefact.ignore msgno="e006" msg=myMsg %}
+					{% assign errorList = errorList | push: out_msg %}
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% else %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e004" msg=noAuthorMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+{% endif %}
+
+{% comment %}---------- acronym equal to filename? -----------{% endcomment %}
+
+{% assign filename = artefact.path | split: "/" | last %}
+{% assign shouldBeAcronym = filename | split: "." | first %}
+{% if artefact.isTemplate == Nil and artefact.acronym != shouldBeAcronym %}
+	{% assign myMsg = site.translations[site.lang].genericErrors.acronymNotSameAsFilename |
+			append: " Acronym: " | append: artefact.acronym | append: ", Filename: " | append: filename %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="w007" msg=myMsg %}
+	{% assign warningList = warningList | push: out_msg %}
+{% endif %}
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

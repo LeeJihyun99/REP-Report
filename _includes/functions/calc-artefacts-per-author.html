@@ -1,0 +1,10 @@
+{% assign authorRef = include.myAuthor.acronym %}
+
+{% assign numOfArtefacts = "" | split: ";" %}
+{% for artefactType in site.data.metadata %}
+    {% assign myCollectionName = artefactType[1].collection | append: "" %}
+    {% assign myCollection = site[myCollectionName] %}
+    {% assign authorItems = myCollection | where_exp: "item", "item.author contains authorRef" %}
+    {% assign numOfArtefacts = numOfArtefacts | push: authorItems.size %}
+{% endfor %}
+{% assign numOfArtefactsString = numOfArtefacts | join: ";" %}

@@ -1,0 +1,64 @@
+{% assign localArtefact = include.myArtefact %}
+{% assign localCheckedRef = include.myCheckedRef %}
+{% assign localCheckedRefType = include.myCheckedRefType %}
+{% assign asList = include.asList %}
+{% assign asError = include.emptyMeansError %}
+{% assign purpose = include.myPurpose %}
+{% assign errorString = include.myErrorString %}
+{% assign warningString = include.myWarningString %}
+
+{% comment %} ***** Error/Warning Numbers 050 - 069 reserved for textfield/length issues **** {% endcomment %}
+
+{% if asError %}
+	{% assign missingRefMsgNo = "e050" %}
+{% else %}
+	{% assign missingRefMsgNo = "w051" %}
+{% endif %}
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+{% assign noRefMsg = site.translations[site.lang].genericErrors.noRef %}
+{% if localCheckedRef == blank or localCheckedRef == nil %}
+	{% assign myMsg = noRefMsg | append: " " | append: purpose | append: "." %}
+	{% include /functions/define-message.html ignore=localArtefact.ignore msgno=missingRefMsgNo msg=myMsg %}
+	{% if asError %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% else %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% else %}
+	{% if asList %}
+		{% assign localCheckedRefList = localCheckedRef %}
+	{% else %}
+		{% assign localCheckedRefList = "" | split: ";" %}
+		{% assign localCheckedRefList = localCheckedRefList | push: localCheckedRef %}
+	{% endif %}
+
+	{% if localCheckedRefList.size == 0 %}
+		{% assign myMsg = noRefMsg | append: " " | append: purpose | append: "." %}
+		{% include /functions/define-message.html ignore=localArtefact.ignore msgno=missingRefMsgNo msg=myMsg %}
+		{% if asError %}
+			{% assign errorList = errorList | push: out_msg %}
+		{% else %}
+			{% assign warningList = warningList | push: out_msg %}
+		{% endif %}
+	{% else %}
+		{% for curRef in localCheckedRefList %}
+			{% include /functions/get-link-to-artefact.html myRef=curRef myTypeString=localCheckedRefType %}
+			{% if artefactRefErrorString == "none" %}
+				{% assign myMsg = noRefMsg | append: " " | append: curRef | append: "." %}
+				{% include /functions/define-message.html ignore=localArtefact.ignore msgno="e052" msg=myMsg %}
+				{% assign errorList = errorList | push: out_msg %}
+			{% elsif artefactRefErrorString == ">1" %}
+				{% assign myMsg = site.translations[site.lang].genericErrors.reference | append: " " | append: curRef |
+						append: " " | append: site.translations[site.lang].global.for | append: " " | append: purpose |
+						append: " " | append: site.translations[site.lang].genericErrors.existsMoreThanOnce %}
+				{% include /functions/define-message.html ignore=localArtefact.ignore msgno="e053" msg=myMsg %}
+				{% assign errorList = errorList | push: out_msg %}
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+{% endif %}
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

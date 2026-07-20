@@ -1,0 +1,197 @@
+# Welcome to the ArchiLab RE Tool!
+#
+# This config file is meant for settings that affect the tool. There are parts that SHOULD NOT CHANGE -
+# otherwise the tool will stop working properly.
+#
+# The settings for your customization are marked below.
+#
+# If you need help with YAML syntax, here are some quick references for you: 
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+#----------------------- This is for you to customize -----------------------
+
+title: ArchiLab RE Tool
+email:
+description: Tool to manage requirements for software systems
+
+# The base hostname & protocol for your site, e.g. http://example.com
+# You can look that up in your Gitlab repo (left menu, under "Pages")
+url: "https://archi-lab.gitlab.io/requirements-engineering/re-tool"
+hyperlinkify_glossary_base_url: "/requirements-engineering/re-tool"
+
+# teacherMode is used for grading - you usually don't need this. Default is false.
+teacherMode: false
+
+# If this flag is set to "true", the template artefacts (which come as part of the tool) are displayed.
+# If you want to see only your own content, set this flag to "false"
+withTemplates: true
+
+
+
+#----------------------- DO NOT CHANGE ANYTHING AFTER THIS LINE------------------
+twitter_username: jekyllrb
+github_username:  jekyll
+
+
+# Build settings
+#theme: jekyll-theme-midnight
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-multiple-languages-plugin
+
+# jekyll-multiple-languages-plugin settings:
+languages: ["en","de"]
+exclude_from_localizations: ["sources", "assets"]
+
+collections:
+  authors:
+    output: true
+  functionalRequirements:
+    output: true
+  reviews:
+    output: true
+  domainModels:
+    output: true
+  glossary:
+    output: true
+  goals:
+    output: true
+  interviews:
+    output: true
+  literatureReferences:
+    output: true
+  nonFunctionalRequirements:
+    output: true
+  personas:
+    output: true
+  priorizations:
+    output: true
+  scenarios:
+    output: true
+  stakeholderRoles:
+    output: true
+  stakeholders:
+    output: true
+  surveys:
+    output: true
+  systemContextElements:
+    output: true
+  useCaseDiagrams:
+    output: true
+  useCases:
+    output: true
+  userStories:
+    output: true
+  workshops:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+  - scope:
+      path: ""
+      type: "functionalRequirements"
+    values:
+      layout: "functionalRequirement"
+  - scope:
+      path: ""
+      type: "domainModels"
+    values:
+      layout: "domainModel"
+  - scope:
+      path: ""
+      type: "glossary"
+    values:
+      layout: "glossary"
+      permalink: /glossary/:title/
+  - scope:
+      path: ""
+      type: "goals"
+    values:
+      layout: "goal"
+  - scope:
+      path: ""
+      type: "interviews"
+    values:
+      layout: "interview"
+  - scope:
+      path: ""
+      type: "literatureReferences"
+    values:
+      layout: "literatureReference"
+  - scope:
+      path: ""
+      type: "nonFunctionalRequirements"
+    values:
+      layout: "nonFunctionalRequirement"
+  - scope:
+      path: ""
+      type: "personas"
+    values:
+      layout: "persona"
+  - scope:
+      path: ""
+      type: "priorizations"
+    values:
+      layout: "priorization"
+  - scope:
+      path: ""
+      type: "reviews"
+    values:
+      layout: "review"
+  - scope:
+      path: ""
+      type: "scenarios"
+    values:
+      layout: "scenario"
+  - scope:
+      path: ""
+      type: "stakeholderRoles"
+    values:
+      layout: "stakeholderRole"
+  - scope:
+      path: ""
+      type: "stakeholders"
+    values:
+      layout: "stakeholder"
+  - scope:
+      path: ""
+      type: "surveys"
+    values:
+      layout: "survey"
+  - scope:
+      path: ""
+      type: "systemContextElements"
+    values:
+      layout: "systemContextElement"
+  - scope:
+      path: ""
+      type: "useCaseDiagrams"
+    values:
+      layout: "useCaseDiagram"
+  - scope:
+      path: ""
+      type: "useCases"
+    values:
+      layout: "useCase"
+  - scope:
+      path: ""
+      type: "userStories"
+    values:
+      layout: "userStory"
+  - scope:
+      path: ""
+      type: "workshops"
+    values:
+      layout: "workshop"

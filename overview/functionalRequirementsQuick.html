@@ -1,0 +1,26 @@
+---
+layout: none
+---
+
+<table border="1">
+    <thead>
+    <tr>
+        <th width="5%">Akronym</th>
+        <th width="5%">Titel</th>
+        <th width="5%">Verantwortlich</th>
+        <th width="85%">Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% assign functionalRequirements = site.functionalRequirements | sort: "title"  %}
+    {% for fr in functionalRequirements %}
+            <tr>
+            <td>{{ fr.acronym }}</td>
+            <td>{{ fr.title }}</td>
+            <td>{% if fr.author %}{% for author in fr.author %}{{ author }}&nbsp;{% endfor %}{% endif %}</td>
+            <td>{{ fr.content }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+

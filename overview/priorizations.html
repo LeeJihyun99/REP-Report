@@ -1,0 +1,153 @@
+---
+layout: default
+---
+
+<h1>{% t priorization.navLabel %}</h1>
+
+{% t priorization.summary %}
+
+<h2>{% t priorization.workshops %}</h2>
+
+{% t priorization.workshopSummary %}
+
+{% assign sortField = site.data.metadata["priorization"].sortField %}
+{% assign collection = site.priorizations | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="40%">{% t global.intention %}</th>
+        <th width="20%">{% t global.method %}</th>
+        <th width="20%">{% t global.participants %}</th>
+        <th width="10%">{% t global.Date %}</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for priorization in collection %}
+    <tr>
+        {% include /functions/checks/check-workshop.html myArtefact=priorization %}
+        {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=priorization.todo %}
+        <td>{{ iconString }}</td>
+
+        {% include /functions/get-artefact-name.html myArtefact=priorization myIdFormat="none" %}
+        <td><a href="{{ site.url }}{{ priorization.url | relative_url }}">{{ artefactName }}</a></td>
+        <td>{{ priorization.method.name  }}</td>
+        {% include /functions/print-stakeholderRole-linklist.html stakeholderRoles=priorization.stakeholderRoles %}
+        <td>{{ linkString }}</td>
+        <td>{{ priorization.date | date: "%d.%m.%Y" }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+<h2>{% t priorization.inputForProcess %}</h2>
+
+<h3>{% t priorization.paperPrintable %}</h3>
+
+<a href="{{ site.url }}{{ '/fr.pdf' | relativeUrl }}" target="_blank">{% t priorization.paperPrintableLink %}</a> {% t priorization.paperPrintableSummary %}
+
+<h3>{% t priorization.mostImportantGoals %}</h3>
+
+{% t priorization.mostImportantGoalsSummary %}
+
+
+{% comment %}   This terrible piece of hackwork code is just because you cannot create a hashmap in Liquid
+                programmatically :-(( -----
+{% endcomment %}
+
+
+{% if site.withTemplates %}
+    {% assign goalCollection = site.goals %}
+{% else %}
+    {% assign goalCollection = site.goals | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+{% assign sortField = site.data.metadata["functionalRequirement"].sortField %}
+{% if site.withTemplates %}
+    {% assign functionalRequirementCollection = site.functionalRequirements %}
+{% else %}
+    {% assign functionalRequirementCollection = site.functionalRequirements | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+{% assign functionalRequirementCollection = functionalRequirementCollection | sort: sortField %}
+
+
+
+{% assign goalRefList = goalCollection | map: "acronym" %}
+
+{% assign hashList = "" | split: "__" %}
+{% for goalRef in goalRefList %}
+    {% assign hashEntry = "000$$" | append: goalRef %}
+    {% assign hashList = hashList | push: hashEntry %}
+{% endfor %}
+{% assign hashString = hashList | join: "__" %}
+
+{% for fr in functionalRequirementCollection %}
+    {% for goalRef in fr.goals %}
+        {% assign goal = goalCollection | where_exp: "item", "item.acronym == goalRef" | first %}
+        {% if goal.belongsTo == Nil %}
+            {% assign increment = 2 %}
+        {% else %}
+            {% assign increment = 1 %}
+        {% endif %}
+        {% include /functions/hash-get.html myHashString=hashString myKey=goalRef %}
+        {% assign newValue = returnValueString | to_integer | plus: increment | append: "" %}
+        {% if newValue.size == 1 %}
+            {% assign newValue = "00" | append: newValue %}
+        {% elsif newValue.size == 2 %}
+            {% assign newValue = "0" | append: newValue %}
+        {% endif %}
+
+        {% include /functions/hash-put.html myHashString=hashString myKey=goalRef myNewValue=newValue %}
+        {% assign hashString = returnHashString %}
+    {% endfor %}
+{% endfor %}
+
+{% assign hashList = hashString | split: "__" | sort | reverse %}
+{% assign goalRefList = "" | split: ";" %}
+{% for entry in hashList %}
+    {% assign entryList = entry | split: "$$" %}
+    {% assign goalRefList = goalRefList | push: entryList[1] %}
+{% endfor %}
+
+<table>
+    <thead>
+    <tr>
+        <th>Functional Requirement</th>
+        {% for goalRef in goalRefList %}
+            {% include /functions/get-link-to-artefact.html myRef=goalRef myTypeString="goal" myIdFormat="prefix" %}
+            <th>
+                {{ artefactLink }}
+                {% assign goal = goalCollection | where_exp: "item", "item.acronym == goalRef" | first %}
+                {% if goal.belongsTo == Nil %}
+                    ({% t goals.mainGoalHeader %})
+                {% else %}
+                    ({% t goals.subGoalHeader %})
+                {% endif %}
+            </th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for functionalRequirement in functionalRequirementCollection %}
+    <tr>
+        {% include /functions/get-link-to-artefact.html myRef=functionalRequirement.acronym
+                    myTypeString="functionalRequirement" myIdFormat="prefix" %}
+        <td>{{ artefactLink }}</td>
+        {% for goalRef in goalRefList %}
+            {% if functionalRequirement.goals contains goalRef %}
+                <td style="text-align: center;">x</td>
+            {% else %}
+                <td>&nbsp;</td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

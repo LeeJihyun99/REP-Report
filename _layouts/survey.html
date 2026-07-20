@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+{% include /functions/print-teacherbuttons.html myArtefact=page %}
+{% include /functions/print-page-navigation.html myArtefact=page %}
+{% include /functions/get-artefact-name.html myArtefact=page myIdFormat="postfixWithBrackets" %}
+<h1>{% t surveys.detailHeader %} {{ artefactName }}</h1>
+
+<dl>
+    {% include /functions/print-participants.html participants=page.participants stakeholderRoles=page.stakeholderRoles %}
+
+    <dt>{% t surveys.conducting %}</dt>
+    <dd>
+        {% t surveys.wasOpen %} {{ page.conducting.from | date: "%d.%m.%Y" }} {% t surveys.openUntil %}
+        {{ page.conducting.until | date: "%d.%m.%Y" }}. {{ page.conducting.distribution }}
+    </dd>
+
+    {% include /functions/print-additional-documents.html additionalDocuments=page.additionalDocuments %}
+
+    {% include /functions/print-authors.html page=page %}
+    {% include /functions/print-history.html myArtefact=page %}
+    {% include /functions/checks/check-survey.html myArtefact=page %}
+    {% include /functions/print-detailed-check-messages.html errors=errorString warnings=warningString todos=page.todo %}
+</dl>
+
+
+{{ page.content }}

@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+{% if site.withTemplates %}
+    {% assign collection = site.functionalRequirements %}
+{% else %}
+    {% assign collection = site.functionalRequirements | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+{% assign collection = collection | sort: "prioScore", "first" | reverse  %}
+
+
+<h1>{% t functionalRequirements.navLabel %} ({{ collection.size }})</h1>
+
+{% t functionalRequirements.summary %}
+
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="7%">ID</th>
+        <th width="5%">Prio.</th>
+        <th width="15%">{% t global.Title %}</th>
+        <th width="39%">{% t functionalRequirements.sentenceTemplate.header %}</th>
+        <th width="12%">{% t global.contributesToGoals %}</th>
+        <th width="8%">{% t global.type %}</th>
+        <th width="8%">{% t kano.kanoType %}</th>
+    </tr>
+    </thead>
+    <tbody>
+
+        {% for functionalRequirement in collection %}
+        <tr>
+
+            {% include /functions/checks/check-functionalRequirement.html myArtefact=functionalRequirement %}
+            {% include /functions/get-check-icon.html errors=errorString warnings=warningString
+                    todos=functionalRequirement.todo %}
+            <td>{{ iconString }}</td>
+
+            {% include /functions/get-globalid.html myArtefact=functionalRequirement  %}
+            <td><a href="{{ site.url }}{{ functionalRequirement.url | relative_url }}">{{ globalId }}</a></td>
+
+            <td>{{ functionalRequirement.prioScore }}</td>
+
+            {% include /functions/get-artefact-name.html myArtefact=functionalRequirement %}
+            <td><a href="{{ site.url }}{{ functionalRequirement.url | relative_url }}">{{ artefactName }}</a></td>
+
+            {% include /functions/get-sentence-template.html myRequirement=functionalRequirement %}
+            <td>{{ sentenceTemplateString }}</td>
+
+            {% include /functions/get-goal-id-list.html myArtefact=functionalRequirement %}
+            <td>{{ goalIdString }}</td>
+
+            {% include /functions/get-fr-type.html myRequirement=functionalRequirement %}
+            <td>{{ frType }}</td>
+
+            {% include /functions/get-kano-type.html myRequirement=functionalRequirement %}
+            <td>{{ kanoType }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

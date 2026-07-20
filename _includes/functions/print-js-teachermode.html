@@ -1,0 +1,114 @@
+{% if site.teacherMode == true %}
+<script>
+    function setGrading() {
+        console.log( "setGrading " + arguments[0] + " " + arguments[1] );
+        localStorage.setItem( arguments[0], arguments[1] );
+        colorSelection( arguments[0] );
+    }
+    function getGrading() {
+        console.log( "getGrading " + arguments[0] );
+        return localStorage.getItem( arguments[0] );
+    }
+    function isGrading() {
+        // alert( "isGrading " + arguments[0] + " " + arguments[1] );
+        return ( localStorage.getItem( arguments[0] ) == arguments[1] );
+    }
+    function exportData() {
+        console.log( "exportData" );
+        var compositeCSV = "";
+        for ( var i = 0; i < localStorage.length; i++ ) {
+            compositeCSV += localStorage.key(i) + ";" + localStorage.getItem(localStorage.key(i)) + "\n";
+        }
+        var blob = new Blob([compositeCSV], {type: "text/csv"});
+        var url = URL.createObjectURL(blob);
+        var a = document.querySelector("#results"); // id of the <a> element to render the download link
+        a.href = url;
+        a.download = "file.csv";
+    }
+    function resetAll() {
+        console.log( "resertAll" );
+        if ( confirm('Really delete all data?' ) ) {
+            if ( confirm('REALLY?' ) ) {
+                localStorage.clear();
+            }
+        };
+    }
+    function colorSelection() {
+        let grading = parseInt( localStorage.getItem( arguments[0] ) );
+        console.log( "colorSelection " + arguments[0] + " grading: " + grading );
+        switch ( grading ) {
+            case 0:
+                document.getElementById("t00").style.backgroundColor = "red";
+                document.getElementById("t05").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t10").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t15").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t20").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t25").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t30").style.backgroundColor = "#e0e0e0";
+                break;
+            case 5:
+                document.getElementById("t00").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t05").style.backgroundColor = "red";
+                document.getElementById("t10").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t15").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t20").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t25").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t30").style.backgroundColor = "#e0e0e0";
+                break;
+            case 10:
+                document.getElementById("t00").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t05").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t10").style.backgroundColor = "red";
+                document.getElementById("t15").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t20").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t25").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t30").style.backgroundColor = "#e0e0e0";
+                break;
+            case 15:
+                document.getElementById("t00").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t05").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t10").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t15").style.backgroundColor = "red";
+                document.getElementById("t20").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t25").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t30").style.backgroundColor = "#e0e0e0";
+                break;
+            case 20:
+                document.getElementById("t00").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t05").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t10").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t15").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t20").style.backgroundColor = "red";
+                document.getElementById("t25").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t30").style.backgroundColor = "#e0e0e0";
+                break;
+            case 25:
+                document.getElementById("t00").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t05").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t10").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t15").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t20").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t25").style.backgroundColor = "red";
+                document.getElementById("t30").style.backgroundColor = "#e0e0e0";
+                break;
+            case 30:
+                document.getElementById("t00").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t05").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t10").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t15").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t20").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t25").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t30").style.backgroundColor = "red";
+                break;
+            default:
+                document.getElementById("t00").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t05").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t10").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t15").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t20").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t25").style.backgroundColor = "#e0e0e0";
+                document.getElementById("t30").style.backgroundColor = "#e0e0e0";
+        }
+    }
+</script>
+{% endif %}

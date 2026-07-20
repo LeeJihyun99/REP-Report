@@ -1,0 +1,33 @@
+{% assign artefact = include.myArtefact %}
+
+{% if artefact.type == "functionalRequirement" %}
+	{% include /functions/checks/check-functionalRequirement.html myArtefact=artefact %}
+{% elsif artefact.type == "goal" %}
+	{% include /functions/checks/check-goal.html myArtefact=artefact %}
+{% elsif artefact.type == "interview" %}
+	{% include /functions/checks/check-interview.html myArtefact=artefact %}
+{% elsif artefact.type == "literatureReference" %}
+	{% include /functions/checks/check-literatureReference.html myArtefact=artefact %}
+{% elsif artefact.type == "persona" %}
+	{% include /functions/checks/check-persona.html myArtefact=artefact %}
+{% elsif artefact.type == "review" %}
+	{% include /functions/checks/check-review.html myArtefact=artefact %}
+{% elsif artefact.type == "scenario" %}
+	{% include /functions/checks/check-scenario.html myArtefact=artefact %}
+{% elsif artefact.type == "stakeholder" %}
+	{% include /functions/checks/check-stakeholder.html myArtefact=artefact %}
+{% elsif artefact.type == "stakeholderRole" %}
+	{% include /functions/checks/check-stakeholderRole.html myArtefact=artefact %}
+{% elsif artefact.type == "survey" %}
+	{% include /functions/checks/check-survey.html myArtefact=artefact %}
+{% elsif artefact.type == "systemContextElement" %}
+	{% include /functions/checks/check-systemContextElement.html myArtefact=artefact %}
+{% elsif artefact.type == "useCase" %}
+	{% include /functions/checks/check-useCase.html myArtefact=artefact %}
+{% elsif artefact.type == "useCaseDiagram" %}
+	{% include /functions/checks/check-useCaseDiagram.html myArtefact=artefact %}
+{% elsif artefact.type == "userStory" %}
+	{% include /functions/checks/check-userStory.html myArtefact=artefact %}
+{% elsif artefact.type == "workshop" %}
+	{% include /functions/checks/check-workshop.html myArtefact=artefact %}
+{% endif %}

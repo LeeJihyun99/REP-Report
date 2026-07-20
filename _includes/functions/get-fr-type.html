@@ -1,0 +1,10 @@
+{% assign localRequirement = include.myRequirement %}
+
+{% assign frType = "-" %}
+{% if localRequirement.independentSystemActionTemplate != Nil %}
+	{% assign frType = site.translations[site.lang].functionalRequirements.independentSystemActionTemplate %}
+{% elsif localRequirement.userInteractionTemplate != Nil %}
+	{% assign frType = site.translations[site.lang].functionalRequirements.userInteractionTemplate %}
+{% elsif localRequirement.interfaceRequirementTemplate != Nil %}
+	{% assign frType = site.translations[site.lang].functionalRequirements.interfaceRequirementTemplate %}
+{% endif %}

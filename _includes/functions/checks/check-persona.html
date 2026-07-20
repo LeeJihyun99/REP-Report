@@ -1,0 +1,58 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" %}
+{% assign myPurpose = site.translations[site.lang].global.relatedStakeholderRole %}
+{% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact myCheckedRef=artefact.stakeholderRole
+        myCheckedRefType="stakeholderRole" asList=false emptyMeansError=true
+        myPurpose=myPurpose myErrorString=errorString myWarningString=warningString %}
+{% include /functions/checks/generic/check-sources.html myArtefact=artefact
+		myErrorString=errorString myWarningString=warningString %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 590 - 609 reserved for persona **** {% endcomment %}
+
+
+{% comment %}---------- relationshipToProject -----------{% endcomment %}
+{% if artefact.relationshipToProject != Nil %}
+    {% if artefact.relationshipToProject.size < 10 %}
+        {% assign myMsg = site.translations[site.lang].genericErrors.relationshipToProjectTooShort %}
+        {% include /functions/define-message.html ignore=artefact.ignore msgno="w590" msg=myMsg %}
+        {% assign warningList = warningList | push: out_msg %}
+    {% endif %}
+{% else %}
+    {% assign myMsg = site.translations[site.lang].genericErrors.relationshipToProjectMissing %}
+    {% include /functions/define-message.html ignore=artefact.ignore msgno="e591" msg=myMsg %}
+    {% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- age -----------{% endcomment %}
+{% if artefact.age == Nil %}
+	{% assign myMsg = site.translations[site.lang].personas.ageMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e592" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- name -----------{% endcomment %}
+{% if artefact.name != Nil %}
+    {% if artefact.name.size < 10 %}
+        {% assign myMsg = site.translations[site.lang].genericErrors.nameTooShort %}
+        {% include /functions/define-message.html ignore=artefact.ignore msgno="w593" msg=myMsg %}
+        {% assign warningList = warningList | push: out_msg %}
+    {% endif %}
+{% else %}
+    {% assign myMsg = site.translations[site.lang].genericErrors.nameMissing %}
+    {% include /functions/define-message.html ignore=artefact.ignore msgno="e594" msg=myMsg %}
+    {% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

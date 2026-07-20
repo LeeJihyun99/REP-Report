@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+{% include /functions/print-teacherbuttons.html myArtefact=page %}
+{% include /functions/print-page-navigation.html myArtefact=page %}
+{% include /functions/get-artefact-name.html myArtefact=page myIdFormat="postfix" %}
+<h1>{{ artefactName }}</h1>
+
+<dl>
+    <dt>{% t global.MainlyBelongsToFr %}</dt>
+    {% include /functions/get-link-to-artefact.html myRef=page.functionalRequirement
+            myTypeString="functionalRequirement" myIdFormat="prefix" %}
+    <dd>{{ artefactLink }}</dd>
+
+    {% if page.useCasesDetailedWithScenario %}
+        {% assign frRefList = "" | split: ";" %}
+        {% for ucAcronym in page.useCasesDetailedWithScenario %}
+            {% assign detailedUC = site.useCases | where_exp: "uc", "uc.acronym == ucAcronym" | first %}
+            {% assign frRef = detailedUC.functionalRequirement %}
+            {% if detailedUC != Nil and frRef != page.functionalRequirement %}
+                {% if frRefList contains frRef %}
+                {% else %}
+                    {% assign frRefList = frRefList | push: frRef %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        {% if frRefList.size > 0 %}
+            <dt>{% t useCaseDiagrams.OtherFr %}</dt>
+            {% for frAcronym in frRefList %}
+                {% include /functions/get-link-to-artefact.html myRef=frAcronym
+                        myTypeString="functionalRequirement" myIdFormat="prefix" %}
+                <dd>{{ artefactLink }}</dd>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+
+
+    {% include /functions/print-authors.html page=page %}
+    {% include /functions/print-history.html myArtefact=page %}
+    {% include /functions/checks/check-useCaseDiagram.html myArtefact=page %}
+    {% include /functions/print-detailed-check-messages.html errors=errorString warnings=warningString todos=page.todo %}
+</dl>
+
+<h2>{% t global.diagram %}</h2>
+
+{% t useCaseDiagrams.diagramSummary %}
+
+<ul>
+    {% for ucRef in page.useCasesDetailedWithScenario %}
+        {% include /functions/get-link-to-artefact.html myRef=ucRef myTypeString="useCase" myIdFormat="postfix" %}
+        <li>{{ artefactLink }}</li>
+    {% endfor %}
+    {% for ucRef in page.furtherUseCasesNotSpecified %}
+        <li>{{ ucRef }}</li>
+    {% endfor %}
+</ul>
+<img src="{{ page.diagram }}" />
+
+{{ page.content }}

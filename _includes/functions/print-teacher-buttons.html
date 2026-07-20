@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .buttontype {
+            grid-area: button;
+            font-size: 20px;
+        }
+        .buttontexttype {
+            grid-area: buttontext;
+            font-size: 6px;
+        }
+
+        .teachergrid-container {
+            display: grid;
+            grid-template-areas:
+    'button button button button button button button link'
+    'buttontext buttontext buttontext buttontext buttontext buttontext buttontext'
+            gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .teachergrid-container > div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Grid Layout</h1>
+
+<p>Fasel</p>
+
+<div class="teachergrid-container">
+    <div class="buttontype"><button onclick="exportData()">0</button></div>
+    <div class="buttontype"><button onclick="exportData()">1</button></div>
+    <div class="buttontype"><button onclick="exportData()">2</button></div>
+    <div class="buttontype"><button onclick="exportData()">3</button></div>
+    <div class="buttontype"><button onclick="exportData()">4</button></div>
+    <div class="buttontype"><button onclick="exportData()">5</button></div>
+    <div class="buttontype"><button onclick="exportData()">6</button></div>
+    <div class="buttontexttype">Selbst die wichtigsten Kern-Aspekte sind nicht sinnvoll beschrieben und begründet.</div>
+    <div class="buttontexttype"></div>
+    <div class="buttontexttype">Die wichtigsten Kern-Aspekte sind abgedeckt, aber mit Auslassungen, Wiederholungen oder Weitschweifigkeiten. Widersprüche in sich und mit dem Kontext sind wahrnehmbar. </div>
+    <div class="buttontexttype"></div>
+    <div class="buttontexttype">Weitgehend vollständig mit nur kleineren Schwächen, z.B. Wiederholungen, Weitschweifigkeiten, Layout, … In den meisten Aspekten in sich und mit Kontext konsistent. </div>
+    <div class="buttontexttype"></div>
+    <div class="buttontexttype">Umfassend, präzise und kompakt. In sich und mit dem Kontext konsistent. </div>
+</div>
+
+</body>
+</html>

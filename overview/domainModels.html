@@ -1,0 +1,36 @@
+---
+layout: default
+---
+{% assign sortField = site.data.metadata["domainModel"].sortField %}
+{% if site.withTemplates %}
+    {% assign collection = site.domainModels %}
+{% else %}
+    {% assign collection = site.domainModels | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+{% assign collection = collection | sort: sortField %}
+
+<h1>{% t domainModels.headerOverview %} ({{ collection.size }})</h1>
+
+{% t domainModels.summary %}
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="80%">{% t global.Title %}</th>
+    </tr>
+    </thead>
+    <tbody>
+
+        {% for domainModel in collection %}
+        <tr>
+            {% include /functions/checks/check-domainModel.html myArtefact=domainModel %}
+            {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=domainModel.todo %}
+            <td>{{ iconString }}</td>
+
+            {% include /functions/get-artefact-name.html myArtefact=domainModel myIdFormat="prefix" %}
+            <td><a href="{{ site.url }}{{ domainModel.url | relative_url }}">{{ artefactName }}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

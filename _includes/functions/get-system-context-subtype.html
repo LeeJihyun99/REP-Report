@@ -1,0 +1,23 @@
+{% assign localSystemContextElement = include.mySystemContextElement %}
+
+{% assign subTypeString = "-" %}
+
+{% if localSystemContextElement.subtype %}
+	{% if localSystemContextElement.subtype == "itsystem" %}
+		{% assign subTypeString = site.translations[site.lang].systemContext.itsystem %}
+	{% elsif localSystemContextElement.subtype == "process" %}
+		{% assign subTypeString = site.translations[site.lang].systemContext.process %}
+	{% elsif localSystemContextElement.subtype == "regulation" %}
+		{% assign subTypeString = site.translations[site.lang].systemContext.regulation %}
+	{% elsif localSystemContextElement.subtype == "event" %}
+		{% assign subTypeString = site.translations[site.lang].systemContext.event %}
+	{% elsif localSystemContextElement.subtype == "document" %}
+		{% assign subTypeString = site.translations[site.lang].systemContext.document %}
+	{% elsif localSystemContextElement.subtype == "competitor" %}
+		{% assign subTypeString = site.translations[site.lang].systemContext.Competitor %}
+	{% elsif localSystemContextElement.subtype == "otherConstraint" %}
+		{% assign subTypeString = site.translations[site.lang].systemContext.otherConstraint %}
+	{% else %}
+		{% assign subTypeString = "???" %}
+	{% endif %}
+{% endif %}

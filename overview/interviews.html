@@ -1,0 +1,40 @@
+---
+layout: default
+---
+{% assign sortField = site.data.metadata["interview"].sortField %}
+{% assign collection = site.interviews | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+<h1>Interviews ({{ collection.size }})</h1>
+
+{% t interviews.summary %}
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="50%">{% t interviews.transscriptTableHeader %}</th>
+        <th width="30%">{% t interviews.partnerTableHeader %}</th>
+    </tr>
+    </thead>
+    <tbody>
+
+        {% for interview in collection %}
+        <tr>
+            {% include /functions/checks/check-interview.html myArtefact=interview %}
+            {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=interview.todo %}
+            <td>{{ iconString }}</td>
+
+            {% include /functions/get-artefact-name.html myArtefact=interview myIdFormat="prefix" %}
+            <td><a href="{{ site.url }}{{ interview.url | relative_url }}">{{ artefactName }}</a></td>
+
+            {% include /functions/get-link-to-artefact.html myRef=interview.stakeholder myTypeString="stakeholder"
+                    myIdFormat="prefix" %}
+            <td>{{ artefactLink }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,125 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" %}
+{% assign myPurpose = site.translations[site.lang].priorizations.relatedStakeholderRole %}
+{% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact myCheckedRef=artefact.stakeholderRoles
+        myCheckedRefType="stakeholderRole" asList=true emptyMeansError=true
+        myPurpose=myPurpose myErrorString=errorString myWarningString=warningString %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 870 - 889 reserved for Workshop **** {% endcomment %}
+
+{% comment %}---------- intention -----------{% endcomment %}
+{% if artefact.intention == Nil %}
+	{% assign myMsg = site.translations[site.lang].genericErrors.intentionMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e870" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- method -----------{% endcomment %}
+{% if artefact.method == Nil %}
+	{% assign myMsg = site.translations[site.lang].genericErrors.methodMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e871" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% else %}
+    {% if artefact.method.name == Nil %}
+        {% assign myMsg = site.translations[site.lang].genericErrors.methodNameMissing %}
+        {% include /functions/define-message.html ignore=artefact.ignore msgno="e872" msg=myMsg %}
+        {% assign errorList = errorList | push: out_msg %}
+    {% endif %}
+    {% if artefact.method.description == Nil %}
+        {% assign myMsg = site.translations[site.lang].genericErrors.methodDescriptionMissing %}
+        {% include /functions/define-message.html ignore=artefact.ignore msgno="w873" msg=myMsg %}
+        {% assign warningList = warningList | push: out_msg %}
+    {% endif %}
+{% endif %}
+
+
+{% comment %}---------- conducting -----------{% endcomment %}
+{% if artefact.conducting == Nil %}
+	{% assign myMsg = site.translations[site.lang].genericErrors.conductingMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e874" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% else %}
+	{% if artefact.conducting.date == Nil %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.conductingDateMissing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e875" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+	{% if artefact.conducting.timeFrom == Nil %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.conductingTimeFromMissing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e876" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+	{% if artefact.conducting.timeUntil == Nil %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.conductingTimeUntilMissing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e877" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+	{% if artefact.conducting.location == Nil %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.conductingLocationMissing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e878" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+{% endif %}
+
+
+{% comment %}---------- additionalDocuments -----------{% endcomment %}
+{% if artefact.additionalDocuments != Nil and artefact.additionalDocuments.size > 0 %}
+	{% for documentation in artefact.additionalDocuments %}
+		{% if documentation.url == Nil %}
+			{% assign myMsg = site.translations[site.lang].genericErrors.additionalDocumentsUrlMissing %}
+			{% include /functions/define-message.html ignore=artefact.ignore msgno="e879" msg=myMsg %}
+			{% assign errorList = errorList | push: out_msg %}
+		{% endif %}
+		{% if documentation.purpose == Nil %}
+			{% assign myMsg = site.translations[site.lang].genericErrors.additionalDocumentsPurposeMissing %}
+			{% include /functions/define-message.html ignore=artefact.ignore msgno="e880" msg=myMsg %}
+			{% assign errorList = errorList | push: out_msg %}
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+
+
+{% comment %}---------- participants -----------{% endcomment %}
+{% if artefact.participants == Nil %}
+	{% assign myMsg = site.translations[site.lang].genericErrors.participantsMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e881" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% else %}
+	{% if artefact.participants.numberOfParticipants == Nil %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.participantsNumberOfParticipantsMissing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e882" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+	{% if artefact.participants.referenceGroupDefinition == Nil %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.participantsReferenceGroupDefinitionMissing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e883" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+	{% if artefact.participants.referenceGroupSize == Nil %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.participantsReferenceGroupSizeMissing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e884" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+	{% if artefact.participants.approachedBy == Nil %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.participantsApproachedByMissing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e885" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+{% endif %}
+
+
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

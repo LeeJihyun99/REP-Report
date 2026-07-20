@@ -1,0 +1,39 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 850 - 869 reserved for Domain Model **** {% endcomment %}
+
+{% comment %}---------- title -----------{% endcomment %}
+{% if artefact.title == Nil %}
+	{% assign myMsg = site.translations[site.lang].genericErrors.titleMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e850" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% else %}
+	{% if artefact.title.size < 10 %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.titleTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w851" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% endif %}
+
+{% comment %}---------- diagram -----------{% endcomment %}
+{% if artefact.diagram == Nil %}
+	{% assign myMsg = site.translations[site.lang].genericErrors.diagramMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e852" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

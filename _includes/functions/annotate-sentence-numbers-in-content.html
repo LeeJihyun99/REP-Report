@@ -1,0 +1,20 @@
+{% assign contentString = include.myContent %}
+
+{% assign contentString = contentString | replace: ".jpg", "__JPG__" |
+        replace: ".png", "__PNG__" | replace: ".pdf", "__PDF__" %}
+
+{% for counter in (1..100) %}
+    {% if contentString contains "." %}
+        {% assign numberStr = " <span style='font-weight:bolder'>(" | append: counter |
+                    append: ")</span>$$$" %}
+        {% assign contentString = contentString | replace_first: ".", numberStr %}
+    {% else %}
+        {% break %}
+    {% endif %}
+{% endfor %}
+
+{% assign contentString = contentString | replace: "$$$", "." |
+        replace: "__JPG__", ".jpg" | replace: "__PNG__", ".png" | replace: "__PDF__", ".pdf" %}
+{% assign contentString = contentString | markdownify %}
+
+

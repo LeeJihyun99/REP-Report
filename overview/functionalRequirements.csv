@@ -1,0 +1,6 @@
+---
+layout: none
+---
+Akronym;Titel;Verantwortlich;Details;
+{% assign functionalRequirements = site.functionalRequirements | sort: "title" %}{% for fr in functionalRequirements %}{{ fr.acronym }};{{ fr.title }};{% if fr.author %}{% for author in fr.author %}{{ author }}{% endfor %}{% endif %};{{ fr.raw_content }};
+{% endfor %}

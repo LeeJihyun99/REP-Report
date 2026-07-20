@@ -1,0 +1,220 @@
+domainModel:
+    fullName: "Domänenmodell"
+    fullNameEn: "Domain Model"
+    sortField: "title"
+    prefix: "DOM"
+    collection: "domainModels"
+functionalRequirement:
+    fullName: "Funktionale Anforderung"
+    fullNameEn: "Functional Requirement"
+    sortField: "title"
+    prefix: "FR"
+    collection: "functionalRequirements"
+    grading:
+        p00: Nonsense
+        p05:
+        p10: Inconsistent / irrelevant / source missing
+        p15: Confusing wording / redundant / violates sentence blueprint / NFR rather than FR / reasons for requirement unclear
+        p20: A bit superficial / slightly inconsistent / not fully compliant with sentence blueprint / Kano missing / goal, not requirement
+        p25: Content very good, minor formal flaws
+        p30: Content & form perfect
+goal:
+    fullName: "Ziel"
+    fullNameEn: "Goal"
+    sortField: "title"
+    prefix: "GO"
+    collection: "goals"
+    grading:
+        p00: Nonsense
+        p05:
+        p10: Inconsistent / irrelevant / source missing
+        p15: Slightly confusing wording / redundant
+        p20: A bit superficial / requirement, not goal
+        p25: Content very good, minor formal flaws
+        p30: Content & form perfect
+interview:
+    fullName: "Interview"
+    sortField: "date"
+    prefix: "INT"
+    collection: "interviews"
+    grading:
+        p00: No transcript
+        p05:
+        p10: Very short / questions incoherent
+        p15:
+        p20: Sloppy transcript, otherwise good / summarizing transcript
+        p25: some formal flaws, otherwise good
+        p30: Perfectly prepared, perfect transcript
+literatureReference:
+    fullName: "Dokument oder Literaturverweis"
+    fullNameEn: "Document or Literature Reference"
+    sortField: "title"
+    prefix: "LIT"
+    collection: "literatureReferences"
+nonFunctionalRequirement:
+    fullName: "Nicht-funktionale Anforderung"
+    fullNameEn: "Nonfunctional Requirement"
+    sortField: "title"
+    prefix: "NFR"
+    collection: "nonFunctionalRequirements"
+persona:
+    fullName: "Persona"
+    sortField: "name"
+    prefix: "PRS"
+    collection: "personas"
+    stakeholderRoleRef:
+        asString: "stakeholderRole"
+    grading:
+        p00: Nonsense
+        p05:
+        p10: Inconsistent / irrelevant for project
+        p15: Slightly confusing description / redundant / cliché
+        p20: A bit superficial / quite brief / some irrelevant information
+        p25: Content very good, minor formal flaws
+        p30: Content & form perfect
+priorization:
+    fullName: "Priorisierungs-Workshop"
+    fullNameEn: "Priorization Workshop"
+    sortField: "intention"
+    prefix: "PRIO"
+    collection: "priorizations"
+    stakeholderRoleRef:
+        asList: "stakeholderRoles"
+review:
+    fullName: "Review"
+    fullNameEn: "Review"
+    sortField: "referencedType"
+    prefix: "RV"
+    collection: "reviews"
+    grading:
+        p00: Nonsense
+        p05:
+        p10: Inconsistent / irrelevant / redundant / very brief
+        p15:
+        p20: OK, but rather brief
+        p25:
+        p30: Comprehensive, detailed, to the point
+scenario:
+    fullName: "Szenario"
+    fullNameEn: "Scenario"
+    sortField: "title"
+    prefix: "SCN"
+    collection: "scenarios"
+    stakeholderRoleRef:
+        asString: "stakeholderRole"
+    grading:
+        p00: Nonsense
+        p05:
+        p10: Inconsistent / irrelevant for project
+        p15: Slightly confusing wording / redundant / cliché / not very authentic / formally flawed
+        p20: A bit superficial / quite brief / some redundant or irrelevant actions
+        p25: Content very good, minor formal flaws
+        p30: Content & form perfect
+stakeholder:
+    fullName: "Stakeholder"
+    sortField: "name"
+    prefix: "ST"
+    collection: "stakeholders"
+    stakeholderRoleRef:
+        asList: "stakeholderRole"
+    grading:
+        p00: Incomprehensible
+        p05:
+        p10: Inconsistent / source missing / very brief
+        p15:
+        p20: Fitting but superficial
+        p25:
+        p30: Well researched, stakes described in detail
+stakeholderRole:
+    fullName: "Stakeholder-Rolle"
+    fullNameEn: "Stakeholder Role"
+    sortField: "name"
+    prefix: "STR"
+    collection: "stakeholderRoles"
+    grading:
+        p00: Incomprehensible
+        p05:
+        p10: Inconsistent / source missing / very brief / not needed
+        p15:
+        p20: Fitting but superficial / stakeholder rather than role
+        p25:
+        p30: Well researched, stakes described in detail
+systemContextElement:
+    fullName: "Systemkontext-Element"
+    fullNameEn: "System Context Element"
+    sortField: "title"
+    prefix: "SYC"
+    collection: "systemContextElements"
+    grading:
+        p00: Nonsense
+        p05:
+        p10: Little relevance / relevance not explained
+        p15:
+        p20: Fits, but a bit superficial
+        p25:
+        p30: Well researched, detailed
+useCase:
+    fullName: "Use Case"
+    sortField: "title"
+    prefix: "UC"
+    collection: "useCases"
+    stakeholderRoleRef:
+        asString: "primaryActor"
+        asList: "secondaryActors"
+    grading:
+        p00: Nonsense
+        p05:
+        p10: Inconsistent / irrelevant / very brief
+        p15: Confusing / redundant / severe formal flaws / quite brief
+        p20: A bit superficial / slightly inconsistent / quite short / visible formal flaws
+        p25: Good, but ... a bit short / minor formal flaws
+        p30: Comprehensive, well defined, formally fine
+useCaseDiagram:
+    fullName: "Use-Case-Diagramm"
+    fullNameEn: "Use Case Diagram"
+    sortField: "title"
+    prefix: "UCD"
+    collection: "useCaseDiagrams"
+    grading:
+        p00: Nonsense
+        p05:
+        p10: Inconsistent / irrelevant / very brief
+        p15: Confusing / redundant / severe formal flaws / quite brief
+        p20: A bit superficial / slightly inconsistent / quite short / visible formal flaws
+        p25: Good, but ... a bit short / minor formal flaws
+        p30: Comprehensive, well defined, formally fine
+userStory:
+    fullName: "User Story"
+    sortField: "title"
+    prefix: "US"
+    collection: "userStories"
+    stakeholderRoleRef:
+        asString: "asA"
+    grading:
+        p00: Nonsense
+        p05:
+        p10: Inconsistent / irrelevant / redundant / user story format broken
+        p15: Confusing / redundant / way too big / severe formal flaws
+        p20: Too big / slightly inconsistent / visible formal flaws
+        p25: A bit too big / minor formal flaws
+        p30: Makes sense, right size, formally fine
+workshop:
+    fullName: "Workshop"
+    sortField: "intention"
+    prefix: "WS"
+    collection: "workshops"
+    stakeholderRoleRef:
+        asList: "stakeholderRoles"
+survey:
+    fullName: "Umfrage"
+    fullNameEn: "Survey"
+    sortField: "intention"
+    prefix: "SV"
+    collection: "surveys"
+    stakeholderRoleRef:
+        asList: "stakeholderRoles"
+glossary:
+    fullName: "Glossary Entry"
+    sortField: "title"
+    prefix: "GL"
+    collection: "glossary"

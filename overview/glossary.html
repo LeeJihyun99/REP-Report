@@ -1,0 +1,39 @@
+---
+layout: default
+---
+{% assign sortField = site.data.metadata["glossary"].sortField %}
+{% assign collection = site.glossary | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+<h1>{% t glossary.headerOverview %} ({{ collection.size }})</h1>
+
+{% t glossary.summary %}
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="10%">ID</th>
+        <th width="20%">Name</th>
+        <th width="60%">{% t global.definition %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for element in collection %}
+    <tr>
+        {% include /functions/checks/check-glossary.html myArtefact=element %}
+        {% include /functions/get-check-icon.html errors=errorString warnings=warningString
+                todos=element.todo %}
+        <td>{{ iconString }}</td>
+
+        {% include /functions/get-globalid.html myArtefact=element %}
+        <td><a href="{{ site.url }}{{ element.url | relative_url }}">{{ globalId }}</a></td>
+        <td><a href="{{ site.url }}{{ element.url | relative_url }}">{{ element.title }}</a></td>
+        <td>{{ element.definition }}</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

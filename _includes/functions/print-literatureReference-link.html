@@ -1,0 +1,24 @@
+{% assign sourceRef = include.mySourceRef %}
+
+{% assign refType = sourceRef[0] %}
+{% assign localAcronym = sourceRef[1] %}
+{% assign comment = sourceRef[2] %}
+
+{% if refType == "literatureReference" %}
+    {% assign litRef = site.literatureReferences | where_exp: "lr", "lr.acronym == localAcronym" | first %}
+    {% if litRef.documentAuthor != Nil %}
+        {{ litRef.documentAuthor }}:
+    {% endif %}
+    {% if litRef.documentUrl != Nil %}
+        <a href="{{ litRef.documentUrl }}" target="_blank">
+    {% else %}
+        <a href="{{ site.url }}{{ litRef.url | relative_url }}">
+    {% endif %}
+    {{ litRef.title }}
+        </a>
+    {% if litRef.publishingDate != Nil %}
+        ({{ litRef.publishingDate }})
+    {%- endif %}
+    {%- if litComment != Nil %}, {{ litComment }}{% endif %}
+{% else %}
+{% endif %}

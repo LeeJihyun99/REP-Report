@@ -1,0 +1,18 @@
+{% assign errorString = include.errors %}
+{% assign warningString = include.warnings %}
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+{% assign todoList = include.todos %}
+
+{% if errorList.size > 0 or warningList.size > 0 or todoList.size > 0 %}
+	<dt>Errors, Warnings, Todos</dt>
+	{% for errorMsg in errorList %}
+		<dd><img src="{{ site.url }}{{ '/assets/alert-16.png' | relative_url }}" alt="e" width="16" height="16" style="vertical-align:middle"/> &nbsp; {{ errorMsg }}</dd>
+	{% endfor %}
+	{% for warningMsg in warningList %}
+		<dd><img src="{{ site.url }}{{ '/assets/warning-16.png' | relative_url }}" alt="w" width="16" height="16" style="vertical-align:middle"/> &nbsp; {{ warningMsg }}</dd>
+	{% endfor %}
+	{% for todoMsg in todoList %}
+		<dd><img src="{{ site.url }}{{ '/assets/clipboard-4-16.png' | relative_url }}" alt="t" width="16" height="16" style="vertical-align:middle"/> &nbsp; {{ todoMsg }}</dd>
+	{% endfor %}
+{% endif %}

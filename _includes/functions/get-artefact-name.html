@@ -1,0 +1,74 @@
+{% assign localArtefact = include.myArtefact %}
+{% assign idFormat = include.myIdFormat %}
+
+{% assign localArtefactName = "???" %}
+{% if localArtefact.type %}
+    {% assign type = localArtefact.type %}
+    {% assign localArtefactType = site.data.metadata[type] %}
+    {% assign sortField = localArtefactType.sortField %}
+    {% assign localArtefactName = localArtefact[sortField] %}
+
+    {% if type == "stakeholder" %}
+        {% if localArtefact.subtype == "group" %}
+            {% assign groupPostFix = site.translations[site.lang].stakeholders.group %}
+            {% assign localArtefactName = localArtefactName | append: " " | append: groupPostFix %}
+        {% endif %}
+    {% elsif type == "interview" and localArtefact.stakeholder %}
+        {% assign localStakeholderRef = localArtefact.stakeholder %}
+        {% assign localStakeholderList = site.stakeholders | where: "acronym", localStakeholderRef %}
+        {% if localStakeholderList.size > 0 %}
+            {% assign localStakeholder = localStakeholderList | first %}
+            {% assign headerStart = site.translations[site.lang].interviews.with %}
+            {% assign localArtefactName = headerStart | append: " »" | append: localStakeholder.name | append: "«"  %}
+        {% endif %}
+    {% elsif type == "useCaseDiagram" and localArtefact.functionalRequirement %}
+        {% assign localFunctionalRequirementRef = localArtefact.functionalRequirement %}
+        {% assign localFunctionalRequirementList = site.functionalRequirements |
+                where: "acronym", localFunctionalRequirementRef %}
+        {% if localFunctionalRequirementList.size > 0 %}
+            {% assign localFunctionalRequirement = localFunctionalRequirementList | first %}
+            {% assign ucdPrefix = site.translations[site.lang].useCaseDiagrams.ucdForFR %}
+            {% assign localArtefactName = ucdPrefix | append: " »" |
+                    append: localFunctionalRequirement.title | append: "«" %}
+        {% endif %}
+    {% elsif type == "literatureReference" %}
+        {% assign litRef = site.literatureReferences | where_exp: "lr", "lr.acronym == localArtefact.acronym" | first %}
+        {% assign localArtefactName = "" %}
+        {% if litRef.documentAuthor != Nil %}
+            {% assign localArtefactName = localArtefactName | append: litRef.documentAuthor %}
+            {% if litRef.publishingDate != Nil %}
+                {% assign localArtefactName = localArtefactName | append: " (" |
+                        append: litRef.publishingDate | append: "): " %}
+            {% else %}
+                {% assign localArtefactName = localArtefactName | append: ": " %}
+            {% endif %}
+        {% endif %}
+        {% assign localArtefactName = localArtefactName | append: litRef.title %}
+        {% if litRef.documentAuthor == Nil and litRef.publishingDate != Nil %}
+            {% assign localArtefactName = localArtefactName | append: " (" |
+                    append: litRef.publishingDate | append: ")" %}
+        {% endif %}
+        {%- if litComment != Nil %}
+            {% assign localArtefactName = localArtefactName | append: ", " | append: litComment %}
+        {% endif %}
+    {% elsif type == "review" %}
+        {% assign localArtefactName = "Review" %}
+    {% endif %}
+
+    {% if idFormat == "prefix" or idFormat == "postfix" or idFormat == "postfixWithBrackets" or idFormat == "onlyId" %}
+        {% include /functions/get-globalid.html myArtefact=localArtefact %}
+        {% if idFormat == "prefix" %}
+            {% assign localArtefactName = globalId | append: ": " | append: localArtefactName %}
+        {% elsif idFormat == "postfix" %}
+            {% assign localArtefactName = localArtefactName | append: " (" | append: globalId | append: ")" %}
+        {% elsif idFormat == "postfixWithBrackets" %}
+            {% assign localArtefactName = "»" | append: localArtefactName | append: "« (" |
+                    append: globalId | append: ")" %}
+        {% elsif idFormat == "onlyId" %}
+            {% assign localArtefactName = globalId %}
+        {% endif %}
+    {% endif %}
+{% else %}
+    {% assign localArtefactName = localArtefact.title %}
+{% endif %}
+{% assign artefactName = localArtefactName %}

@@ -1,0 +1,20 @@
+{% assign myPersona = include.persona %}
+{% assign myFormat = include.format | default: "overview" %}
+
+{% assign linkList = "" | split: ";" %}
+{% assign personaAcronym = myPersona.acronym %}
+{% assign scenarioList = site.scenarios | where_exp: "scen", "scen.persona == personaAcronym" %}
+{% for scen in scenarioList %}
+    {% include /functions/get-link-to-artefact.html myRef=scen.acronym myTypeString="scenario" myIdFormat="prefix" %}
+    {% assign linkList = linkList | push: artefactLink %}
+{% endfor %}
+
+{% assign linkString = "none" %}
+{% if linkList.size > 0 %}
+    {% if myFormat == "lines" %}
+        {% assign linkString = linkList | join: ",<br/>" %}
+    {% elsif myFormat == "detail" %}
+        {% assign linkString = linkList | join: "</dd><dd>" %}
+        {% assign linkString = "<dd>" | append: linkString | append: "</dd>" %}
+    {% endif %}
+{% endif %}

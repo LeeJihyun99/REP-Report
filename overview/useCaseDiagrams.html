@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+{% assign sortField = site.data.metadata["useCaseDiagram"].sortField %}
+{% assign collection = site.useCaseDiagrams | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+<h1>{% t useCaseDiagrams.navLabel %} ({{ collection.size }})</h1>
+
+{% t useCaseDiagrams.summary %}
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="8%">ID</th>
+        <th width="45%">{% t global.Title %}</th>
+        <th width="40%">{% t global.MainlyBelongsToFr %}</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for useCaseDiagram in collection %}
+    <tr>
+        {% include /functions/checks/check-useCaseDiagram.html myArtefact=useCaseDiagram %}
+        {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=useCaseDiagram.todo %}
+        <td>{{ iconString }}</td>
+
+        {% include /functions/get-globalid.html myArtefact=useCaseDiagram %}
+        <td><a href="{{ site.url }}{{ useCaseDiagram.url | relative_url }}">{{ globalId }}</a></td>
+
+        {% include /functions/get-artefact-name.html myArtefact=useCaseDiagram %}
+        <td><a href="{{ site.url }}{{ useCaseDiagram.url | relative_url }}">{{ artefactName }}</a></td>
+
+        {% include /functions/get-link-to-artefact.html myRef=useCaseDiagram.functionalRequirement
+                myTypeString="functionalRequirement" myIdFormat="prefix" %}
+        <td>{{ artefactLink }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

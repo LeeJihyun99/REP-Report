@@ -1,0 +1,117 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" %}
+{% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact myCheckedRef=artefact.goals
+		myCheckedRefType="goal" asList=true emptyMeansError=true
+		myPurpose="Ziel-Referenz" myErrorString=errorString myWarningString=warningString %}
+{% include /functions/checks/generic/check-sources.html myArtefact=artefact
+		myErrorString=errorString myWarningString=warningString %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 500 - 529 reserved for FR **** {% endcomment %}
+
+{% comment %}---------- kano -----------{% endcomment %}
+{% if artefact.kano %}
+	{% if artefact.kano.type %}
+		{% if artefact.kano.type != "basic" and artefact.kano.type != "performance" and artefact.kano.type != "excitement" %}
+			{% assign myMsg = site.translations[site.lang].kano.invalidType |
+				append: ": " | append: artefact.kano.type %}
+			{% include /functions/define-message.html ignore=artefact.ignore msgno="e502" msg=myMsg %}
+			{% assign errorList = errorList | push: out_msg %}
+		{% endif %}
+	{% else %}
+		{% assign myMsg = site.translations[site.lang].kano.typeMissing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e503" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+	{% if artefact.kano.reasoning %}
+		{% if artefact.kano.reasoning.size < 15 %}
+			{% assign myMsg = site.translations[site.lang].kano.reasoningTooShort %}
+			{% include /functions/define-message.html ignore=artefact.ignore msgno="w504" msg=myMsg %}
+			{% assign warningList = warningList | push: out_msg %}
+		{% endif %}
+	{% else %}
+		{% assign myMsg = site.translations[site.lang].kano.reasoningMissing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e505" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+{% endif %}
+
+{% comment %}---------- title -----------{% endcomment %}
+{% if artefact.title %}
+	{% if artefact.title.size < 10 %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.titleTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w506" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% endif %}
+
+{% comment %}---------- sentenceTemplate (general) -----------{% endcomment %}
+{% if artefact.interfaceRequirementTemplate == Nil and artefact.independentSystemActionTemplate == Nil
+		and artefact.userInteractionTemplate == Nil %}
+	{% assign myMsg = site.translations[site.lang].functionalRequirements.sentenceTemplate.missing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e507" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+{% if artefact.interfaceRequirementTemplate != Nil %}
+	{% assign localCheckSentenceTemplate = artefact.interfaceRequirementTemplate %}
+{% elsif artefact.independentSystemActionTemplate != Nil %}
+	{% assign localCheckSentenceTemplate = artefact.independentSystemActionTemplate %}
+{% elsif artefact.userInteractionTemplate != Nil %}
+	{% assign localCheckSentenceTemplate = artefact.userInteractionTemplate %}
+{% endif %}
+
+{% if localCheckSentenceTemplate.theSystem == Nil %}
+	{% assign myMsg = site.translations[site.lang].functionalRequirements.sentenceTemplate.theSystemMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e508" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% elsif localCheckSentenceTemplate.theSystem != "must" and localCheckSentenceTemplate.theSystem != "will" and
+		localCheckSentenceTemplate.theSystem != "should" %}
+	{% assign myMsg = site.translations[site.lang].functionalRequirements.sentenceTemplate.theSystemInvalid |
+		append: ": " | append: localCheckSentenceTemplate.theSystem %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e509" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+
+{% comment %}---------- sentenceTemplate.interfaceRequirementTemplate -----------{% endcomment %}
+{% if artefact.interfaceRequirementTemplate != Nil %}
+	{% if localCheckSentenceTemplate.beAbleToDoWhat == Nil %}
+		{% assign myMsg = site.translations[site.lang].functionalRequirements.sentenceTemplate.beAbleToDoWhatMissing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e510" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+{% endif %}
+
+
+{% comment %}---------- sentenceTemplate.independentSystemActionTemplate -----------{% endcomment %}
+{% if artefact.independentSystemActionTemplate != Nil %}
+	{% if localCheckSentenceTemplate.doWhat == Nil %}
+		{% assign myMsg = site.translations[site.lang].functionalRequirements.sentenceTemplate.doWhatMissing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e511" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+{% endif %}
+
+
+{% comment %}---------- sentenceTemplate.userInteractionTemplate -----------{% endcomment %}
+{% if artefact.userInteractionTemplate != Nil %}
+	{% if localCheckSentenceTemplate.provideTheAbilityTo == Nil %}
+		{% assign myMsg = site.translations[site.lang].functionalRequirements.sentenceTemplate.provideTheAbilityToMissing %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e512" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+	{% endif %}
+{% endif %}
+
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

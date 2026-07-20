@@ -1,0 +1,41 @@
+{% assign stakeholderRole = include.myStakeholderRole %}
+{% assign type = include.myType %}
+{% assign collection = include.myCollection %}
+{% assign withID = include.withID %}
+
+{% assign asStringField = site.data.metadata[type].stakeholderRoleRef.asString %}
+{% assign asListField = site.data.metadata[type].stakeholderRoleRef.asList %}
+
+{% assign itemList = "" | split: ";" %}
+{% if asListField %}
+    {% assign whereExpString = "item." | append: asListField | append: " contains '" |
+                append: stakeholderRole.acronym | append: "'" %}
+    {% assign filterResults = collection | where_exp: "item", whereExpString %}
+    {% if filterResults.size > 0 %}
+        {% assign itemList = itemList | concat: filterResults %}
+    {% endif %}
+{% endif %}
+{% if asStringField %}
+    {% assign stakeholderRoleAcronym = stakeholderRole.acronym %}
+    {% assign filterResults = collection | where: asStringField, stakeholderRoleAcronym %}
+    {% if filterResults.size > 0 %}
+        {% assign itemList = itemList | concat: filterResults %}
+    {% endif %}
+{% endif %}
+
+{% assign linkList = "" | split: ";" %}
+{% assign acronymList = "" | split: ";" %}
+{% assign sortField = site.data.metadata[type].sortField %}
+{% for item in itemList %}
+    {% assign acronymList = acronymList | push: item.acronym %}
+    {% assign itemName = item[sortField] %}
+    {% if withID %}
+        {% include /functions/get-globalid.html myArtefact=item %}
+        {% assign itemName = globalId | append: ": " | append: itemName %}
+    {% endif %}
+    {% capture link %}<a href="{{ site.url }}{{ item.url | relative_url }}">{{ itemName }}</a>{% endcapture %}
+    {% assign linkList = linkList | push: link %}
+{% endfor %}
+
+{% assign linksString = linkList | join: ";" %}
+{% assign acronymString = acronymList | join: ";" %}

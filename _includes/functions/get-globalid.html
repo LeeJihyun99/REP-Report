@@ -1,0 +1,54 @@
+{% assign artefact = include.myArtefact %}
+
+{% comment %} List of output vars {% endcomment %}
+{% assign globalId = "XX-??" %}
+{% assign prevLink = "" %}
+{% assign firstLink = "" %}
+{% assign nextLink = "" %}
+{% assign lastLink = "" %}
+{% assign topLink = "" %}
+
+{% assign type = artefact.type  %}
+{% assign typeMetadata = site.data.metadata[type] %}
+{% if typeMetadata %}
+    {% assign prefix = typeMetadata.prefix %}
+    {% assign sortField = typeMetadata.sortField %}
+    {%- comment -%} -- append: "" makes it a real string, for whatever reason, doesn't work otherwise -- {%- endcomment -%}
+    {% assign collectionName = typeMetadata.collection | append: "" %}
+    {% assign collection = site[collectionName] %}
+
+    {% if collection %}
+        {% if site.withTemplates %}
+        {% else %}
+            {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+        {% endif %}
+        {% assign collection = collection | sort: sortField %}
+    {% else %}
+        {% assign collection = "" | split: ";" %}
+    {% endif %}
+
+    {% assign index = 0 %}
+    {% for element in collection %}
+        {% if artefact.acronym == element.acronym %}
+            {% assign index = forloop.index %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+
+    {% assign globalId = index | prepend: "-" | prepend: prefix %}
+    {% if index > 1 %}
+        {% assign prevIndex = index | minus: 2 %}
+        {% assign prevItem = collection[prevIndex] %}
+        {% assign firstItem = collection[0] %}
+        {% capture prevLink %}{{ site.url }}{{ prevItem.url | relative_url }}{% endcapture %}
+        {% capture firstLink %}{{ site.url }}{{ firstItem.url | relative_url }}{% endcapture %}
+    {% endif %}
+    {% if index < collection.size %}
+        {% assign lastIndex = collection.size | minus: 1  %}
+        {% assign nextItem = collection[index] %}
+        {% assign lastItem = collection[lastIndex] %}
+        {% capture nextLink %}{{ site.url }}{{ nextItem.url | relative_url }}{% endcapture %}
+        {% capture lastLink %}{{ site.url }}{{ lastItem.url | relative_url }}{% endcapture %}
+    {% endif %}
+    {% capture topLink %}{{ site.url }}{{ "/overview/" | append: collectionName | append: ".html" | relative_url }}{% endcapture %}
+{% endif %}

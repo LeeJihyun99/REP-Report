@@ -1,0 +1,59 @@
+---
+layout: default
+---
+{% include /functions/print-teacherbuttons.html myArtefact=page %}
+{% include /functions/print-page-navigation.html myArtefact=page %}
+
+{% include /functions/get-artefact-name.html myArtefact=page myIdFormat="postfixWithBrackets" %}
+<h1>{% t functionalRequirements.detailHeader %} {{ artefactName }}</h1>
+
+{% include /functions/get-sentence-template.html myRequirement=page %}
+<p class="centralDescription">{{ sentenceTemplateString }}</p>
+
+<dl>
+    <dt>{% t functionalRequirements.type %}</dt>
+    {% include /functions/get-fr-type.html myRequirement=page %}
+    <dd>{{ frType }}</dd>
+
+    <dt>{% t global.contributesToGoals %}</dt>
+    {% if page.goals %}
+        {% for goalRef in page.goals %}
+            {% include /functions/get-link-to-artefact.html myRef=goalRef myTypeString="goal" myIdFormat="prefix" %}
+            <dd>{{ artefactLink }}</dd>
+        {% endfor %}
+    {% endif %}
+
+    {% include /functions/print-priority.html myPrioScore=page.prioScore myCollectionName="functionalRequirements" %}
+
+    {% assign relatedUseCases = site.useCases | where_exp: "uc", "uc.functionalRequirement == page.acronym" %}
+    {% if relatedUseCases.size > 0 %}
+        <dt>Zugehörige Use Cases</dt>
+        {% for relatedUseCase in relatedUseCases %}
+            {% include /functions/get-artefact-name.html myArtefact=relatedUseCase myIdFormat="prefix" %}
+            <dd><a href="{{ site.url }}{{ relatedUseCase.url | relative_url }}">{{ artefactName }}</a></dd>
+        {% endfor %}
+    {% endif %}
+
+    {% assign relatedUserStories = site.userStories | where_exp: "us", "us.functionalRequirement == page.acronym" %}
+    {% if relatedUserStories.size > 0 %}
+    <dt>Zugehörige User Stories</dt>
+        {% for relatedUserStory in relatedUserStories %}
+            {% include /functions/get-artefact-name.html myArtefact=relatedUserStory myIdFormat="prefix" %}
+            <dd><a href="{{ site.url }}{{ relatedUserStory.url | relative_url }}">{{ artefactName }}</a></dd>
+        {% endfor %}
+    {% endif %}
+
+    {% include /functions/get-kano-type.html myRequirement=page %}
+    {% if kanoType != "-" %}
+        <dt>{% t kano.kanoType %}</dt>
+        <dd><i>{{ kanoType }}</i> - {{ kanoReasoning }}</dd>
+    {% endif %}
+
+    {% include /functions/print-sources.html mySources=page.sources %}
+    {% include /functions/print-authors.html page=page %}
+    {% include /functions/print-history.html myArtefact=page %}
+    {% include /functions/checks/check-functionalRequirement.html myArtefact=page %}
+    {% include /functions/print-detailed-check-messages.html errors=errorString warnings=warningString todos=page.todo %}
+</dl>
+
+{{ page.content }}

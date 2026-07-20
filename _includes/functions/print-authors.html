@@ -1,0 +1,7 @@
+{% assign localPage = include.page %}
+
+{% if site.teacherMode == false or site.teacherMode == Nil %}
+    <dt>{% t authors.dtLabel %}</dt>
+    {% include /functions/resolve-names.html myAuthor=localPage.author %}
+    <dd>{{ authorString }}</dd>
+{% endif %}

@@ -1,0 +1,6 @@
+{% assign artefact = include.myArtefact %}
+
+<dt>History</dt>
+{% for entry in artefact.history %}
+    <dd>({{ entry[0]}}) &nbsp; {{ entry[1].date }} - {{ entry[1].comment }}</dd>
+{% endfor %}

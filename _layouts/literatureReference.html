@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+{% include /functions/print-teacherbuttons.html myArtefact=page %}
+{% include /functions/print-page-navigation.html myArtefact=page %}
+
+{% assign localArtefactType = site.data.metadata["literatureReference"] %}
+{% if page.documentType != Nil %}
+    {% assign headerType = page.documentType %}
+{% else %}
+    {% if site.lang == "de" %}
+        {% assign headerType = localArtefactType.fullName %}
+    {% else %}
+        {% assign headerType = localArtefactType.fullNameEn %}
+    {% endif %}
+{% endif %}
+
+{% include /functions/get-artefact-name.html myArtefact=page myIdFormat="postfixWithBrackets" %}
+<h1>{{ headerType }} {{ artefactName }}</h1>
+
+<dl>
+    {% if page.documentAuthor != Nil %}
+        <dt>{% t literatureReferences.documentAuthor %}</dt>
+        <dd>{{ page.documentAuthor }}</dd>
+    {% endif %}
+
+    {% if page.documentUrl != Nil %}
+        <dt>URL</dt>
+        <dd><a href="{{ page.documentUrl }}" target="_blank">{{ page.documentUrl }}</a></dd>
+    {% endif %}
+
+    {% if page.publishingDate != Nil %}
+        <dt>{% t literatureReferences.publishingDate %}</dt>
+        <dd>{{ page.publishingDate }}</dd>
+    {% endif %}
+
+    {% if page.publisher != Nil %}
+        <dt>{% t literatureReferences.publisher %}</dt>
+        <dd>{{ page.publisher }}</dd>
+    {% endif %}
+
+    {% include /functions/print-authors.html page=page %}
+    {% include /functions/print-history.html myArtefact=page %}
+    {% include /functions/checks/check-literatureReference.html myArtefact=page %}
+    {% include /functions/print-detailed-check-messages.html errors=errorString warnings=warningString todos=page.todo %}
+
+</dl>
+
+
+{{ page.content }}

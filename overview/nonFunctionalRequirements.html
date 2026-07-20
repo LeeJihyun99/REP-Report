@@ -1,0 +1,50 @@
+---
+layout: default
+---
+{% assign sortField = site.data.metadata["nonFunctionalRequirement"].sortField %}
+{% assign collection = site.nonFunctionalRequirements | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+
+<h1>{% t nonFunctionalRequirements.navLabel %} ({{ collection.size }})</h1>
+
+{% t nonFunctionalRequirements.summary %}
+
+
+<table>
+    <thead>
+    <tr>
+        <th width="6%"></th>
+        <th width="9%">ID</th>
+        <th width="20%">{% t global.Title %}</th>
+        <th width="50%">{% t nonFunctionalRequirements.nfrText %}</th>
+        <th width="15%">{% t global.contributesToGoals %}</th>
+    </tr>
+    </thead>
+    <tbody>
+
+        {% for nonFunctionalRequirement in collection %}
+        <tr>
+
+            {% include /functions/checks/check-nonFunctionalRequirement.html myArtefact=nonFunctionalRequirement %}
+            {% include /functions/get-check-icon.html errors=errorString warnings=warningString
+                    todos=nonFunctionalRequirement.todo %}
+            <td>{{ iconString }}</td>
+
+            {% include /functions/get-globalid.html myArtefact=nonFunctionalRequirement  %}
+            <td><a href="{{ site.url }}{{ nonFunctionalRequirement.url | relative_url }}">{{ globalId }}</a></td>
+
+            {% include /functions/get-artefact-name.html myArtefact=nonFunctionalRequirement %}
+            <td><a href="{{ site.url }}{{ nonFunctionalRequirement.url | relative_url }}">{{ artefactName }}</a></td>
+
+            <td>{{ nonFunctionalRequirement.nfrText }}</td>
+
+            {% include /functions/get-goal-id-list.html myArtefact=nonFunctionalRequirement %}
+            <td>{{ goalIdString }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,50 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" %}
+{% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact myCheckedRef=artefact.persona
+        myCheckedRefType="persona" asList=false emptyMeansError=true
+        myPurpose="Persona" myErrorString=errorString myWarningString=warningString %}
+{% include /functions/checks/generic/check-sources.html myArtefact=artefact
+		myErrorString=errorString myWarningString=warningString %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 630 - 649 reserved for Scenario **** {% endcomment %}
+
+{% comment %}---------- scenarioTypes -----------{% endcomment %}
+{% if artefact.scenarioTypes == Nil or artefact.scenarioTypes.size == 0 %}
+    {% assign myMsg = site.translations[site.lang].scenarios.scenarioTypeMissing %}
+    {% include /functions/define-message.html ignore=artefact.ignore msgno="e630" msg=myMsg %}
+    {% assign errorList = errorList | push: out_msg %}
+{% else %}
+    {% for scenarioType in artefact.scenarioTypes %}
+        {% assign scenName = site.translations[site.lang].scenarios.type[scenarioType] %}
+        {% if scenName == Nil %}
+            {% assign myMsg = scenarioType | append: ": " |
+                    append: site.translations[site.lang].scenarios.invalidScenarioType %}
+            {% include /functions/define-message.html ignore=artefact.ignore msgno="e631" msg=myMsg %}
+            {% assign errorList = errorList | push: out_msg %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% comment %}---------- scenarioTypes tags in Content -----------{% endcomment %}
+{% assign pageContent = artefact.content | raw_content %}
+{% include /functions/annotate-scenarioType-in-content.html myContent=pageContent scenarioTypes=artefact.scenarioTypes %}
+{% if unmatchedScenarioTypeString.size > 0 %}
+    {% assign myMsg = site.translations[site.lang].scenarios.scenarioTypeUntagged | append: ": " |
+            append: unmatchedScenarioTypeString %}
+    {% include /functions/define-message.html ignore=artefact.ignore msgno="e631" msg=myMsg %}
+    {% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

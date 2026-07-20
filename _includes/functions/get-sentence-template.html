@@ -1,0 +1,55 @@
+{% assign localRequirement = include.myRequirement %}
+
+{% comment %} ----- this currently only works for English language ----- {% endcomment %}
+
+{% if localRequirement.interfaceRequirementTemplate != Nil %}
+	{% assign sentenceTemplate = localRequirement.interfaceRequirementTemplate %}
+{% elsif localRequirement.independentSystemActionTemplate != Nil %}
+	{% assign sentenceTemplate = localRequirement.independentSystemActionTemplate %}
+{% elsif localRequirement.userInteractionTemplate != Nil %}
+	{% assign sentenceTemplate = localRequirement.userInteractionTemplate %}
+{% endif %}
+
+
+{% assign firstPart = "" %}
+{% if sentenceTemplate.condition != Nil %}
+	{% assign firstPart = sentenceTemplate.condition | append: ", " |
+		append: site.translations[site.lang].functionalRequirements.sentenceTemplate.theSystemLowercase |
+		append: " " %}
+{% else %}
+	{% assign firstPart = site.translations[site.lang].functionalRequirements.sentenceTemplate.theSystemUppercase |
+		append: " " %}
+{% endif %}
+{% assign firstPart = firstPart |
+	append: site.translations[site.lang].functionalRequirements.sentenceTemplate.theSystem[sentenceTemplate.theSystem] |
+	append: " " %}
+
+{% assign middlePart = "" %}
+{% if localRequirement.interfaceRequirementTemplate != Nil %}
+	{% assign middlePart = site.translations[site.lang].functionalRequirements.sentenceTemplate.beAbleToDoWhat |
+		append: " " | append: localRequirement.interfaceRequirementTemplate.beAbleToDoWhat | append: " " %}
+{% elsif localRequirement.independentSystemActionTemplate != Nil %}
+	{% assign middlePart = localRequirement.independentSystemActionTemplate.doWhat | append: " " %}
+{% elsif localRequirement.userInteractionTemplate != Nil %}
+	{% assign middlePart = site.translations[site.lang].functionalRequirements.sentenceTemplate.provideTheAbilityTo |
+		append: " " | append: localRequirement.userInteractionTemplate.provideTheAbilityTo | append: " " |
+		append: site.translations[site.lang].functionalRequirements.sentenceTemplate.toDoWhat | append: " " |
+		append: localRequirement.userInteractionTemplate.toDoWhat | append: " " %}
+{% endif %}
+
+{% assign lastPart = "" %}
+{% if sentenceTemplate.object != Nil %}
+	{% assign lastPart = sentenceTemplate.object %}
+{% endif %}
+{% if sentenceTemplate.inWhatWay != Nil %}
+	{% if lastPart.size > 0 %}
+		{% assign lastPart = lastPart | append: ", " %}
+	{% endif %}
+	{% assign lastPart = lastPart | append: sentenceTemplate.inWhatWay %}
+{% endif %}
+{% assign lastPart = lastPart | append: "." %}
+
+{% assign sentenceTemplateString = firstPart | append: middlePart | append: lastPart %}
+{% if sentenceTemplateString.size == 0 %}
+	{% assign sentenceTemplateString = "???" %}
+{% endif %}

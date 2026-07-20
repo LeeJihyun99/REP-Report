@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+{% assign sortField = site.data.metadata["review"].sortField %}
+{% assign collection = site.reviews | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+<h1>Reviews ({{ collection.size }})</h1>
+
+<p>
+    Reviews are used for requirements validation and try to identify and capture errors and issues. Three types of reviews can be distinguished: 
+    <ul>
+    	<li>Commenting where typically co-workers review the requirements and try to identify issues.</li>
+ 	<li>Inspections are rather formal and follow a strict protocoll to check artefacts for errors.</li>
+ 	<li>Walk-throughs are a light-weight version of an inspection.</li>
+    </ul>
+    As methods, typically, perspective-based reading, validation through prototypes or checklists are used.
+</p>
+
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="25%">Name</th>
+        <th width="20%">Type</th>
+        <th width="20%">Date</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+        {% for review in collection %}
+        <tr>
+            {% include /functions/checks/check-review.html myArtefact=review %}
+            {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=review.todo %}
+            <td>{{ iconString }}</td>
+
+	    {% include /functions/get-link-to-artefact.html myRef=review.acronym
+                            myTypeString=review.type myIdFormat="prefix" %}
+            <td>{{ artefactLink }}</a></td>
+            <td>{{ review.reviewType }}</td>
+            <td>{{ review.date | date: "%d.%m.%Y" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

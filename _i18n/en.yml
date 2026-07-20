@@ -1,0 +1,533 @@
+#-------------------
+authors:
+  dtLabel: Responsible RE-Author(s) for this Artefact
+  navLabel: Overview Authors (with Artefacts)
+  summary: >
+    <p> This overview lists all authors responsible for the content of this website. As this is a public web presence,
+    it is recommended not to use real names, but nicknames instead.
+    This page can be used by authors as part of the quality assurance process to review all created
+    specification artifacts, organized according to the person responsible. Clicking on the nickname will take you
+    a detailed list of artifacts the author has been involved in, as well as a list of open errors, warnings, and
+    still open errors, warnings and todos.</p>
+  numberOfArtifacts: Number of artifacts the author is (co-)responsible for
+  summaryDetail1: <p>All artifacts (co-)created by
+  summaryDetail2: are listed below. If there are co-authors, they are listed as well.</p>
+  author: Author
+  allArtifacts: All Artifacts
+  coAuthors: Co-Author(s)
+  yeehaw: Yeehaw, no
+#-------------------
+domainModels:
+  navLabel: Domain Models
+  headerOverview: Domain Models
+  headerDetail: Domain Model
+  summary: >
+    <p>A domain model can be created on the basis of the business objects identified in the glossary.
+    In addition to the glossary, the domain model shows how a term / business object is related to other terms.
+    The implementation as a simple UML class diagram is easy to understand, even for IT laymen.<p>
+#-------------------
+reviews:
+  navLabel: Reviews
+  detailHeader: Reviews
+  summary: >
+    <p> TBD Summary Formal Reviews </p>
+  review_of: Review of
+  artefact: Reviewed artefact
+  type: Review type
+#-------------------
+functionalRequirements:
+  navLabel: Functional Requirements
+  detailHeader: Functional Requirement
+  summary: >
+    <p>Functional requirements (FR) describe the intended functionality of a system, its
+        behavior and its data. In writing FRs, a requirements engineer condenses the requirements for an IT system into a set
+        of compact (one sentence!) requirements. These can be prioritized, and used as a base for planning a development project.
+    </p><p>Such a one-sentence requirement can give way to many different interpretations, if not done carefully.
+        To counteract this problem, you should use a <b>sentence template</b>. This way, potential linguistic ambiguities
+        can be eliminated, and requirements can be formulated in a precise and unambiguous fashion. There are three
+        types of functional requirements, each resulting in a (slightly) difference sentence template:</p>
+    <p><li><i>Independent system activity</i>: the system starts a process independently and executes it.
+              The user doesn't have a role here.</li>
+          <li><i>User interaction</i>: The system provides the user with a functionality that he or she
+              triggers by an input, or another UI activity. </li>
+          <li><i>Interface requirement</i>: The system executes an action triggered by a third party.
+              Third parties can be third-party IT systems, but <i>not</i> users.</li></ul></p>
+  implementationStatus:
+    header: Implementation status
+    open: open
+    inProgress: in progress
+    implemented: already implemented
+    invalidStatus: Invalid implementation status found (allowed are 'open', 'inProgress' and 'implemented')
+  sentenceTemplate:
+    header: Sentence template
+    theSystem:
+      will: will
+      should: should
+      must: must
+    beAbleToDoWhat: be able to
+    theSystemUppercase: The system
+    theSystemLowercase: the system
+    provideTheAbilityTo: provide the ability to
+    toDoWhat: to
+    missing: >
+        No sentence template is specified. One of the fields 'interfaceRequirementTemplate',
+        'independentSystemActionTemplate' or 'userInteractionTemplate' must be present.
+    theSystemMissing: Field 'theSystem' is missing! Allowed values are 'must', 'should' or 'will'.
+    theSystemInvalid: Field 'theSystem' is invalid (allowed values are 'must', 'should' or 'will')
+    beAbleToDoWhatMissing: Field 'beAbleToDoWhat' is missing!
+    doWhatMissing: Field 'doWhat' is missing!
+    provideTheAbilityToMissing: Field 'provideTheAbilityTo' is missing!
+  independentSystemActionTemplate: Independent system action
+  userInteractionTemplate: User interaction
+  interfaceRequirementTemplate: Interface requirement
+  type: Type of functional requirement
+#-------------------
+genericErrors:
+  noRef: There is no reference for
+  reference: Reference
+  existsMoreThanOnce: existists more than once!
+  noAuthor: No author (field 'author') specified!
+  moreThanThreeAuthors: More than 3 authors (field 'author') - is that on purpose?
+  authorDoesntExist: Author in field 'author' doesn't exist
+  doubleAcronym: Acronym exists multiple times! Acronyms must be unique (within an artefact type)
+  acronymMissing: Acronym missing!
+  titleTooShort: Title seems to be too short.
+  titleMissing: Title missing!
+  descriptionTooShort: Description seems to be too short.
+  descriptionMissing: Description missing!
+  nameTooShort: Name seems to be too short.
+  nameMissing: Name missing!
+  diagramMissing: Diagram missing!
+  dateMissing: Date missing!
+  timeMissing: Time of day missing!
+  locationMissing: Location not specified!
+  intentionMissing: Field 'intention' missing!
+  participantsMissing: Data block 'participants' missing!
+  participantsNumberOfParticipantsMissing: Field 'participants.numberOfParticipants' missing!
+  participantsReferenceGroupDefinitionMissing: Field 'participants.referenceGroupDefinition' missing!
+  participantsReferenceGroupSizeMissing: Field 'participants.referenceGroupSize' missing!
+  participantsApproachedByMissing: Field 'participants.approachedBy' missing!
+  additionalDocumentsUrlMissing: In the additional documentation, a URL is missing (field 'additionalDocuments.url').
+  additionalDocumentsPurposeMissing: In the additional documentation, a purpose is missing (field 'additionalDocuments.purpose').
+  relationshipToProjectTooShort: Description of the relationship to the project (relationshipToProject) seems to be too short.
+  relationshipToProjectMissing: Relationship to the project (relationshipToProject) is missing!
+  acronymNotSameAsFilename: The acronym should match the filename - that is not the case.
+  noNesting: Hierarchies expressed by a field like 'belongsTo' must not be nested. I.e. the parent you refer to by must not itself refer to another parent.
+  methodMissing: Field 'method' missing!
+  methodNameMissing: Method name (field 'method.name') needs to be specified.
+  methodDescriptionMissing: There is no description for the method given (field 'method.description') - on purpose?
+  conductingMissing: Data block 'conducting' missing!
+  conductingDateMissing: Field 'conducting.date' missing!
+  conductingTimeFromMissing: Field 'conducting.timeFrom' missing!
+  conductingTimeUntilMissing: Field 'conducting.timeUntil' missing!
+  conductingLocationMissing: Field 'conducting.location' missing!
+#-------------------
+global:
+  for: for
+  and: and
+  between: between
+  clock: o'clock
+  SeeAlso: See also
+  andAlso: and also
+  Description: Description
+  Sources: Sources
+  type: Type
+  Title: Title
+  Date: Date
+  definition: Definition
+  diagram: Diagram
+  intention: Intention
+  participants: Participants
+  additionalDocuments: Additional Documentation
+  inTotal: In total
+  fromAGroupOf: from a target group size of
+  targetGroupConsistsOf: The target group consists of
+  participantsBelongTo: The participants belong to the stakeholder role
+  participantsBelongToPlural: The participants belong to the stakeholder roles
+  relatedStakeholderRole: related stakeholder role
+  relationshipToProject: Relationship to Project
+  age: Age
+  method: Method
+  event:
+    relatedStakeholderRole: Participants (as stakeholder roles)
+    conducting: Conducting the Workshop
+    happenedOn: The Workshop took place on
+    locationWas: The location was
+  prioScore: Priority
+  priorityNotRated: not rated (possibly not considered in 1st priorization pass)
+  ofTotalPrio: out of a maximum value of
+  artifact: Artifact
+  errorMsgs: Error messages
+  warning: Warnings
+  todos: Todos
+  navbar:
+    context: Context
+    informal: Informal
+    formal: Formal
+    detailed: Detailed
+    qs: Quality Assurance
+    sources: Sources
+    about: About this tool
+    tutorial: Tutorial
+    version: Version
+    faq: FAQ
+  contributesToGoals: Contributes to goal(s)
+  BelongsToFr: Belongs to functional requirement
+  MainlyBelongsToFr: Mainly belongs to functional requirement
+  relatedFR: related functional requirement
+#-------------------
+glossary:
+  navLabel: Glossary
+  headerOverview: Glossary
+  header: Glossary Entry
+  summary: >
+    <p>The goal of a glossary is to have a common vocabulary between all project participants.
+    This facilitates communication with the stakeholders and prevents misunderstandings due to missing, unclear,
+    or ambiguous definitions. The glossary is created and enhanced through discussions with stakeholders and
+    business experts in the respective domain, and research in other sources such as internal documentation and
+    literature.</p><p>Rule of thumb: If you do not know the domain, you underestimate its complexity.</p>
+  definitionMissing: Field 'definition' missing!
+  relevanceMissing: Field 'relevance' missing!
+  relevance: Relevance for the planned software system
+#-------------------
+goals:
+  navLabel: Goals
+  summary: >
+    <p>A <b>goal</b> is the intentional description of a characteristic feature
+    of the system to be developed or of the associated development process. They help achieving a
+    common understanding of the system. Goals are solution-agnostic, i.e., they describe <i>what</i> the system
+    wants to achieve, but not <i>how</i>.</p>
+  headerOverview: Goals
+  header: Goal
+  subAndMainGoals: All Main- and Sub-Goals
+  subAndMainGoalsExplanation: >
+    <p>For some goals, there are sub-goals. Main goals are printed in bold face, sub-goals indented below.</p>
+  showSubAndMainGoals: Show also sub-goals
+  onlyMainGoals: Only Main Goals
+  onlyMainGoalsExplanation: >
+    <p>For some goals, there are sub-goals. These sub-goals are now hidden for the sake of clarity.</p>
+  showOnlyMainGoals: Show only main goals
+  errGoalTextMissing: Field 'goalText' must not be missing or empty!
+  goalTextTooShort: Field 'goalText' seems very short!
+  mainGoalHeader: Main Goal
+  subGoalHeader: Sub-Goal
+  subGoals: Sub-Goals
+  partOf: Part of the main goal ...
+#-------------------
+interviews:
+  navLabel: Interviews
+  transcriptUrlErrMsg: transcriptUrl missing!
+  questionnaireUrlErrMsg: questionnaireUrl missing!
+  stakeholderPurpose: corresponding stakeholder
+  details: Details
+  dateMissing: Interviews date missing!
+  durationMissing: Interviews duration missing!
+  conducted: The interview was conducted on
+  lasted: It lasted
+  locationErrMsg: The interview location (field 'location') must be specified. Legal options are 'videoconf' or 'f2f'.
+  videoconf: as a video conference
+  f2f: as a f2f meeting
+  with: Interview with
+  results: Results
+  forTheInterviewExists: For the interview, there is
+  transscript: a transscript
+  questionnaire: a questionnaire
+  summary: >
+    <p>An <b>interview</b> is a form of information retrieval with the aim of obtaining information about a business domain,
+    background, technical contexts and/or personal opinions.</p>
+  transscriptTableHeader: Interview Transscript
+  partnerTableHeader: Interview Partner (Stakeholder)
+#-------------------
+kano:
+  kanoType: Kano type
+  excitement: Excitement
+  basic: Basic
+  performance: Performance
+  invalidType: Invalid Kano type found (allowed are 'basic', 'performance' and 'excitement')
+  typeMissing: Kano type missing!
+  reasoningTooShort: Justification for Kano factor seems to be too short!
+  reasoningMissing: Justification for Kano factor missing!
+#-------------------
+literatureReferences:
+  navLabel: Documents & Literature
+  headerOverview: Documents and Literature
+  documentAuthorMissing: Author  (field 'documentAuthor') is undefined - on purpose?
+  documentTypeMissing: Document type (field 'documentType') is undefined - on purpose?
+  publisherMissing: Publisher (field 'publisher') is undefined - on purpose?
+  documentUrlMissing: URL (field 'url') is undefined - on purpose?
+  publishingDateMissing: Publishing date (field 'publishingDate') is undefined - on purpose?
+  summary: >
+    <p>A <b>literature reference</b> is a published article, journal, book etc., or an online resource.
+    In addition, other <b>documents</b> relevant for the planned software system (usually unpublished or internal)
+    are listed here.</p>
+  documentAuthor: Document Author(s)
+  publishingDate: Date
+  documentType: Dokument Type
+  publisher: Publisher
+#-------------------
+nonFunctionalRequirements:
+  navLabel: Non-functional Requirements
+  detailHeader: Non-functional Requirement
+  summary: >
+    <p><b>Non-functional requirements</b> include all requirements that are not part of the functional requirements.
+    They describe important quality properties and boundary conditions of the system to be developed.</p>
+  nfrText: Detailed text
+  nfrTextMissing: Field 'nfrText' must not be missing or empty!
+  nfrTextTooShort: Field 'nfrText' seems very short!
+#-------------------
+personas:
+  navLabel: Personas
+  summary: >
+    <p>Personas are fictitious people, representing typical users in a target group. A persona should
+    have the most important characteristics of the target group. Which kind of attributes and details are important
+    for a persona depends on the to-be-designed software system - a fitness app requires different persona
+    descriptions than an insurance customer management system. Personas are created in a brief narrative format,
+    and are based on real-life persons.</p><p>In the subsequent table, primary (= especially relevant) personas
+    are printed in bold face.<p>
+  relatedScenariosHeader: Related Scenarios
+  ageMissing: Field 'age' must not be empty or missing!
+  primaryPersona: Primary Persona
+  secondaryPersona: Secondary Persona
+  scenariosFor: Scenarios for this Persona
+#-------------------
+priorization:
+  navLabel: Priorization
+  detailHeader: Priorization workshop
+  summary: >
+    <p>Prioritization is necessary to differentiate requirements from each other (important and unimportant),
+    as well as to bring order into a project and to ensure the project success. Depending on the
+    project, ad-hoc-, analytical, and agile priorization techniques can be used.
+    This page presents tools for the prioritization process, as well as prioritization results.</p>
+  inputForProcess: Input for the prioritization process
+  paperPrintable: Paper-printable functional requirements list
+  paperPrintableLink: At this link,
+  paperPrintableSummary: >
+    there is a PDF version of all functional requirements. This is optimized for printing out on DIN A4 (landscape)
+    and can be used for prioritization in workshops.
+  results: Priorization results
+  mostImportantGoals: Most important goals (for CAF/PMI)
+  mostImportantGoalsSummary: >
+    <p>The following table can be used to select the criteria for the "Consider all facts / plus-minus-interesting"
+    (CAF/PMI) method. These criteria are usually derived from the goals for the software system.
+    Theses goals are plotted against the functional requirements. <b>The most often referenced goals are furthest
+    to the left</b>. Major goals count double.</p>
+  workshops: Priorization workshops
+  workshopSummary: <p>The following table lists the priorization workshop(s) for the functional requirements.</p>
+  relatedStakeholderRole: Participants (as stakeholder roles)
+#-------------------
+scenarios:
+  navLabel: Scenarios
+  summary: >
+    <p><b>Scenarios</b> describe situations in which people interact with a system (as a storyline).
+    These situations have a clearly defined context. Scenarios serve on the one hand for the informal
+    requirements on a system, and on the other hand for the evaluation of a system regarding formalized goals and requirements.
+    formalized goals and requirements.</p><p>Scenarios are based on the previously created personas.
+    They can refer to the current situation (ACTUAL scenario) or to the future (improved) situation
+    (TARGET scenario). Scenarios focus on activities of people in a general sense, less on very specific
+    interactions. In addition, they may include the usage environment of the application or system,
+    the duration of use, the probability of interruption, and the use of other applications.</p>
+  headerOverview: Scenarios
+  headerDetail: Scenario
+  scenarioTypeMissing: No Szenariotyps(s) specified!
+  invalidScenarioType: >
+    Invalid scenario type! Valid options are 'main', 'alternative', 'exception', 'positive', 'negative',
+    'misuse', 'instance', 'type', 'systeminternal', 'explanatory', 'descriptive', 'explorative', and 'other'.
+  scenarioTypeUntagged: >
+    All the scenarioTypes you list in the front matter need to appear as tags in the content, formatted
+    with a '$' at the beginning (e.g. $alternative). Such a tag is missing for
+  type:
+    main: Main Scenario
+    alternative: Alternative Scenario
+    exception: Exception Scenario
+    positive: Positive Scenario
+    negative: Negative Scenario
+    misuse: Misuse Scenario
+    instance: Instance Scenario
+    type: Type Scenario
+    systeminternal: System-internal Scenario
+    explanatory: Explanatory Scenario
+    descriptive: Descriptive Scenario
+    explorative: Explorative Scenario
+    other: Miscallenous Scenario
+  typeExplanation:
+    main: Standard scenario, which leads as the 'default case' to the fulfillment of a goal
+    alternative: Rarely or exceptionally used way of interaction with the system, which also leads to the fulfillment of a goal
+    exception: exception in the interaction with the system, where - due to special conditions - the desired goal is not achieved
+    positive: interaction sequence that leads to the fulfillment of a goal
+    negative: interaction sequence that does NOT lead to the fulfillment of a goal
+    misuse: describes an undesired, unintended use of the system
+    instance: concrete interactions with concrete inputs and outputs between concrete persons and systems
+    type: high level of abstraction, describes system interactions of types of actors with generic activities
+    systeminternal: system-internal interactions in the form of interaction sequences between system components, for very technical requirements
+    explanatory: justification and explanation of interactions in scenario form, may include benefits and goals in the scenario
+    descriptive: plain, descriptive way of stating interactions with the system
+    explorative: has a strong 'brainstorming' character, fits well into an early phase of requirements identification
+    other: miscallenous type of scenario, not covered by the other options
+  scenarioTypesHeader: Scenario Types covered by this Scenario
+  personaFor: Persona for this Scenario
+  otherScenarios: Other Scenarios for this Persona
+#-------------------
+sources:
+  missing: There are no sources for this artefact!
+  dtLabel: Source(s)
+  wrongSourceType: >
+    Illegal SourceType. The source format is [sourceType, sourceRef, comment]. SourceType can be 'literatureReference',
+    'interview', 'workshop' or 'survey'.
+  usedFor: used for
+  usedForMissing: Field 'usedFor' is missing
+  atSourceRef: at source reference
+  usedForPurpose: Here you should specify in which way you use the source.
+#-------------------
+stakeholderRoles:
+  navLabel: Stakeholder Roles
+  summary: >
+    <p><b>Stakeholder roles</b> are generalized, "typical" roles of stakeholders, which can then be used, for example, in
+    can be used in use cases. For example: "Prof. Dr. Erika Kaminsky, Professor of Applied Mathematics" would be a
+    stakeholder, while "Professor" could be the stakeholder role.</p>
+  headerOverview: Stakeholder Roles
+  header: Stakeholder Role
+  interviewsWorkshopsSurveys: Interviews, Workshops, and Surveys for this Role
+  withRole: Stakeholder(s) with this Role
+  sources: Additional Source(s) as an Indicator for this Role
+  noStakeholder: For this stakeholder role, there is no stakeholder!
+  whereAsActor: Where does this Stakeholder Role appear as an actor?
+#-------------------
+stakeholders:
+  navLabel: Stakeholders
+  anonymous: At the request of the stakeholder, the real name is not mentioned here. Instead, we will use a pseudonym.
+  summary: >
+    <p>A <b>stakeholder</b> is a person or organization that directly influences the requirements
+    of the system under consideration, and/or takes an interest in the system to be developed. Stakeholders are always
+    <i>specific</i> people or organizations.</p>
+    <p>Stakeholders are presented to this web tool exclusively with publicly available information, or with
+    information that the person or organization has consented to being published (e.g. as part of
+    an expert interview). Occasionally, names and contact details are anonymized, and a pseudonym is used instead.</p>
+  stakeholderRoleTabHeader: Stakeholder Role
+  stakeholderRole: Stakeholder Role, to which this Stakeholder belongs
+  interviewWith: Interview(s) with this Stakeholder
+  invalidSubtype: Invalid subtype found (allowed are 'person' and 'group')
+  subtypeMissing: Subtype missing (allowed are 'person' and 'group')
+  interviewMissing: Is there no interview for this stakeholder?
+  group: (group)
+#-------------------
+surveys:
+  navLabel: Surveys
+  summary: >
+    <p>Through a survey, many potential users can be reached with little effort. In addition,
+    test persons and respondents do not feel exposed to pressure from a real person,
+    as is the case with an interview.</p>
+  detailHeader: Survey
+  relatedStakeholderRole: Participants (as stakeholder roles)
+  numberOfParticipants: Number of Participants
+  targetGroup: Target Group
+  conducting: Conducting the Survey
+  wasOpen: The survey was open from
+  openUntil: until
+  conductingMissing: Data block 'conducting' missing!
+  conductingFromMissing: Field 'conducting.from' missing!
+  conductingUntilMissing: Field 'conducting.until' missing!
+  conductingDistributionMissing: Field 'conducting.distribution' missing!
+#-------------------
+systemContext:
+  navLabel: System Context
+  summary: >
+    <p>The <b>system context</b> is that part of the system's environment that is relevant for the definition and
+    understanding of the system requirements, but itself cannot be shaped or changed.</p>
+  headerOverview: System Context Elements
+  header: System Context Element
+  subtypeInvalid: doesn't exist. Valid subtypes are itsystem, process, event, document, regulation, and otherConstraint.
+  subtypeMissing: Subtype missing!
+  itsystem: IT System
+  process: Process
+  regulation: Law / Standard / Regulation
+  event: Business Event
+  document: Document
+  otherConstraint: Other Domain Term
+  Competitor: Competitor
+#-------------------
+teacherMode:
+  exportCSVNavLabel: Export everything as CSV
+#-------------------
+useCaseDiagrams:
+  navLabel: Use Case Diagrams
+  summary: >
+    <p>A <b>use case diagram</b> uses UML notation to represent all the use cases for a particular aspect, such as a
+    of a functional requirement, in an intuitively understandable way in a graphical overview.</p>
+  ucdForFR: Use case diagram for functional requirement
+  diagramSummary: >
+    <p>The following use cases are shown in the diagram below. If there is a detailed version of a use case with
+    scenarios available, it is hyperlinked.</p>
+  detailedUC: >
+    use cases specified with a detailed scenario! (If any of these use cases has been specified, please add
+    its acronym in the list belonging to field 'useCasesDetailedWithScenario')
+  diagramRefMissing: Diagram reference missing!
+  noNonSpecifiedUseCases: There are no other use cases (not specified in detail) for this diagram.
+  useCaseFRRefInconsistent: >
+    The functional requirement references in the use case diagram and in the use case don't match!
+  inDiagram: In this diagram
+  inUseCase: in use case
+  OtherFr: Other referenced functional requirements (in the individual use cases)
+#-------------------
+useCases:
+  navLabel: Use Cases
+  summary: >
+    <p>A <b>use case</b> bundles all possible scenarios that can occur when an actor tries to achieve a certain
+    goal with the help of the IT system under consideration. The use case describes what can happen when trying
+    to achieve the goal. It abstracts from concrete technical solutions.</p>
+  ContainedInDiagram: Contained in use case diagram
+  Header: Use Case Header
+  PrimaryActor: Primary actor
+  SecondaryActors: Secondary Actor(s)
+  Trigger: Trigger
+  Precondition: Precondition
+  Postcondition: Postcondition
+  MainScenario: Main Scenario
+  AlternativeScenario: Alternative Scenario
+  ExceptionScenario: Exception Scenario
+  Alternative: Alternative
+  Exception: Exception
+  ContinueWith: Continue with
+  DiffentPostCondition: Diffent post condition
+  PreconditionTooShort: Field 'precondition' seems too short.
+  PreconditionMissing: Field 'precondition' missing!
+  PostconditionTooShort: Field 'postcondition' seems too short.
+  PostconditionMissing: Field 'postcondition' missing!
+  TriggerTooShort: Field 'trigger' seems too short.
+  TriggerMissing: Field 'trigger' missing!
+  NotPartOfDiagram: This use case does not appear on any use case diagram.
+  MainScenarioMissing: No main scenario specified (block 'mainScenario' missing or is empty)!
+  AlternativeScenarioMissing: >
+    No alternative scenario specified (block 'alternativeScenario' missing or is empty)!
+    (If this is intentional, you can hide this warning - like all the others - using the 'ignore' field.)
+  AlternativeScenarioEmptyBlock: The alternative scenario contains an empty block!
+  ExceptionScenarioMissing: >
+    No exception scenario specified (block 'exceptionScenario' missing or is empty)!
+    (If this is intentional, you can hide this warning - like all the others - using the 'ignore' field.)
+  ExceptionScenarioEmptyBlock: The exception scenario contains an empty block!
+  ExceptionScenarioPostConditionMissing: Changed post condition missing in exception scenario block!
+#-------------------
+userStories:
+  navLabel: User Stories
+  Summary: >
+    <p>Agile requirements (unlike in document-centric requirements elicitation, in a "waterfall" development process)
+    are initially captured only roughly. A detailed specification is made created only immediately before
+    implementation, often as user stories.</p>
+    <p>This tool is geared towards document-centric requirements elicitation ("waterfall"). User stories for the
+    agile backlog are derived selectively from the prioritized functional requirements for the sake of
+    methodological completeness. In practice, this would not be done - the product owner would create the backlog
+    directly. Therefore, here (but only here!), this tool <b>does not represent a realistic process</b>.
+    In an agile project, you would skip the majority of the other artifacts specified in this tool.
+  As: As
+  iWantTo: I want to
+  soThat: so that
+  IWantToTooShort: Field 'iWantTo' seems too short.
+  IWantToMissing: Field 'iWantTo' missing!
+  SoThatTooShort: Field 'soThat' seems too short.
+  SoThatMissing: Field 'soThat' missing!
+#-------------------
+workshops:
+  navLabel: Workshops
+  summary: >
+    <p>Workshops are methodically prepared events focused on specific stakeholder roles for the purpose of
+    information and requirements gathering. They require careful preparation and follow-up, as well
+    as moderation during the event. Both face-to-face and online formats are possible.</p>

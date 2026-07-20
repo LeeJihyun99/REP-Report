@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+{% include /functions/print-teacherbuttons.html myArtefact=page %}
+{% include /functions/print-page-navigation.html myArtefact=page %}
+{% include /functions/get-artefact-name.html myArtefact=page myIdFormat="postfixWithBrackets" %}
+
+{% if page.isPrimary %}
+    {% assign headerTag = site.translations[site.lang].personas.primaryPersona %}
+{% else %}
+    {% assign headerTag = site.translations[site.lang].personas.secondaryPersona %}
+{% endif %}
+
+<h1>{{ headerTag }} {{ artefactName }}</h1>
+
+<dl>
+    <dt>{% t global.relationshipToProject %}</dt>
+    <dd> {{ page.relationshipToProject }} </dd>
+
+    <dt>{% t global.age %}</dt>
+    <dd>{{ page.age }}</dd>
+
+    <dt>{% t personas.scenariosFor %}</dt>
+    {% include /functions/get-scenario-linklist.html persona=page format="detail" %}
+    {{ linkString }}
+
+    {% include /functions/print-sources.html mySources=page.sources %}
+    {% include /functions/print-authors.html page=page %}
+    {% include /functions/print-history.html myArtefact=page %}
+    {% include /functions/checks/check-persona.html myArtefact=page %}
+    {% include /functions/print-detailed-check-messages.html errors=errorString warnings=warningString todos=page.todo %}
+</dl>
+
+{% assign myContent = page.content | raw_content %}
+{% include /functions/annotate-sentence-numbers-in-content.html myContent=myContent %}
+{{ contentString }}

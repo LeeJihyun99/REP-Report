@@ -1,0 +1,11 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign goalIdList = "" | split: ";" %}
+{% if artefact.goals %}
+    {% for goalRef in artefact.goals %}
+        {% include /functions/get-link-to-artefact.html myRef=goalRef myTypeString="goal"
+                myIdFormat="onlyId" %}
+        {% assign goalIdList = goalIdList | push: artefactLink %}
+    {% endfor %}
+{% endif %}
+{% assign goalIdString = goalIdList | join: ", " %}

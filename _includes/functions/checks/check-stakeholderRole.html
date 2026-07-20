@@ -1,0 +1,76 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+        myErrorString="" myWarningString="" %}
+{% if artefact.belongsTo %}
+    {% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact
+            myCheckedRef=artefact.belongsTo myCheckedRefType="stakeholderRole" asList=false emptyMeansError=true
+            myPurpose="'belongsTo'" myErrorString=errorString myWarningString=warningString %}
+{% endif %}
+{% include /functions/checks/generic/check-sources.html myArtefact=artefact
+		myErrorString=errorString myWarningString=warningString mySourcelistCanBeEmpty=true %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+{% comment %} ***** Error/Warning Numbers 550 - 569 reserved for Stakeholder Role **** {% endcomment %}
+
+{% comment %}---------- description -----------{% endcomment %}
+{% if artefact.description %}
+    {% if artefact.description.size < 10 %}
+        {% assign myMsg = site.translations[site.lang].genericErrors.descriptionTooShort %}
+        {% include /functions/define-message.html ignore=artefact.ignore msgno="w550" msg=myMsg %}
+        {% assign warningList = warningList | push: out_msg %}
+    {% endif %}
+{% else %}
+    {% assign myMsg = site.translations[site.lang].genericErrors.descriptionMissing %}
+    {% include /functions/define-message.html ignore=artefact.ignore msgno="e551" msg=myMsg %}
+    {% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+
+{% comment %}---------- name -----------{% endcomment %}
+{% if artefact.name %}
+    {% if artefact.name.size < 5 %}
+        {% assign myMsg = site.translations[site.lang].genericErrors.nameTooShort %}
+        {% include /functions/define-message.html ignore=artefact.ignore msgno="w552" msg=myMsg %}
+        {% assign warningList = warningList | push: out_msg %}
+    {% endif %}
+{% else %}
+    {% assign myMsg = site.translations[site.lang].genericErrors.nameMissing %}
+    {% include /functions/define-message.html ignore=artefact.ignore msgno="e553" msg=myMsg %}
+    {% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+
+{% comment %}---------- referenced by a stakeholder? (only for non-top-level) -----------{% endcomment %}
+{% if artefact.belongsTo != Nil %}
+    {% include /functions/find-artefacts-referencing-stakeholder-role.html myStakeholderRole=artefact
+            myType="stakeholder" myCollection=site.stakeholders withID=false %}
+    {% if linksString.size > 0 %}
+    {% else %}
+        {% assign myMsg = site.translations[site.lang].stakeholderRoles.noStakeholder %}
+        {% include /functions/define-message.html ignore=artefact.ignore msgno="w554" msg=myMsg %}
+        {% assign warningList = warningList | push: out_msg %}
+    {% endif %}
+{% endif %}
+
+{% comment %}---------- belongsTo -----------{% endcomment %}
+{% if artefact.belongsTo != Nil %}
+    {% assign parentAcronym = artefact.belongsTo %}
+    {% assign parentRole = site.goals | where_exp: "role", "role.acronym == parentAcronym" | first %}
+    {% if parentRole.belongsTo != Nil %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.noNesting %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="e555" msg=myMsg %}
+		{% assign errorList = errorList | push: out_msg %}
+    {% endif %}
+{% endif %}
+
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

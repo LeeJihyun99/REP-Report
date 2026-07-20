@@ -1,0 +1,73 @@
+---
+layout: default
+---
+{% assign sortField = site.data.metadata["goal"].sortField %}
+{% assign collection = site.goals | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+<h1>{% t goals.headerOverview %} ({{ collection.size }})</h1>
+
+{% t goals.summary %}
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="10%">ID</th>
+        <th width="60%">Titel</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% comment %} --- sort the artefacts in a tree-like fashion, with the top-level stakeholders above their specialization --- {% endcomment %}
+        {% assign topLevelItems = collection | where_exp: "item", "item.belongsTo == Nil" %}
+        {% assign treeSortedCollection = "" | split: ";" %}
+        {% for topLevelItem in topLevelItems %}
+            {% assign treeSortedCollection = treeSortedCollection | push: topLevelItem %}
+            {% assign treeNodeRef = topLevelItem.acronym %}
+            {% assign treeLeaves = collection | where_exp: "item", "item.belongsTo == treeNodeRef"  %}
+            {% assign treeSortedCollection = treeSortedCollection | concat: treeLeaves %}
+        {% endfor %}
+        {% assign leftOvers = "" | split: ";" %}
+        {% for item in collection %}
+            {% assign curAcronym = item.acronym %}
+            {% assign searchHits = treeSortedCollection | where_exp: "treeElem", "treeElem.acronym == curAcronym" %}
+            {% if searchHits.size == 0 %}
+                {% assign leftOvers = leftOvers | push: item %}
+            {% endif %}
+        {% endfor %}
+        {% assign treeSortedCollection = treeSortedCollection | concat: leftOvers %}
+
+        <h2>{% t goals.subAndMainGoals %}</h2>
+
+        {% t goals.subAndMainGoalsExplanation %}
+
+        <p>
+            <a href="{{ site.url }}{{ '/overview/goals-only-main.html' | relative_url }}">
+                <img src="{{ site.url }}{{ '/assets/zoom-in-3-24-blue.png' | relative_url }}" style="min-height: 24px; min-width: 24px;"/>
+                &nbsp;&nbsp;{% t goals.showOnlyMainGoals %}
+            </a>
+        </p>
+
+        {% for goal in treeSortedCollection %}
+            <tr>
+                {% include /functions/checks/check-goal.html myArtefact=goal %}
+                {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=goal.todo %}
+                <td>{{ iconString }}</td>
+
+                {% include /functions/get-globalid.html myArtefact=goal %}
+                <td><a href="{{ site.url }}{{ goal.url | relative_url }}">{{ globalId }}</a></td>
+
+                {% include /functions/get-artefact-name.html myArtefact=goal %}
+                {% if goal.belongsTo == Nil %}
+                    <td><a href="{{ site.url }}{{ goal.url | relative_url }}"><b>{{ artefactName }}</b></a></td>
+                {% else %}
+                    <td style="padding-left:50px !important"><a href="{{ site.url }}{{ goal.url | relative_url }}">{{ artefactName }}</a></td>
+                {% endif %}
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

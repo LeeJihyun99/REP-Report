@@ -1,0 +1,22 @@
+{% assign contentString = include.myContent %}
+{% assign myScenarioTypes = include.scenarioTypes %}
+
+{% assign unmatchedScenarioTypeList = "" | split: ";" %}
+{% assign counter = 0 %}
+
+{% for scenarioType in myScenarioTypes %}
+    {% assign keyword = "$" | append: scenarioType  %}
+    {% if contentString contains keyword %}
+        {% assign counter = counter | plus: 1 %}
+        {% assign fullScenarioTypeName = site.translations[site.lang].scenarios.type[scenarioType] %}
+        {% assign idStr = fullScenarioTypeName | remove: " " | append: counter %}
+        {% assign replaceStr = "<span id='"  | append: idStr | append: "' style='font-style: italic;'>" |
+                    append: fullScenarioTypeName | append: ": </span>" %}
+        {% assign contentString = contentString | replace_first: keyword, replaceStr %}
+    {% else %}
+        {% assign unmatchedScenarioTypeList = unmatchedScenarioTypeList | push: scenarioType %}
+    {% endif %}
+{% endfor %}
+
+{% assign unmatchedScenarioTypeString = unmatchedScenarioTypeList | join: ", " %}
+

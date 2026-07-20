@@ -1,0 +1,45 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" %}
+{% assign purposeStr = site.translations[site.lang].global.relatedFR %}
+{% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact myCheckedRef=artefact.functionalRequirement
+		myCheckedRefType="functionalRequirement" asList=false emptyMeansError=false
+		myPurpose=purposeStr myErrorString=errorString myWarningString=warningString %}
+{% assign purposeStr = site.translations[site.lang].useCaseDiagrams.detailedUC %}
+{% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact myCheckedRef=artefact.useCasesDetailedWithScenario
+		myCheckedRefType="useCase" asList=true emptyMeansError=true
+		myPurpose=purposeStr myErrorString=errorString myWarningString=warningString %}
+
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 650 - 669 reserved for UC Diagram **** {% endcomment %}
+
+{% comment %}---------- diagram -----------{% endcomment %}
+{% if artefact.diagram == Nil %}
+	{% assign myMsg = site.translations[site.lang].useCaseDiagrams.diagramRefMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e651" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+
+{% comment %}---------- furtherUseCasesNotSpecified -----------{% endcomment %}
+{% if artefact.furtherUseCasesNotSpecified and artefact.furtherUseCasesNotSpecified.size > 0 %}
+{% else %}
+	{% assign myMsg = site.translations[site.lang].useCaseDiagrams.noNonSpecifiedUseCases %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="w652" msg=myMsg %}
+	{% assign warningList = warningList | push: out_msg %}
+{% endif %}
+
+
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

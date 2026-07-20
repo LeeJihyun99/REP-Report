@@ -1,0 +1,60 @@
+{% assign stakeholder_list = include.mystakeholder_list %}
+{% assign typefilter = include.typefilter %}
+{% assign group_acronym = include.group_acronym %}
+
+{% comment %}
+If a typefilter ("team" or "sig") is specified, then two additional filterings are done:
+1) only the corresponding decision types are filtered.
+2) the decision is only listed, if it fits to the group_acronym
+{% endcomment %}
+
+{%comment%}
+<!--s
+{% if typefilter %}
+{% assign decision_list = decision_list | where_exp: "dec", "dec.belongs_to == group_acronym" %}
+{% endif %}
+
+
+{% assign done_group_decisions = decision_list |  where:"status","_5_presented" %}
+{% assign decision_list = decision_list | where_exp: "dec", "dec.status != '_5_presented'" %}
+
+{% assign done_team_decisions = decision_list |  where:"status","_3_team_agreed" %}
+{% assign decision_list = decision_list | where_exp: "dec", "dec.status != '_3_team_agreed'" %}
+
+{% assign deadline_groups = decision_list | group_by: "deadline" | sort: "name" %}
+{% assign decision_list = "" | split: ";" %}
+{% for group in deadline_groups %}
+{% assign sublist = group.items | sort: "status" %}
+{% assign decision_list = decision_list | concat: sublist %}
+{% endfor %}
+
+{% assign decision_list = decision_list | concat: done_group_decisions | concat: done_team_decisions %}
+-->
+{%endcomment%}
+<table>
+    <thead>
+    <tr>
+        <th width="12%">Acronym</th>
+        <th width="58%">Name</th>
+        <th width="40%">Role</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for stakeholder in stakeholder_list %}
+    <tr>
+
+
+        {% assign stakeholder_file_name = stakeholder.url %}
+        <td><a href="{{ site.url }}{{ stakeholder_file_name | relative_url }}">{{ stakeholder.title }}</a> </td>
+        <td>{{ stakeholder.name }} </td>
+        <td>{{ stakeholder.stakeholderRole }} </td>
+
+
+
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

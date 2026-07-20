@@ -1,0 +1,55 @@
+---
+layout: default
+---
+{% assign sortField = site.data.metadata["persona"].sortField %}
+{% assign collection = site.personas | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+<h1>Personas ({{ collection.size }})</h1>
+
+{% t personas.summary %}
+
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="8%">ID</th>
+        <th width="20%">Name</th>
+        <th width="20%">{% t stakeholderRoles.header %}</th>
+        <th width="40%">{% t personas.relatedScenariosHeader %}</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for persona in collection %}
+        <tr>
+            {% include /functions/checks/check-persona.html myArtefact=persona %}
+            {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=persona.todo %}
+            <td>{{ iconString }}</td>
+
+            {% include /functions/get-globalid.html myArtefact=persona %}
+            <td><a href="{{ site.url }}{{ persona.url | relative_url }}">{{ globalId }}</a></td>
+
+            {% include /functions/get-artefact-name.html myArtefact=persona %}
+            <td>
+                <a href="{{ site.url }}{{ persona.url | relative_url }}">
+                    {%- if persona.isPrimary -%}<b>{{ artefactName }}</b>{%- else -%}{{ artefactName }}{%- endif -%}
+                </a>
+            </td>
+
+            {% include /functions/get-link-to-artefact.html myRef=persona.stakeholderRole myTypeString="stakeholderRole"
+                        myIdFormat="none" %}
+            <td>
+                {%- if persona.isPrimary -%}<b>{{ artefactLink }}</b>{%- else -%}{{ artefactLink }}{%- endif -%}
+            </td>
+
+            {% include /functions/get-scenario-linklist.html persona=persona format="lines" %}
+            <td>{{ linkString }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

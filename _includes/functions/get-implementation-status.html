@@ -1,0 +1,8 @@
+{% assign localRequirement = include.myRequirement %}
+{% assign implementationStatus = "-" %}
+
+
+{% if localRequirement.implementationStatus != Nil %}
+	{% assign implementationStatus =
+		site.translations[site.lang].functionalRequirements.implementationStatus[localRequirement.implementationStatus] %}
+{% endif %}

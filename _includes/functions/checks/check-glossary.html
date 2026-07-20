@@ -1,0 +1,36 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" %}
+{% include /functions/checks/generic/check-sources.html myArtefact=artefact
+		myErrorString=errorString myWarningString=warningString %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 830 - 849 reserved for Interview **** {% endcomment %}
+
+{% comment %}---------- definition -----------{% endcomment %}
+{% if artefact.definition == Nil %}
+	{% assign myMsg = site.translations[site.lang].glossary.definitionMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e830" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- relevance -----------{% endcomment %}
+{% if artefact.relevance == Nil %}
+	{% assign myMsg = site.translations[site.lang].glossary.relevanceMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e831" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% endif %}
+
+
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

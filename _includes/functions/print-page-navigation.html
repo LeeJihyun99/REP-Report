@@ -1,0 +1,33 @@
+{% assign artefact = include.myArtefact %}
+
+{% include /functions/get-globalid.html myArtefact=artefact %}
+
+<p>
+    {% if firstLink.size == 0 %}
+        <img src="{{ site.url }}{{ '/assets/arrow-65-leftmost-24-disabled.png' | relative_url }}" style="min-height: 24px; min-width: 24px;"/>
+    {% else %}
+        <a href="{{ firstLink }}"><img src="{{ site.url }}{{ '/assets/arrow-65-leftmost-24.png' | relative_url }}" style="min-height: 24px; min-width: 24px;"/></a>
+    {% endif %}
+    {% if prevLink.size == 0 %}
+        <img src="{{ site.url }}{{ '/assets/arrow-105-left-24-disabled.png' | relative_url }}" style="min-height: 24px; min-width: 24px;"/>
+    {% else %}
+        <a href="{{ prevLink }}"><img src="{{ site.url }}{{ '/assets/arrow-105-left-24.png' | relative_url }}" style="min-height: 24px; min-width: 24px;"/></a>
+    {% endif %}
+    &nbsp;&nbsp;&nbsp;
+    {% if topLink.size == 0 %}
+        <img src="{{ site.url }}{{ '/assets/arrow-184-top-24-disabled.png' | relative_url }}" style="min-height: 24px; min-width: 24px;"/>
+    {% else %}
+        <a href="{{ topLink }}"><img src="{{ site.url }}{{ '/assets/arrow-184-top-24.png' | relative_url }}" style="min-height: 24px; min-width: 24px;"/></a>
+    {% endif %}
+    &nbsp;&nbsp;&nbsp;
+    {% if nextLink.size == 0 %}
+        <img src="{{ site.url }}{{ '/assets/arrow-4-right-24-disabled.png' | relative_url }}" style="min-height: 24px; min-width: 24px;"/>
+    {% else %}
+        <a href="{{ nextLink }}"><img src="{{ site.url }}{{ '/assets/arrow-4-right-24.png' | relative_url }}" style="min-height: 24px; min-width: 24px;"/></a>
+    {% endif %}
+    {% if lastLink.size == 0 %}
+        <img src="{{ site.url }}{{ '/assets/arrow-7-rightmost-24-disabled.png' | relative_url }}" style="min-height: 24px; min-width: 24px;"/>
+    {% else %}
+        <a href="{{ lastLink }}"><img src="{{ site.url }}{{ '/assets/arrow-7-rightmost-24.png' | relative_url }}" style="min-height: 24px; min-width: 24px;"/></a>
+    {% endif %}
+</p>

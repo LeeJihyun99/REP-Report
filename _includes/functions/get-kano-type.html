@@ -1,0 +1,13 @@
+{% assign localRequirement = include.myRequirement %}
+
+{% assign kanoType = "-" %}
+{% assign kanoReasoning = "-" %}
+
+{% if localRequirement.kano %}
+	{% if localRequirement.kano.type %}
+		{% assign kanoType = site.translations[site.lang].kano[localRequirement.kano.type] %}
+	{% endif %}
+	{% if localRequirement.kano.reasoning %}
+		{% assign kanoReasoning = localRequirement.kano.reasoning %}
+	{% endif %}
+{% endif %}

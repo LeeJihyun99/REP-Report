@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+{% include /functions/print-teacherbuttons.html myArtefact=page %}
+{% include /functions/print-page-navigation.html myArtefact=page %}
+{% include /functions/get-artefact-name.html myArtefact=page myIdFormat="postfixWithBrackets" %}
+
+<h1>Workshop {{ artefactName }}</h1>
+
+<dl>
+    {% include /functions/print-participants.html participants=page.participants stakeholderRoles=page.stakeholderRoles %}
+
+    <dt>{% t global.event.conducting %}</dt>
+    <dd>
+        {% t global.event.happenedOn %} {{ page.conducting.date | date: "%d.%m.%Y" }} {% t global.between %}
+        {{ page.conducting.timeFrom }} {% t global.and %} {{ page.conducting.timeUntil }} {% t global.clock %}.
+        {% t global.event.locationWas %} {{ page.conducting.location }}.
+    </dd>
+
+    {% if page.method.description != Nil %}
+        <dt>{% t global.method %}: {{ page.method.name }}</dt>
+        <dd>{{ page.method.description }}</dd>
+    {% else %}
+        <dt>{% t global.method %}</dt>
+        <dd>{{ page.method.name }}</dd>
+    {% endif %}
+
+    {% include /functions/print-additional-documents.html additionalDocuments=page.additionalDocuments %}
+
+    {% include /functions/print-authors.html page=page %}
+    {% include /functions/print-history.html myArtefact=page %}
+    {% include /functions/checks/check-workshop.html myArtefact=page %}
+    {% include /functions/print-detailed-check-messages.html errors=errorString warnings=warningString todos=page.todo %}
+</dl>
+
+
+{{ page.content }}

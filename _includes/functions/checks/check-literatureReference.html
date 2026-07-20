@@ -1,0 +1,68 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 730 - 749 reserved for Literature Reference **** {% endcomment %}
+
+{% comment %}---------- title -----------{% endcomment %}
+{% if artefact.title == Nil %}
+	{% assign myMsg = site.translations[site.lang].genericErrors.titleMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e730" msg=myMsg %}
+	{% assign errorList = errorList | push: out_msg %}
+{% else %}
+	{% if artefact.title.size < 10 %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.titleTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w736" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% endif %}
+
+{% comment %}---------- documentAuthor -----------{% endcomment %}
+{% if artefact.documentAuthor == Nil %}
+	{% assign myMsg = site.translations[site.lang].literatureReferences.documentAuthorMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="w731" msg=myMsg %}
+	{% assign warningList = warningList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- documentType -----------{% endcomment %}
+{% if artefact.documentType == Nil %}
+	{% assign myMsg = site.translations[site.lang].literatureReferences.documentTypeMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="w732" msg=myMsg %}
+	{% assign warningList = warningList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- publisher -----------{% endcomment %}
+{% if artefact.documentAuthor == Nil %}
+	{% assign myMsg = site.translations[site.lang].literatureReferences.publisherMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="w733" msg=myMsg %}
+	{% assign warningList = warningList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- documentUrl -----------{% endcomment %}
+{% if artefact.documentType == Nil %}
+	{% assign myMsg = site.translations[site.lang].literatureReferences.documentUrlMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="w734" msg=myMsg %}
+	{% assign warningList = warningList | push: out_msg %}
+{% endif %}
+
+{% comment %}---------- publishingDate -----------{% endcomment %}
+{% if artefact.date == Nil %}
+	{% assign myMsg = site.translations[site.lang].literatureReferences.publishingDateMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="w735" msg=myMsg %}
+	{% assign warningList = warningList | push: out_msg %}
+{% endif %}
+
+
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}

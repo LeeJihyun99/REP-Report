@@ -1,0 +1,142 @@
+---
+layout: default
+---
+
+{% include /functions/print-teacherbuttons.html myArtefact=page %}
+
+{% include /functions/print-page-navigation.html myArtefact=page %}
+
+{% include /functions/get-artefact-name.html myArtefact=page myIdFormat="postfixWithBrackets" %}
+<h1>Use Case {{ artefactName }}</h1>
+
+<dl>
+    {% assign myAcronym = page.acronym %}
+    {% assign relatedUseCaseDiagrams = site.useCaseDiagrams |
+                where_exp: "ucd", "ucd.useCasesDetailedWithScenario contains myAcronym" %}
+    {% if relatedUseCaseDiagrams.size > 0 %}
+        <dt>{% t useCases.ContainedInDiagram %}</dt>
+        {% for relatedUseCaseDiagram in relatedUseCaseDiagrams %}
+            {% include /functions/get-artefact-name.html myArtefact=relatedUseCaseDiagram myIdFormat="postfix" %}
+            <dd><a href="{{ site.url }}{{ relatedUseCaseDiagram.url | relative_url }}">{{ artefactName }}</a></dd>
+        {% endfor %}
+    {% endif %}
+
+    <dt>{% t global.BelongsToFr %}</dt>
+    {% include /functions/get-link-to-artefact.html myRef=page.functionalRequirement
+                myTypeString="functionalRequirement" myIdFormat="prefix" %}
+    <dd>{{ artefactLink }}</dd>
+
+    {% include /functions/print-authors.html page=page %}
+    {% include /functions/print-history.html myArtefact=page %}
+    {% include /functions/checks/check-useCase.html myArtefact=page %}
+    {% include /functions/print-detailed-check-messages.html errors=errorString warnings=warningString todos=page.todo %}
+</dl>
+
+
+
+<h2>{% t useCases.Header %}</h2>
+
+<table>
+    <tbody>
+    <tr>
+        <td>ID</td>
+        {% include /functions/get-globalid.html myArtefact=page %}
+        <td>{{ globalId }}</td>
+    </tr>
+    <tr>
+        <td>{% t global.Title %}</td>
+        <td>{{ page.title }}</td>
+    </tr>
+    <tr>
+        <td>{% t global.Description %}</td>
+        <td>{{ page.description }}</td>
+    </tr>
+    <tr>
+        <td>{% t useCases.PrimaryActor %}</td>
+        {% include /functions/get-link-to-artefact.html myRef=page.primaryActor myTypeString="stakeholderRole"
+                    myIdFormat="prefix" %}
+        <td>{{ artefactLink }}</td>
+    </tr>
+    {% if page.secondaryActors.size > 0 %}
+        <tr>
+            <td>{% t useCases.SecondaryActors %}</td>
+            {% assign localLinkList = "" | split: ";" %}
+            {% for secondaryActorRef in page.secondaryActors %}
+                {% include /functions/get-link-to-artefact.html myRef=secondaryActorRef myTypeString="stakeholderRole"
+                myIdFormat="prefix" %}
+                {% assign localLinkList = localLinkList | push: artefactLink %}
+            {% endfor %}
+            {% assign linkListString = localLinkList | join: ", " %}
+            <td>{{ linkListString }}</td>
+        </tr>
+    {% endif %}
+    <tr>
+        <td>{% t useCases.Trigger %}</td>
+        <td>{{ page.trigger }}</td>
+    </tr>
+    <tr>
+        <td>{% t useCases.Precondition %}</td>
+        <td>{{ page.precondition }}</td>
+    </tr>
+    <tr>
+        <td>{% t useCases.Postcondition %}</td>
+        <td>{{ page.postcondition }}</td>
+    </tr>
+
+    </tbody>
+</table>
+
+<h2>{% t useCases.MainScenario %}</h2>
+
+<ol>
+    {% for step in page.mainScenario %}
+        <li>{{ step }}</li>
+    {% endfor %}
+</ol>
+
+
+{% if page.alternativeScenario != Nil and page.alternativeScenario.size > 0 %}
+    <h2>{% t useCases.AlternativeScenario %}</h2>
+    <ul style="list-style-type:none">
+    {% assign localCounter = 0 %}
+    {% for alternative in page.alternativeScenario %}
+        {% assign localCounter = localCounter | plus: 1 %}
+        <li><i>{% t useCases.Alternative %} {{ localCounter }}</i>
+            <ul style="list-style-type:'- '">
+            {% for step in alternative["alternative"] %}
+                <li>{{ step }}</li>
+            {% endfor %}
+            {% if alternative["continueWith"] != Nil %}
+                <li>{% t useCases.ContinueWith %} {{ alternative["continueWith"] }}</li>
+            {% endif %}
+            </ul>
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+
+
+{% if page.exceptionScenario != Nil and page.exceptionScenario.size > 0 %}
+    <h2>{% t useCases.ExceptionScenario %}</h2>
+    <ul style="list-style-type:none">
+    {% assign localCounter = 0 %}
+    {% for exception in page.exceptionScenario %}
+        {% assign localCounter = localCounter | plus: 1 %}
+        <li><i>{% t useCases.Exception %} {{ localCounter }}</i>
+            <ul style="list-style-type:'- '">
+            {% for step in exception["exception"] %}
+                <li>{{ step }}</li>
+            {% endfor %}
+            {% if exception["diffentPostCondition"] != Nil %}
+                <li><b>{% t useCases.DiffentPostCondition %}:</b> {{ exception["diffentPostCondition"] }}</li>
+            {% endif %}
+            </ul>
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+
+{{ page.content }}
+

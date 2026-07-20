@@ -1,0 +1,19 @@
+{% assign acronymList = include.myAuthor %}
+{% assign exclude =  include.myExclude %}
+
+{% assign authorList = "" | split: ";" %}
+
+{% for personRaw in acronymList %}
+	{% assign acronym = personRaw | strip | downcase %}
+	{% if acronym == exclude.acronym %}
+	{% else %}
+		{% assign foundList = site.authors | where: "acronym", acronym %}
+		{% assign foundPerson = foundList | first %}
+		{% capture linkString %}<a href="{{ site.url }}{{ foundPerson.url | relative_url }}">{{ foundPerson.nickname }}</a>{% endcapture %}
+		{% assign authorList = authorList | push: linkString %}
+	{% endif %}
+{% endfor %}
+
+{% assign authorString = authorList | array_to_sentence_string: "und" %}
+
+

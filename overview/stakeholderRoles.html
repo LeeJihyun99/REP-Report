@@ -1,0 +1,65 @@
+---
+layout: default
+---
+{% assign sortField = site.data.metadata["stakeholderRole"].sortField %}
+{% assign collection = site.stakeholderRoles | sort: sortField %}
+{% if site.withTemplates %}
+{% else %}
+    {% assign collection = collection | where_exp: "item", "item.isTemplate == Nil" %}
+{% endif %}
+
+
+<h1>{% t stakeholderRoles.headerOverview %} ({{ collection.size }})</h1>
+
+{% t stakeholderRoles.summary %}
+
+<table>
+    <thead>
+    <tr>
+        <th width="5%"></th>
+        <th width="10%">ID</th>
+        <th width="30%">Name</th>
+        <th width="60%">{% t global.Description %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% comment %} --- sort the artefacts in a tree-like fashion, with the top-level stakeholders above their specialization --- {% endcomment %}
+    {% assign topLevelItems = collection | where_exp: "item", "item.belongsTo == Nil" %}
+    {% assign treeSortedCollection = "" | split: ";" %}
+    {% for topLevelItem in topLevelItems %}
+        {% assign treeSortedCollection = treeSortedCollection | push: topLevelItem %}
+        {% assign treeNodeRef = topLevelItem.acronym %}
+        {% assign treeLeaves = collection | where_exp: "item", "item.belongsTo == treeNodeRef"  %}
+        {% assign treeSortedCollection = treeSortedCollection | concat: treeLeaves %}
+    {% endfor %}
+    {% assign leftOvers = "" | split: ";" %}
+    {% for item in collection %}
+        {% assign curAcronym = item.acronym %}
+        {% assign searchHits = treeSortedCollection | where_exp: "treeElem", "treeElem.acronym == curAcronym" %}
+        {% if searchHits.size == 0 %}
+            {% assign leftOvers = leftOvers | push: item %}
+        {% endif %}
+    {% endfor %}
+    {% assign treeSortedCollection = treeSortedCollection | concat: leftOvers %}
+
+    {% for stakeholderRole in treeSortedCollection %}
+    <tr>
+        {% include /functions/checks/check-stakeholderRole.html myArtefact=stakeholderRole %}
+        {% include /functions/get-check-icon.html errors=errorString warnings=warningString todos=stakeholderRole.todo %}
+        <td>{{ iconString }}</td>
+
+        {% include /functions/get-globalid.html myArtefact=stakeholderRole %}
+        <td><a href="{{ site.url }}{{ stakeholderRole.url | relative_url }}">{{ globalId }}</a></td>
+
+        {% include /functions/get-artefact-name.html myArtefact=stakeholderRole %}
+        {% if stakeholderRole.belongsTo == Nil %}
+            <td><a href="{{ site.url }}{{ stakeholderRole.url | relative_url }}"><b>{{ artefactName }}</b></a></td>
+        {% else %}
+            <td style="padding-left:50px !important"><a href="{{ site.url }}{{ stakeholderRole.url | relative_url }}">{{ artefactName }}</a></td>
+        {% endif %}
+
+        <td>{{ stakeholderRole.description }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

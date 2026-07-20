@@ -1,0 +1,46 @@
+{% assign artefact = include.myArtefact %}
+
+{% assign errorString = "" %}
+{% assign warningString = "" %}
+
+{% comment %}---------- First the generic checks -----------{% endcomment %}
+
+{% include /functions/checks/generic/check-generic-aspects.html myArtefact=artefact
+		myErrorString="" myWarningString="" %}
+{% include /functions/checks/generic/check-generic-refs.html myArtefact=artefact myCheckedRef=artefact.goals
+		myCheckedRefType="goal" asList=true emptyMeansError=true
+		myPurpose="Ziel-Referenz" myErrorString=errorString myWarningString=warningString %}
+{% include /functions/checks/generic/check-sources.html myArtefact=artefact
+		myErrorString=errorString myWarningString=warningString %}
+
+{% assign errorList = errorString | split: ";" %}
+{% assign warningList = warningString | split: ";" %}
+
+
+{% comment %} ***** Error/Warning Numbers 890 - 919 reserved for nonFunctionalRequirements **** {% endcomment %}
+
+{% comment %}---------- title -----------{% endcomment %}
+{% if artefact.title %}
+	{% if artefact.title.size < 10 %}
+		{% assign myMsg = site.translations[site.lang].genericErrors.titleTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w890" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% endif %}
+
+
+{% comment %}---------- nfrText -----------{% endcomment %}
+{% if artefact.nfrText == Nil %}
+	{% assign myMsg = site.translations[site.lang].nonFunctionalRequirements.nfrTextMissing %}
+	{% include /functions/define-message.html ignore=artefact.ignore msgno="e891" msg=myMsg %}
+    {% assign errorList = errorList | push: out_msg %}
+{% else %}
+	{% if artefact.nfrText.size < 20 %}
+		{% assign myMsg = site.translations[site.lang].nonFunctionalRequirements.nfrTextTooShort %}
+		{% include /functions/define-message.html ignore=artefact.ignore msgno="w892" msg=myMsg %}
+		{% assign warningList = warningList | push: out_msg %}
+	{% endif %}
+{% endif %}
+
+{% assign errorString = errorList | compact | join: ";" %}
+{% assign warningString = warningList | compact | join: ";" %}
