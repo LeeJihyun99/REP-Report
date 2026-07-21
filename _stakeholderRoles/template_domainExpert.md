@@ -1,12 +1,11 @@
 ---
-acronym: lecturer
+acronym: Domain Expert
 type: stakeholderRole
-isTemplate: true
+# isTemplate: true
 author:
-    - fkr
-    - sbe
-name: Lecturer
-description: Lecturer at a university (not necessarily a professor)
+    - lee
+name: Domain Expert
+description: Provides professional mental health expertise and validates that the AI delivers safe, ethical, and evidence-based recommendations.
 sources:
     - reference: [literatureReference, rouse2016, "p. 167"]
       usedFor: Additional reference to show that a role like "lecturer" exists

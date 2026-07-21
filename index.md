@@ -2,7 +2,8 @@
 layout: default
 ---
 
-<h1>Requirements Engineering Tool</h1>
+<h1>Requirements Engineering - Team D</h1>
 
-This is the ArchiLab Requirements Engineering Tool. You can freely customize this page by editing the `./index.md` file. 
+<h2>Product Idea</h2>
+
 

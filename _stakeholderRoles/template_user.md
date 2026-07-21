@@ -1,13 +1,12 @@
 ---
-acronym: student
+acronym: User
 type: stakeholderRole
-isTemplate: true
+# isTemplate: true
 author: 
-    - sbe
-name: Student
+    - lee
+name: User
 description: > 
-    Student in a somewhat technical study program, where exercises and practicals consist of applying methods
-    and tools to given problems
+    The primary user who interacts with the application to monitor mental well-being, communicate with the AI chatbot, and receive personalized mental health support.
 history:
     v1:
         date: 2021-05-04

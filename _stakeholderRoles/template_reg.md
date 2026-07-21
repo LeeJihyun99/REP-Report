@@ -1,12 +1,12 @@
 ---
-acronym: profInf
+acronym: Regulator
 type: stakeholderRole
 belongsTo: lecturer
-isTemplate: true
+# isTemplate: true
 author: 
-    - sbe
-name: Professor for Computer Science
-description: University professor, lecturing in one or several computer science study programs
+    - lee
+name: Regulator
+description: Ensures the application complies with legal, ethical, and institutional standards before and after deployment.
 sources:
     - reference: [literatureReference, rouse2016, "p. 167"]
       usedFor: Additional reference to show that a role like "lecturer" exists
