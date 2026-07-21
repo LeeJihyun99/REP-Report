@@ -1,11 +1,10 @@
 ---
 acronym: diary
 type: survey
-isTemplate: true
+# isTemplate: true
 intention: Student diary to document each contact with DiveKit
 author: 
-    - fkr
-    - sbe
+    - lee
 conducting:
     from: 2021-05-19
     until: 2021-05-27
@@ -18,7 +17,7 @@ participants:
     approachedBy: > 
         The target group was approached by an email through the ILIAS ST2 folder, and via the ST2 Discord channel. 
 stakeholderRoles: 
-    - student
+    - User
 additionalDocuments:
     - purpose: Kano matrix to prioritize the collected requirements (in German)
       url: /sources/tagebuch_req_priorisierung.pdf
@@ -30,6 +29,8 @@ ignore:
 todo:
     - switch to an English example
 ---
+
+## Aims of the questions
 
 ## Erläuterung
 
