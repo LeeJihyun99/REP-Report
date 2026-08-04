@@ -1,14 +1,14 @@
 ---
-acronym: prof_interview
+acronym: expert_interview
 type: interview
 # isTemplate: true
 author: 
-    - sbe
-stakeholder: nnProf1
-date: 2021-05-10
-duration: "28:16"
-location: 
-questionnaireUrl: 
+    - lee
+stakeholder: Domain Expert
+date: 2026-07-20
+duration: N/A
+location: Literature Review
+questionnaireUrl: sources\Expert Interview Questions.pdf
 transscriptUrl: 
 history:
 todo:
