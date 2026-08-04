@@ -49,7 +49,7 @@
 
 
 {% comment %}---------- location -----------{% endcomment %}
-{% if artefact.location == "videoconf" or artefact.location == "f2f" %}
+{% if artefact.location == "videoconf" or artefact.location == "f2f"  or artefact.location == "secondary_research" %}
 {% else %}
 	{% assign myMsg = site.translations[site.lang].interviews.locationErrMsg %}
 	{% include /functions/define-message.html ignore=artefact.ignore msgno="e714" msg=myMsg %}

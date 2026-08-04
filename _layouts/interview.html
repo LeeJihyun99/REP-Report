@@ -19,13 +19,15 @@ layout: default
     <dt>{% t interviews.details %}</dt>
     <dd>
         {% t interviews.conducted %} {{ interviewDate }}
-        {% if page.location == "videoconf" %}
+        <!-- {% if page.location == "videoconf" %}
             {% t interviews.videoconf %}.
-        {% else %}
+            {% elsif page.location == "secondary_research" %}
+            Secondary Research.
+            {% else %}
             {% t interviews.f2f %}.
-        {% endif %}
-        {% if page.duration != Nil %}
-            {% t interviews.lasted %} {{ page.duration }} min.
+        {% endif %} -->
+        <!-- {% if page.duration != Nil %}
+            {% t interviews.lasted %} {{ page.duration }} min. -->
         <!-- {% endif %}
         {% if page.questionnaireUrl != Nil %}
             {% t global.SeeAlso %}

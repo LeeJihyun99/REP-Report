@@ -4,7 +4,7 @@ subtype: person
 acronym: UMHC
 # isTemplate: true
 author: 
-    - sbe
+    - lee
 name: University Mental Health Counselor
 stakeholderRole: 
     - Domain Expert
