@@ -26,14 +26,14 @@ layout: default
         {% endif %}
         {% if page.duration != Nil %}
             {% t interviews.lasted %} {{ page.duration }} min.
-        {% endif %}
+        <!-- {% endif %}
         {% if page.questionnaireUrl != Nil %}
             {% t global.SeeAlso %}
             <a href="{{ site.url }}{{ page.questionnaireUrl | relative_url }}">{% t interviews.questionnaire %}</a>.
-        {% endif %}
+        {% endif %} -->
     </dd>
 
-    <dt>{% t interviews.results %}</dt>
+    <!-- <dt>{% t interviews.results %}</dt>
     <dd>
         {% t interviews.forTheInterviewExists %}
         <a href="{{ site.url }}{{ page.transscriptUrl | relative_url }}">{% t interviews.transscript %}</a>
@@ -41,7 +41,41 @@ layout: default
             &nbsp;{%- t global.andAlso %}
             <a href="{{ site.url }}{{ page.questionnaireUrl | relative_url }}">{% t interviews.questionnaire %}</a>
         {%- endif -%}.
-    </dd>
+    </dd> -->
+
+    <dt>{% t interviews.results %}</dt>
+<dd>
+    {% if page.summaryUrl != Nil %}
+        The interview results are documented in the
+        <a href="{{ site.url }}{{ page.summaryUrl | relative_url }}">
+            interview summary
+        </a>
+        {% if page.questionnaireUrl != Nil %}
+            and in the
+            <a href="{{ site.url }}{{ page.questionnaireUrl | relative_url }}">
+                questionnaire
+            </a>
+        {% endif %}.
+    {% elsif page.transscriptUrl != Nil %}
+        {% t interviews.forTheInterviewExists %}
+        <a href="{{ site.url }}{{ page.transscriptUrl | relative_url }}">
+            {% t interviews.transscript %}
+        </a>
+        {% if page.questionnaireUrl != Nil %}
+            &nbsp;{% t global.andAlso %}
+            <a href="{{ site.url }}{{ page.questionnaireUrl | relative_url }}">
+                {% t interviews.questionnaire %}
+            </a>
+        {% endif %}.
+    {% elsif page.questionnaireUrl != Nil %}
+        The interview is documented in the
+        <a href="{{ site.url }}{{ page.questionnaireUrl | relative_url }}">
+            questionnaire
+        </a>.
+    {% else %}
+        The interview results are documented below.
+    {% endif %}
+</dd>
 
     {% include /functions/print-authors.html page=page %}
     {% include /functions/print-history.html myArtefact=page %}

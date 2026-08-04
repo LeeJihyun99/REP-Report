@@ -1,24 +1,17 @@
 ---
-acronym: nnprof1_interview
+acronym: prof_interview
 type: interview
-isTemplate: true
+# isTemplate: true
 author: 
     - sbe
 stakeholder: nnProf1
 date: 2021-05-10
 duration: "28:16"
-location: f2f
-questionnaireUrl: /sources/Questionnaire_nnProf1.pdf
-transscriptUrl: /sources/nnProf1_transkript.pdf
+location: 
+questionnaireUrl: 
+transscriptUrl: 
 history:
-    v1:
-        date: 2021-06-16
-        comment: initially created
-    v2:
-        date: 2021-06-17
-        comment: update author
 todo:
-    - replace by an English version when available  
 ignore: 
 ---
 
