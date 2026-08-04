@@ -2,232 +2,149 @@
 acronym: diary
 type: survey
 # isTemplate: true
-intention: Student diary to document each contact with DiveKit
+intention: Survey for identifying students' mental health needs and expectations for an AI-supported mental health application
 author: 
     - lee
 conducting:
-    from: 2021-05-19
-    until: 2021-05-27
+    from: 2026-07-22
+    until: 2026-07-28
     distribution: >
         The survey was provided as diary templates via ILIAS (to be uploaded after completion by the participants).
 participants: 
-    numberOfParticipants: 13
-    referenceGroupDefinition: students in 'Informatik Bachelor' who attended ST1 and ST2 in WS 20/21 and SS 22
-    referenceGroupSize: 100
+    numberOfParticipants: 11
+    referenceGroupDefinition: students in 'Digital Sciences Master' or 'Medieninformatik Master' at TH Köln that are currently enrolled
+    referenceGroupSize: 20
     approachedBy: > 
-        The target group was approached by an email through the ILIAS ST2 folder, and via the ST2 Discord channel. 
+        The target group was approached by an whatsapp.
 stakeholderRoles: 
     - User
 additionalDocuments:
-    - purpose: Kano matrix to prioritize the collected requirements (in German)
-      url: /sources/tagebuch_req_priorisierung.pdf
+    - purpose: Survey results in csv
+      url: /sources/Survey on  AI Mental Health Support App .csv
+    - purpose: Survey Questions in pdf
+      url: sources/Survey on AI Mental Health Support App - Google Forms.pdf
 history:
     v1:
-        date: 2022-05-16
+        date: 2022-04-16
         comment: adapted as template
 ignore: 
 todo:
-    - switch to an English example
 ---
 
+## Explanation
+The participants had approximately one week to complete the survey. It took around 3–4 minutes to answer all questions. Participation was completely anonymous, and participants were informed that the collected data would only be used for this Requirements Engineering project.
+
+The objective of the survey was to understand students' mental health challenges, expectations for an AI-supported mental health application, and their priorities regarding potential features. The collected data serves as input for deriving functional and non-functional requirements for the proposed system.
 ## Aims of the questions
 
-## Erläuterung
+### Demographics
 
-Die Studierenden wurden in der Zeit vom 20.05.2021 bis zum 04.06.2021 mit einem Beobachtungstagebuch ausgestattet. Damit sollten Sie ihre Erfahrungen bei der Verwendung des Divekit im Modul Softwaretechnik 2 dokumentieren.
-Die Durchführung fand komplett anonymisiert statt. Um die Tagebücher dennoch zuordnen zu können, wählten die Teilnehmer persönliche Pseudonyme.
-Die Teilnehmer wurden explizit darauf hingewiesen aktiven Input über das Beobachtungstagebuch zu liefern. Aufgrund der gegebenen Anonymität wurden sie explizit darauf hingewiesen nicht vor Kritik zu scheuen.
-Die Bereitstellung und Abgabe des Beobachtungstagebuchs erfolgte über Ilias.
+Demographic questions were included to verify that the survey reached the intended stakeholder group and to better classify the participants' responses.
 
-## Konzept
+Q: What is your current year of study?
 
-Das erarbeitete Beobachtungstagebuch bestand aus acht Abschnitten, zu denen die Teilnehmer aufgefordert waren 
-Antwort zu geben. Die verwendeten Abschnitte sind nachfolgend erläutert:
+This question helps classify participants according to their academic experience and allows comparison between different study stages.
 
-* _Sehen_: "Hier soll alles beschrieben werden, was du siehst und als nennenswert empfindest. Gerne kannst du hier 
-   beispielsweise aufschreiben, ob es Bugs gab, etwas anders war als sonst oder auch welches Feedback 
-   du für die Meilensteine bekommen hast."
-* _Machen_: "Hier beschreibst du was du genau gemacht hast, währen du mit dem Divekit gearbeitet hast. Außerdem kannst 
-  du hier aufschreiben, wie du deine Aufgaben mithilfe des Divekit erledigt hast.
-* _Fühlen_: "Beschreibe in einem Wort oder in einem Satz, wie du dich vor, während oder nach der Benutzung des Divekit 
-  gefühlt hast. Auch ein kleiner Sketch, wenn die Worte fehlen, ist möglich.
-* _Wünsche für das Divekit_: "Hier geht es darum Wünsche für die Zukunft zu formulieren. Diese können gerne in 
-  Anlehnung an die Felder "Das gefällt mir gut / Das gefällt mir nicht" entstehen. Gibt es etwas, das unbedingt noch umgesetzt werden muss bzw. etwas, das dich bei der Verwendung stört und verändert oder entfernt werden sollte?"
-* _Das gefällt mir gut_: "Bitte beschreibe, was dir bei der Verwendung des Divekit gut gefallen hat. Hierbei kannst du 
-  dich auf die Verwendung während der Entwicklung als auch auf die Anzeige der Ergebnisse fokussieren, oder gerne generelle Dinge beschreiben, die dir im Gesamtkonzept gut gefallen haben."
-* _Das gefällt mir nicht_: "Bitte beschreibe, was dir bei der Verwendung des Divekit nicht gefallen hat. Auch hier 
-  solltest du alle Phasen berücksichtigen, in denen du das Divekit verwendest."
-* _Das hat mich begeistert_: "Hier kannst du Punkte nennen, die dich über "Das gefällt mir gut" hinaus besonders 
-   angesprochen haben. Dazu können bestimmte Funktionalitäten, das Design, oder die Nutzung zählen, aber auch Dinge, von denen du überrascht und daher begeistert warst."
-* _Kreativbereich/Sonstiges_: "In diesem Feld bist du frei Dinge aufzuschreiben oder zu illustrieren, die du uns gerne 
-  mitteilen möchtest, aber nicht in eine der anderen Kategorien gepasst haben. Du bist hier nicht nur an das Wort gebunden, sondern kannst gerne kleine Sketche oder Mindmaps verwenden."
+Q: What is your age group?
 
-## Teilnehmer (anonymisiert)
-1. Percival Craig (PC)
-2. Harvey Specter (HS)
-3. Rick Dalton (RD)
-4. PSSG (PS)
-5. Peter Pan (PP)
-6. Flaschenhals (FH)
-7. Weißer Wolf (WW)
-8. Anonym (AN)
-9. Averroes (AV)
-10. Besoffski (BE)
-11. Snake (SN)
-12. Kaktus (KA)
-13. Phil Banks (PB)
+This question ensures that the participants belong to the expected target group of university students.
 
-## Ergebnisse
+### Student Well-being
+Q: How often do you experience academic stress during the semester?
 
-### Percival Craig
+This question aims to understand how frequently students experience stress and whether there is a demand for additional mental health support.
 
-(PC1) Das System muss in der Lage sein Fehlermeldungen anzuzeigen.
+Q: Which situations cause you the most stress?
 
-(PC2) Das System muss in der Lage sein Studierenden zu nicht bestandenen Tests Feedback anzuzeigen.
+The purpose is to identify the primary stress factors experienced by students. These insights may later be translated into functional requirements targeting the most common challenges.
 
-(PC3) Das System sollte eine simple Gliederung der Testseite haben.
+### Desired Features
+Q: How important are the following features in a mental health application?
 
-(PC4) Das System muss so aufgebaut sein, dass der (Kennen)Lernprozess nicht zu aufwendig ist.
+Examples include:
 
-(PC5) Das System muss eine kurze Refresh-Time haben.
+AI chatbot
+Daily mood check-ins
+Mood tracking
+Personalized coping strategies
+Mindfulness exercises
+Emergency support resources
 
-(PC6) Das System muss in der Lage sein, die durch die Studierenden eingestellten Tests zur Testseite hinzuzufügen, sobald 
-      sie im richtigen Projektordner abgelegt wurden.
+This question identifies which features users consider most valuable and helps prioritize system functionality.
 
-(PC7) Das System sollte in der Lage sein eine visuelle und/oder textuelle Rückmeldung nach der Prüfung der Tests zu geben, 
-      um die Übersichtlichkeit zu verbessern.
+### AI Acceptance
+Q: I would feel comfortable using an AI chatbot as a first step for mental health support.
 
-(PC8) Das System muss in der Lage sein dem Prüfer nach Abschluss eines Tests eine Benachrichtigung zuzusenden, damit 
-      manuelles Feedback zeitnah durchgeführt werden kann und Wartezeiten verringert werden.
+This question evaluates students' willingness to receive initial emotional support from an AI system.
 
-(PC9) Das System muss in der Lage sein dem Studierenden nach durchgeführtem Feedback eine Benachrichtigung zu senden, 
-      damit das Feedback direkt eingesehen werden kann und Wartezeiten verringert werden.
+### Privacy & Trust
+Q: Protecting my personal and mental health data is important when using such an application.
 
-(PC10) Das System muss in der Lage sein dem Studierenden zu bestandenen Test und/oder zu allgemeinen Dingen Feedback zu 
-       geben. Es soll zudem eine Aussage darüber geben wie “gut” eine Lösung ist.
+The purpose is to determine the importance of privacy and data security, which are expected to become essential non-functional requirements.
 
-(PC11) Das System sollte in der Lage sein den Studierenden ein Feedback Archiv zur Verfügung zu stellen, um vorherige 
-       Kommentare einsehen zu können.
+Q: I would not be concerned if a mental health app permanently stored my personal conversations.
 
----
+This reversed question serves as a control question to verify the consistency of participants' responses regarding privacy.
 
-### Harvey Specter 
+### Usage Preferences
+Q: Have you ever used a mental health or well-being application?
 
-(HS1) Das System muss in der Lage sein die Ergebnisse eines Tests auf der gleichen Seite und nicht auf einer extra Seite 
-      anzeigen zu können.
+The objective is to understand participants' previous experience with similar applications and whether existing solutions already meet their needs.
 
-(HS2) Das System muss in der Lage sein den Studierenden mithilfe von visuellen Mitteln anzuzeigen, bei welchen Komponenten 
-      es Probleme gab beziehungsweise welche Aufgaben noch nicht bearbeitet wurden.
+Q: How often would you expect to use such an application?
 
-(HS3) Das System sollte Usern die Möglichkeit bieten das Design individuell festlegen zu können.
+This question estimates expected usage frequency and helps determine suitable reminder and engagement strategies.
 
+Q: Which communication style would you prefer from an AI chatbot?
 
+The purpose is to identify user preferences regarding the chatbot's interaction style in order to improve user experience.
 
----
+Q: Which platform would you prefer?
 
-### Rick Dalton 
+This question helps determine whether users prefer a mobile application, a web application, or both.
 
-(RD1) Das System sollte Studierenden die Möglichkeit bieten sich Hilfe oder (Code-) Reviews bei anderen Studierenden 
-      suchen zu können.
+Q: Which notification frequency would you find most helpful?
 
-(RD2) Das System sollte in der Lage sein Studierenden weiterführende Informationen (z.B. Videos/Webseiten/Vorlesungsmaterialien) 
-      zu konkreten Fehlern zur Verfügung zu stellen.
+This question supports decisions regarding notification design while minimizing notification fatigue.
 
-(RD3) Das System sollte in der Lage sein Studierenden anzuzeigen, wie lange die Korrektur der Aufgaben dauert bzw. welchen 
-      Stand die Korrektur gerade hat.
+Q: Would you be willing to use an app that recommends contacting a counselor when severe emotional distress is detected?
 
----
+This question evaluates users' acceptance of escalation features connecting AI support with professional mental health services.
 
-### PSSG
+### Open Questions
+Q: What would encourage you to regularly use a mental health support app?
 
-(PS1) Das System sollte dem User die Möglichkeit bieten Tests lokal auszuführen.
+This open-ended question allows participants to freely describe features or motivations that would increase long-term engagement.
 
-(PS2) Das System muss die Pseudonyme der korrigierenden Personen eindeutig angeben können.
+Q: Is there any feature or service you think is missing from existing mental health applications?
 
-(PS3) Das System sollte die Zeitzone an den Nutzenden anpassen können.
+Participants can propose additional ideas and unmet needs that may later be transformed into system requirements.
 
-(PS4) Das System sollte dem User die Möglichkeit bieten einsehen zu können, wann die Aufgaben manuell korrigiert werden.
 
-(PS5) Das System muss in der Lage sein Usern mit Farbfehlsichtigkeit, insbesondere Usern mit Rot-Grün-Schwäche, die 
-      Interpretation der Ergebnisse zu ermöglichen.
 
-(PS6) Das System muss unverständliche und nicht nachvollziehbare Fehler in der Aufgabenstellung sowie im Testablauf vermeiden.
+## Results and Analysis
 
-(PS7) Das System sollte die Durchführung von manuelle Korrekturen vor der Abgabe ermöglichen.
+<img src="../sources/survey results/result1.png" width="45%" height="250px">
+<img src="../sources/survey results/result2.png" width="45%" height="250px">
+<img src="../sources/survey results/result3.png" width="45%" height="250px">
+<img src="../sources/survey results/result4.png" width="45%" height="250px">
+<img src="../sources/survey results/result5.png" width="45%" height="250px">
+<img src="../sources/survey results/result6.png" width="45%" height="250px">
+<img src="../sources/survey results/result7.png" width="45%" height="250px">
+<img src="../sources/survey results/result8.png" width="45%" height="250px">
+<img src="../sources/survey results/result9.png" width="45%" height="250px">
+<img src="../sources/survey results/result10.png" width="45%" height="250px">
+<img src="../sources/survey results/result11.png" width="45%" height="250px">
+<img src="../sources/survey results/result12.png" width="45%" height="250px">
 
+### Student Needs and Challenges
+The survey results confirm that academic stress is a significant issue among university students, with most participants experiencing stress frequently, particularly during exams and assignment deadlines. However, the open-ended responses show that students struggle not only with workload but also with self-doubt, fear of failure, and pressure from comparing themselves with others. These findings indicate that students need more than productivity tools—they are looking for emotional support that helps them cope with everyday stress, build confidence, and develop healthier coping mechanisms.
 
+### User Expectations and Desired Features
+Participants consistently preferred features that provide personalized and practical support, including AI conversations, mood tracking, daily check-ins, and personalized coping strategies. The open responses further revealed that students want an application that is quick and easy to use without feeling like another responsibility. They also expressed interest in features specifically designed for university life, such as exam stress management, direct access to university counseling services, and recommendations tailored to their individual situation. Overall, users expect an application that understands their academic context rather than offering generic mental health advice.
 
+### Trust, Privacy, and Overall User Needs
+Privacy and trust were among the strongest themes throughout the survey. Participants emphasized that they would only use the application if their personal data and conversations remained confidential and under their control. While most respondents were positive about using AI as an initial source of support, they clearly viewed it as a complement to, rather than a replacement for, professional counseling. Overall, the survey suggests that students are looking for a safe, trustworthy, and personalized companion that provides immediate emotional support, respects privacy, and guides them toward professional help when necessary. These findings provide a solid basis for deriving both functional requirements (e.g., AI chatbot, personalized support, counseling integration) and non-functional requirements (e.g., privacy, transparency, usability, and trust).
 
----
-
-### Peter Pan
-
-(PP1) Das System soll mehr Tests bereitstellen, die den Code testen.
-
-(PP2) Das System sollte das Durchlaufen von Tests bei falschen Lösungen verhindern.
-
-
----
-
-### Flaschenhals
-
-(FH1) Das System sollte in der Lage sein den User einfach zwischen Meilensteinen wechseln zu lassen.
-
-(FH2) Das System sollte Studierenden die Möglichkeit bieten ohne Medienbruch Fragen an betreuende Personen stellen zu können.
-
----
-
-### Weißer Wolf
-
-(WW1) Das System muss den Studierenden nach abgeschlossener automatischer Kontrolle der Tests eine 
-        Benachrichtigung schicken.
-
-(WW1) Das System muss den Studierenden nach abgeschlossener manueller Kontrolle der Tests durch die Prüfer eine 
-               Benachrichtigung schicken.
-
----
-
-### Anonym 
-
-(AN1) Das System darf den Status eines Tests erst dann auf grün setzen, wenn der Benutzer die Aufgabe erfolgreich bearbeitet hat.
-
-(AN2) Das System sollte in der Lage sein den Zeitstempel der letzten Aktualisierung des Codes anzeigen zu können.
-
----
-
-### Averroes 
-
-(AV1) Das System sollte in der Lage sein die Testseite nach der Prüfung eines Test selbstständig zu aktualisieren.
-
----
-
-### Besoffski 
-
-(BE1) Das System sollte in der Lage sein dem Studierenden die Deadline der zu bearbeitenden Aufgabe auf der Testseite 
-      anzeigen zu können.
-
-
----
-
-### Snake
-
-(SN1) Das System sollte dem Benutzer die Möglichkeit bieten die voraussichtliche Korrekturdauer eines Tests anzeigen 
-        zu können.
-
-(SN2) Das System sollte nur eine bestimmte Anzahl der letzten Tests anzeigen, um die Testseite übersichtlich zu halten.
-
----
-
-### Kaktus
-
-(KA1) Das System sollte über eine Schnittstelle für Anbindungen anderer Systeme verfügen.
-
----
-
-### Phil Banks
-
-(PB1) Das System muss in der Lage sein Änderungen an Dateien automatisch zu registrieren.
-
-(PB2) Das System sollte in der Lage sein dem Benutzer einfache Qualitätstests, wie Ausführungszeit, Ressourcenauslastung, 
-      etc. bereitzustellen.
-
+### Overall Analysis
+Overall, the survey indicates that students are looking for more than a traditional mental health application. They expect a solution that is student-centered, easy to use, and available whenever support is needed. Rather than replacing professional counseling, the AI should serve as an accessible first point of contact that provides personalized support while respecting users' privacy. These findings provide a solid basis for deriving both functional and non-functional requirements for the proposed system.
