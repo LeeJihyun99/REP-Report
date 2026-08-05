@@ -17,7 +17,6 @@ kano:
     type: attractive
     reasoning: >
         Data export gives students complete ownership and portability of their personal therapeutic records.
-# prioScore - the higher the points, the more important. Blank = 0 (e.g. when filtered out in 1st pass)
 prioScore:65
 sources:
     - reference: [project_description]
