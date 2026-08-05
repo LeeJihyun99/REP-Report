@@ -3,7 +3,7 @@
 acronym: cloud_backend
 type: systemContextElement
 subtype: itsystem
-isTemplate: true
+# isTemplate: true
 title: Cloud Storage & Privacy Dashboard Backend
 description: >
     The secure, encrypted data storage backend manages user mental health privacy preferences 

@@ -3,7 +3,7 @@
 acronym: push_notif
 type: systemContextElement
 subtype: itsystem
-isTemplate: true
+# isTemplate: true
 title: Push Notification Service
 description: >
     The Push Notification Service is the operating system notification channel used to deliver 

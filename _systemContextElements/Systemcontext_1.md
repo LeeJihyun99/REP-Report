@@ -2,13 +2,13 @@
 acronym: unicalendar
 type: systemContextElement
 subtype: itsystem 
-isTemplate: true
+# isTemplate: true
+author: 
+    - raf
 title: University Academic Calendar System
 description: >
     the University Academic Calendar System is an external database providing semester dates, 
     exam schedules, and submission deadlines to trigger academic stress detection within the app.
-author:
-    - Rafath
 sources:
     - reference: [Project description ]
       usedFor: Mentions academic calendar integration for exam stress management

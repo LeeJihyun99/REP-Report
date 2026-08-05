@@ -3,7 +3,7 @@
 acronym: counseling
 type: systemContextElement
 subtype: organization
-isTemplate: true
+# isTemplate: true
 title: University Counseling Services
 description: >
     University Counseling Services and emergency hotlines form the external human support 

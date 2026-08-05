@@ -2,7 +2,7 @@
 acronym: ai_model
 type: systemContextElement
 subtype: itsystem
-isTemplate: true
+# isTemplate: true
 title: AI Chatbot Service Model
 description: >
     The AI Chatbot Service Model is the integrated LLM engine processing natural language for 

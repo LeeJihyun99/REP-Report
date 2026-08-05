@@ -3,7 +3,7 @@
 acronym: sso_auth
 type: systemContextElement
 subtype: itsystem
-isTemplate: true
+# isTemplate: true
 title: Student Authentication System
 description: >
     The Student Authentication System uses university credentials or a secure login provider to 

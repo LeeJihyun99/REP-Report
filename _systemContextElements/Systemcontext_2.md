@@ -2,7 +2,7 @@
 acronym: student
 type: systemContextElement
 subtype: actor 
-isTemplate: true
+# isTemplate: true
 title: Student User
 description: >
     The Student User is the primary actor experiencing university exam stress or burnout who 
