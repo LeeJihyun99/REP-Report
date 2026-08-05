@@ -15,7 +15,7 @@ goals:
     - dataPortability
 kano:
     type: attractive
-    reasoning:
+    reasoning :
         Data export gives students complete ownership and portability of their personal therapeutic records.
 prioScore:65
 sources:
