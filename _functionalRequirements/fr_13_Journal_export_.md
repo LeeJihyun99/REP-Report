@@ -18,7 +18,7 @@ kano:
         Data export gives students complete ownership and portability of their personal therapeutic records.
 prioScore: 65
 sources:
-    - reference: [project_description, mental_health_app, "Privacy Dashboard"]
+    - reference: [project_description]
       usedFor: Expands on data control and export options for historical records
 history:
     v1:
