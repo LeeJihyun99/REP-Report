@@ -16,7 +16,7 @@ kano:
     type: attractive
     reasoning: >
         Data export gives students complete ownership and portability of their personal therapeutic records.
-prioScore: 65
+prioScore: 6.5
 sources:
     - reference: [project_description]
       usedFor: Expands on data control and export options for historical records
