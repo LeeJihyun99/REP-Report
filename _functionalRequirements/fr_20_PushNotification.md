@@ -17,7 +17,7 @@ kano:
     type: mustbe
     reasoning: >
         Reliable notification dispatching is required to prompt timely check-ins and break reminders throughout the day.
-prioScore: 90
+prioScore: 9
 sources:
     - reference: [project_description, "Reminders and Alerts"]
       usedFor: Specifies notification delivery mechanisms for daily check-ins and breaks
