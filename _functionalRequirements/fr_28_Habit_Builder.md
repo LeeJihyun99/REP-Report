@@ -17,7 +17,7 @@ kano:
     type: performance
     reasoning: >
         Structured habit plans and adaptive tracking support consistent, long-term burnout prevention.
-prioScore: 85
+prioScore: 8.5
 sources:
     - reference: [project_description, "Habit Tracking"]
       usedFor: Defines goal-setting and progress tracking mechanisms
