@@ -17,7 +17,7 @@ kano:
     type: attractive
     reasoning: >
         Providing tailored academic support directly targets the root cause of student burnout.
-prioScore: 90
+prioScore: 9
 sources:
     - reference: [project_description, "Academic Integration"]
       usedFor: Outlines support workflows for exam anxiety and coursework stress
