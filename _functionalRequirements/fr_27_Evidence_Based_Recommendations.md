@@ -17,7 +17,7 @@ kano:
     type: performance
     reasoning: >
         Grounded psychological practices build high credibility and offer reliable, effective coping mechanisms.
-prioScore: 95
+prioScore: 9.5
 sources:
     - reference: [project_description, "Clinical Guidelines"]
       usedFor: Defines scientific validation criteria for AI suggestions
