@@ -17,7 +17,7 @@ kano:
     type: mustbe
     reasoning: >
         A reporting mechanism is essential for community self-policing and maintaining a safe psychological space.
-prioScore: 90
+prioScore: 9
 sources:
     - reference: [project_description, "Community Features"]
       usedFor: Outlines safety reporting and moderation workflows for peer spaces
