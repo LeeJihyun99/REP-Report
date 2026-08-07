@@ -17,7 +17,7 @@ kano:
     type: attractive
     reasoning: >
         Supporting multiple languages significantly aids international students navigating language barriers alongside academic stress.
-prioScore: 70
+prioScore: 7
 sources:
     - reference: [project_description,"International Support"]
       usedFor: Addresses language and cultural barriers for international students
