@@ -17,7 +17,7 @@ kano:
     type: attractive
     reasoning: >
         Bookmarking favorite exercises enhances user convenience and creates a personalized toolkit of coping mechanisms.
-prioScore: 65
+prioScore: 6.5
 sources:
     - reference: [project_description, "Support Services"]
       usedFor: Outlines personal resource saving and bookmarking functionality
