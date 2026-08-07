@@ -17,7 +17,7 @@ kano:
     type: performance
     reasoning: >
         Custom scheduling prevents notification fatigue and accommodates irregular student timetables.
-prioScore: 75
+prioScore: 7.5
 sources:
     - reference: [project_description, "Core Features"]
       usedFor: Defines customizable reminder settings for daily check-in prompts
