@@ -17,7 +17,7 @@ kano:
     type: performance
     reasoning: >
         Providing a variety of evidence-based mental wellness exercises enables students to manage stress more effectively and choose the technique that best suits their current situation.
-prioScore: 90
+prioScore: 9
 sources:
     - reference: [project_description, "Unique Features"]
       usedFor: Specifies guided mental wellness exercises and acute stress mitigation tools
