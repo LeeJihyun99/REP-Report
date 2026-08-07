@@ -17,7 +17,7 @@ kano:
     type: performance
     reasoning: >
         Tracking sleep patterns alongside emotional well-being uncovers critical physical links to academic burnout.
-prioScore: 80
+prioScore: 8
 sources:
     - reference: [project_description, mental_health_app, "Gamification"]
       usedFor: Tracks sleep patterns and healthy habit metrics for students
