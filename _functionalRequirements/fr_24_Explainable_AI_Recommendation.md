@@ -17,7 +17,7 @@ kano:
     type: performance
     reasoning: >
         Users are more likely to trust AI recommendations when the reasoning behind them is clearly explained.
-prioScore: 95
+prioScore: 9.5
 sources:
     - reference: [project_description, "AI Architecture"]
       usedFor: Explains transparency principles and recommendation reasoning
