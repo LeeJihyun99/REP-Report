@@ -17,7 +17,7 @@ kano:
     type: mustbe
     reasoning: >
         Total data deletion capability is a mandatory compliance standard for modern privacy regulations and user trust.
-prioScore: 95
+prioScore: 9.5
 sources:
     - reference: [project_description,"Privacy Dashboard"]
       usedFor: Specifies complete data erasure and account closure protocols
