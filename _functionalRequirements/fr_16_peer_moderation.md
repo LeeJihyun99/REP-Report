@@ -17,7 +17,7 @@ kano:
     type: mustbe
     reasoning: >
         Automated moderation is vital to maintaining a safe, supportive peer environment free of bullying or distress triggers.
-prioScore: 90
+prioScore: 9
 sources:
     - reference: [project_description, "Community Features"]
       usedFor: Outlines safety protocols and moderation for anonymous student support spaces
