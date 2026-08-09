@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: personalizedConversationMemory
-isTemplate: true
 author:  
     - rafath
 title: Personalized AI conversation memory

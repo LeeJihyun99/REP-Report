@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: peerReportMechanism
-isTemplate: true
 author:  
     - rafath
 title: Peer community content reporting

@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: pushNotificationDispatcher
-isTemplate: true
 author:  
     - rafath
 title: Contextual push notification dispatcher

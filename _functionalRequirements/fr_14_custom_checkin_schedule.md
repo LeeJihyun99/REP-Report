@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: customCheckinSchedule
-isTemplate: true
 author:  
     - rafath
 title: Custom check-in schedule configuration

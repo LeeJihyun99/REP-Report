@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: evidenceBasedRecommendations
-isTemplate: true
 author:  
     - rafath
 title: Evidence-based coping recommendations

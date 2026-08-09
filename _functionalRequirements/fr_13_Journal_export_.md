@@ -1,7 +1,6 @@
 ---
 type: functionalRequirement
 acronym: journalExport
-isTemplate: true
 author:  
     - rafath
 title: Emotional journal data export

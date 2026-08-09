@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: accountDeletion
-isTemplate: true
 author:  
     - rafath
 title: Complete account and data purging

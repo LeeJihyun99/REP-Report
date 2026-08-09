@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: mentalWellnessExercises
-isTemplate: true
 author:  
     - rafath
 title: Guided mental wellness exercises

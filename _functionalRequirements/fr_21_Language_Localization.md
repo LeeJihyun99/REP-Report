@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: languageLocalization
-isTemplate: true
 author:  
     - rafath
 title: Multi-language interface localization

@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: peerPostModeration
-isTemplate: true
 author:  
     - rafath
 title: Automated peer post moderation filter

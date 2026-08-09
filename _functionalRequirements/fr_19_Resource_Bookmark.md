@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: resourceBookmark
-isTemplate: true
 author:  
     - rafath
 title: Coping strategy bookmarking system

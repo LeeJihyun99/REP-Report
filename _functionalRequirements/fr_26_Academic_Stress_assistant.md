@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: academicStressAssistant
-isTemplate: true
 author:  
     - rafath
 title: Personalized academic stress assistance

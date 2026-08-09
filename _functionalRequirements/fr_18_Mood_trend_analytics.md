@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: moodTrendAnalytics
-isTemplate: true
 author:  
     - rafath
 title: Longitudinal mood trend visualization

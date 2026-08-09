@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: habitBuilder
-isTemplate: true
 author:  
     - rafath
 title: Personalized habit builder

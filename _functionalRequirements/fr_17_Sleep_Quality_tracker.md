@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: sleepQualityTracker
-isTemplate: true
 author:  
     - rafath
 title: Sleep quality and duration logger

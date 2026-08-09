@@ -2,7 +2,6 @@
 
 type: functionalRequirement
 acronym: explainableAIRecommendation
-isTemplate: true
 author:  
     - rafath
 title: Explainable AI recommendation
