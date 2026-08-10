@@ -1,6 +1,6 @@
 ---
 type: nonFunctionalRequirement
-acronym: aiGuidanceQuality
+acronym: nfr_02_ai_guidance_quality
 author:    
     - nora
 title: Evidence-Based AI Response Quality

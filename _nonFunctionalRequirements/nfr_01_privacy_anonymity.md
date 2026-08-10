@@ -1,6 +1,6 @@
 ---
 type: nonFunctionalRequirement
-acronym: dataPrivacyAnonymity
+acronym: nfr_01_privacy_anonymity
 author:    
     - nora
 title: Data Privacy and Anonymity Assurance

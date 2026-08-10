@@ -1,6 +1,6 @@
 ---
 type: nonFunctionalRequirement
-acronym: systemAvailability
+acronym: nfr_04_availability
 author:    
     - nora
 title: High Service Availability for Late-Night Stress
