@@ -1,6 +1,6 @@
 ---
 type: functionalRequirement
-acronym: anonymousForumPost
+acronym: fr_08_anonymous_forum_post
 author:    
     - nora
 title: Anonymous Peer Community Posting

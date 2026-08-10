@@ -1,6 +1,6 @@
 ---
 type: functionalRequirement
-acronym: calendarSync
+acronym: fr_06_calendar_sync
 author:    
     - nora
 title: Academic Schedule Import

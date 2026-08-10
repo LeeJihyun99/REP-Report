@@ -1,6 +1,6 @@
 ---
 type: functionalRequirement
-acronym: dailyCheckIn
+acronym: fr_01_daily_checkin
 author:    
     - nora
 title: Daily Emotional Check-In Prompt

@@ -1,6 +1,6 @@
 ---
 type: functionalRequirement
-acronym: aiChatSupport
+acronym: fr_02_ai_chat_support
 author:    
     - nora
 title: AI Conversational Mental Health Guidance

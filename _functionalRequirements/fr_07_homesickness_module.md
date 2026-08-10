@@ -1,6 +1,6 @@
 ---
 type: functionalRequirement
-acronym: homesicknessModule
+acronym: fr_07_homesickness_module
 author:    
     - nora
 title: International Adaptation Support

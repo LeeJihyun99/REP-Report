@@ -1,6 +1,6 @@
 ---
 type: functionalRequirement
-acronym: crisisHotlineDirectory
+acronym: fr_11_crisis_hotline_directory
 author:    
     - nora
 title: Local Crisis Directory Display

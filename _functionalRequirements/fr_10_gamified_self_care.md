@@ -1,6 +1,6 @@
 ---
 type: functionalRequirement
-acronym: gamifiedSelfCare
+acronym: fr_10_gamified_self_care
 author:    
     - nora
 title: Self-Care Streak Tracking

@@ -1,6 +1,6 @@
 ---
 type: functionalRequirement
-acronym: burnoutDetection
+acronym: fr_03_burnout_detection
 author:    
     - nora
 title: Early Burnout Pattern Alert

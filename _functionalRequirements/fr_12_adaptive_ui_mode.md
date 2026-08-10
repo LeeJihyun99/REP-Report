@@ -1,6 +1,6 @@
 ---
 type: functionalRequirement
-acronym: adaptiveUiMode
+acronym: fr_12_adaptive_ui_mode
 author:    
     - nora
 title: Low-Stimulation Interface Mode

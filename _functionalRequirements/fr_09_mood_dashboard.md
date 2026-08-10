@@ -1,6 +1,6 @@
 ---
 type: functionalRequirement
-acronym: moodDashboard
+acronym: fr_09_mood_dashboard
 author:    
     - nora
 title: Emotional Trend History Display
