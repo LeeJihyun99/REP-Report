@@ -1,6 +1,6 @@
 ---
 type: persona
-acronym: msilva
+acronym: persona_mateo
 stakeholderRole: internationalStudent
 author: 
     - nora

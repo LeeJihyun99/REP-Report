@@ -1,6 +1,6 @@
 ---
 type: persona
-acronym: mhoffmann
+acronym: persona_markus
 stakeholderRole: universityCounselor
 author: 
     - nora

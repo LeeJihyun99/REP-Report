@@ -1,6 +1,6 @@
 ---
 type: persona
-acronym: dchen
+acronym: persona_david
 stakeholderRole: peerSupporter
 author: 
     - nora

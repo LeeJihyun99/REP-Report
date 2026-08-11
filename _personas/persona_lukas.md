@@ -1,6 +1,6 @@
 ---
 type: persona
-acronym: lweber
+acronym: persona_lukas
 stakeholderRole: domesticStudent
 author: 
     - nora

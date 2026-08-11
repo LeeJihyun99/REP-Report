@@ -1,6 +1,6 @@
 ---
 type: persona
-acronym: evoss
+acronym: persona_elena
 stakeholderRole: universityCounselor
 author: 
     - nora

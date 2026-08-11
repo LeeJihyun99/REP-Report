@@ -1,6 +1,6 @@
 ---
 type: persona
-acronym: smeyer
+acronym: persona_sarah
 stakeholderRole: domesticStudent
 author: 
     - nora

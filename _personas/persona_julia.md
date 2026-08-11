@@ -1,6 +1,6 @@
 ---
 type: persona
-acronym: jbecker
+acronym: persona_julia
 stakeholderRole: peerSupporter
 author: 
     - nora

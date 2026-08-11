@@ -1,6 +1,6 @@
 ---
 type: persona
-acronym: akhan
+acronym: persona_aisha
 stakeholderRole: internationalStudent
 author: 
     - nora
