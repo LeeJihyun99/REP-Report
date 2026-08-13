@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: mentalWellnessExercises
 author:  
-    - rafath
+    - raf
 title: Guided mental wellness exercises
 interfaceRequirementTemplate:
     condition: If a student selects a mental wellness activity from the dashboard or if the system detects elevated stress levels during a daily check-in
