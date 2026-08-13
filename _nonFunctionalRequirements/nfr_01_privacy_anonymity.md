@@ -9,7 +9,7 @@ nfrText: >
 goals: 
     - G_PRIVACY_PROTECTION
 sources:
-    - reference: [workshop, team_workshop, "Phase 3 - Brainstorming Paradox"]
+    - reference: ["workshop", "team_workshop", "Phase 3 - Brainstorming Paradox"]
       usedFor: Identifying the severe fear of institutional exposure and mental health stigma among students
 history:
     v1:

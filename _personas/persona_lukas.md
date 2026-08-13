@@ -10,7 +10,7 @@ isPrimary: false
 relationshipToProject: >
     Lukas represents senior undergraduate students experiencing chronic perfectionism, procrastination, and pre-exam panic.
 sources:
-    - reference: [workshop, team_workshop, "Part 1 - Target Group Analysis"]
+    - reference: ["workshop", "team_workshop", "Part 1 - Target Group Analysis"]
       usedFor: Reflects study habit red flags and procrastination patterns.
 history:
     v1:

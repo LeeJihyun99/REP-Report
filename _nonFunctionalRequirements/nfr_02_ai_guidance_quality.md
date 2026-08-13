@@ -10,7 +10,7 @@ goals:
     - G_EXAM_STRESS
     - G_LOW_COGNITIVE_LOAD
 sources:
-    - reference: [workshop, team_workshop, "General Questions"]
+    - reference: ["workshop", "team_workshop", "General Questions"]
       usedFor: Addressing user criticism that generic LLMs provide answers that are too simple and unhelpful
 history:
     v1:

@@ -19,7 +19,7 @@ kano:
         Providing accessible professional helpline information is essential for emergency readiness.
 prioScore: 10
 sources:
-    - reference: [workshop, team_workshop, "Phase 4 - Prioritization"]
+    - reference: ["workshop", "team_workshop", "Phase 4 - Prioritization"]
 history:
     v1:
         date: 2026-07-30

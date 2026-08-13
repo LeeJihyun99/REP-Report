@@ -18,7 +18,7 @@ kano:
         Automated calendar integration reduces manual input effort and improves schedule-aware stress prediction.
 prioScore: 8
 sources:
-    - reference: [workshop, team_workshop, "Phase 2 - Brainstorming"]
+    - reference: ["workshop", "team_workshop", "Phase 2 - Brainstorming"]
 history:
     v1:
         date: 2026-07-30

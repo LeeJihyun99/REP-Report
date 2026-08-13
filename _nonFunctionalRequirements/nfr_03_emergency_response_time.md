@@ -9,7 +9,7 @@ nfrText: >
 goals: 
     - G_HUMAN_ESCALATION
 sources:
-    - reference: [workshop, team_workshop, "Phase 4 - Prioritization"]
+    - reference: ["workshop", "team_workshop", "Phase 4 - Prioritization"]
       usedFor: Establishing mandatory response time limits during acute psychological crises
 history:
     v1:

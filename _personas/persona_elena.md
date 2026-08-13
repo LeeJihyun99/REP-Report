@@ -10,7 +10,7 @@ isPrimary: false
 relationshipToProject: >
     Dr. Voss represents institutional university counseling staff looking for preventative digital tools to reduce overloaded counseling waiting lists.
 sources:
-    - reference: [workshop, team_workshop, "Part 2 - Stakeholder Mapping"]
+    - reference: ["workshop", "team_workshop", "Part 2 - Stakeholder Mapping"]
       usedFor: Identifies institutional goals for low-threshold preventative mental health care.
 history:
     v1:

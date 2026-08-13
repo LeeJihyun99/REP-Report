@@ -18,7 +18,7 @@ kano:
         Light gamification rewards healthy habits and motivates daily engagement without inducing stress.
 prioScore: 5
 sources:
-    - reference: [workshop, team_workshop, "Phase 4 - Prioritization"]
+    - reference: ["workshop", "team_workshop", "Phase 4 - Prioritization"]
 history:
     v1:
         date: 2026-07-30

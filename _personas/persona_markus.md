@@ -10,7 +10,7 @@ isPrimary: false
 relationshipToProject: >
     Markus represents crisis intervention specialists who require clear, safe escalation paths from digital AI tools to human emergency professionals.
 sources:
-    - reference: [workshop, team_workshop, "Part 2 - Stakeholder Mapping"]
+    - reference: ["workshop", "team_workshop", "Part 2 - Stakeholder Mapping"]
       usedFor: Defines emergency requirements and crisis safety protocols.
 history:
     v1:

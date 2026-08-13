@@ -10,7 +10,7 @@ isPrimary: false
 relationshipToProject: >
     David represents student buddy leaders who help integrate international students into campus life and peer networks.
 sources:
-    - reference: [workshop, team_workshop, "Part 2 - Stakeholder Mapping"]
+    - reference: ["workshop", "team_workshop", "Part 2 - Stakeholder Mapping"]
       usedFor: Focuses on cultural integration and peer buddy engagement.
 history:
     v1:

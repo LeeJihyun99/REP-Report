@@ -20,7 +20,7 @@ kano:
         High quality, fast AI response directly drives student satisfaction and engagement.
 prioScore: 9
 sources:
-    - reference: [workshop, team_workshop, "Phase 2 - Brainstorming"]
+    - reference: ["workshop", "team_workshop", "Phase 2 - Brainstorming"]
 history:
     v1:
         date: 2026-07-30

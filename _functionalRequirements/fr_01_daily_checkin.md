@@ -20,7 +20,7 @@ kano:
         Logging daily mood and stress is a fundamental requirement for a mental health tracking system. Without it, core features cannot function.
 prioScore: 10
 sources:
-    - reference: [workshop, team_workshop, "Phase 1 - Warm-up"]
+    - reference: ["workshop", "team_workshop", "Phase 1 - Warm-up"]
 history:
     v1:
         date: 2026-07-30

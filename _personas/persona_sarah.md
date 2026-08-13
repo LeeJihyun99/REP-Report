@@ -10,7 +10,7 @@ isPrimary: true
 relationshipToProject: >
     Sarah represents local students working part-time jobs alongside full-time studies, suffering from severe time pressure and burnout risks.
 sources:
-    - reference: [workshop, team_workshop, "Part 1 - Target Group Analysis"]
+    - reference: ["workshop", "team_workshop", "Part 1 - Target Group Analysis"]
       usedFor: Illustrates double-burden of working students and scheduling stress.
 history:
     v1:

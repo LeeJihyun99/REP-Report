@@ -10,7 +10,7 @@ isPrimary: true
 relationshipToProject: >
     Mateo represents international students navigating a new university system while struggling with academic stress, language hurdles, and distance from home.
 sources:
-    - reference: [workshop, team_workshop, "Part 1 - Target Group Analysis"]
+    - reference: ["workshop", "team_workshop", "Part 1 - Target Group Analysis"]
       usedFor: Highlights challenges of international students regarding academic adjustment and stress.
 history:
     v1:

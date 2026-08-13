@@ -10,7 +10,7 @@ goals:
     - G_EXAM_STRESS
     - G_CALENDAR_INTEGRATION
 sources:
-    - reference: [workshop, team_workshop, "Phase 1 - Warm-up"]
+    - reference: ["workshop", "team_workshop", "Phase 1 - Warm-up"]
       usedFor: Recognizing that exam stress and panic attacks frequently occur outside regular university hours
 history:
     v1:

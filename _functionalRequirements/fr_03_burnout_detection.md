@@ -18,7 +18,7 @@ kano:
         Early warning capabilities significantly enhance the preventative value of the system.
 prioScore: 9
 sources:
-    - reference: [workshop, team_workshop, "Phase 3 - Brainstorming Paradox"]
+    - reference: ["workshop", "team_workshop", "Phase 3 - Brainstorming Paradox"]
 history:
     v1:
         date: 2026-07-30

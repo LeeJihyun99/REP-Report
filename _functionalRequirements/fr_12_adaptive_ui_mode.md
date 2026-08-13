@@ -19,7 +19,7 @@ kano:
         An adaptive UI tailored to current emotional states offers a unique user experience during burnout phases.
 prioScore: 6
 sources:
-    - reference: [workshop, team_workshop, "General Questions"]
+    - reference: ["workshop", "team_workshop", "General Questions"]
 history:
     v1:
         date: 2026-07-30

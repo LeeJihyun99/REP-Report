@@ -10,7 +10,7 @@ isPrimary: false
 relationshipToProject: >
     Julia represents senior student volunteers who moderate peer groups and foster stigma-free academic support communities.
 sources:
-    - reference: [workshop, team_workshop, "Part 2 - Stakeholder Mapping"]
+    - reference: ["workshop", "team_workshop", "Part 2 - Stakeholder Mapping"]
       usedFor: Establishes peer-support moderation and community safety expectations.
 history:
     v1:

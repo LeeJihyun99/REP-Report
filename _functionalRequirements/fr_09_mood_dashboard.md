@@ -20,7 +20,7 @@ kano:
         Visual mood analytics provide insight into personal progress and enable self-reflection.
 prioScore: 8
 sources:
-    - reference: [workshop, team_workshop, "Phase 4 - Prioritization"]
+    - reference: ["workshop", "team_workshop", "Phase 4 - Prioritization"]
 history:
     v1:
         date: 2026-07-30

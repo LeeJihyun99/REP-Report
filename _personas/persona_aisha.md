@@ -10,7 +10,7 @@ isPrimary: false
 relationshipToProject: >
     Aisha represents undergraduate international exchange students facing acute culture shock and difficulties building local support networks.
 sources:
-    - reference: [workshop, team_workshop, "Part 1 - Target Group Analysis"]
+    - reference: ["workshop", "team_workshop", "Part 1 - Target Group Analysis"]
       usedFor: Captures social isolation and adaptation barriers for exchange students.
 history:
     v1:
