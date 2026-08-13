@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: peerReportMechanism
 author:  
-    - rafath
+    - raf
 title: Peer community content reporting
 interfaceRequirementTemplate:
     condition: If a student flags an inappropriate or harmful post within the anonymous community space
