@@ -12,7 +12,7 @@ interfaceRequirementTemplate:
 goals: 
     - dataPortability
 kano:
-    type: attractive
+    type: basic
     reasoning: >
         Data export gives students complete ownership and portability of their personal therapeutic records.
 prioScore: 6.5
