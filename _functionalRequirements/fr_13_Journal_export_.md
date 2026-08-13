@@ -2,7 +2,7 @@
 type: functionalRequirement
 acronym: journalExport
 author:  
-    - rafath
+    - raf
 title: Emotional journal data export
 interfaceRequirementTemplate:
     condition: If a student requests an export of their personal check-in history and journal entries
