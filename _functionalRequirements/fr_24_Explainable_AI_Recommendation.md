@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: explainableAIRecommendation
 author:  
-    - rafath
+    - raf
 title: Explainable AI recommendation
 interfaceRequirementTemplate:
     condition: If the AI recommends a coping strategy, exercise, or academic support
