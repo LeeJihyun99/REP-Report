@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: academicStressAssistant
 author:  
-    - rafath
+    - raf
 title: Personalized academic stress assistance
 interfaceRequirementTemplate:
     condition: If the student reports assignment-related stress or exam anxiety
