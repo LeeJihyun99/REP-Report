@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: languageLocalization
 author:  
-    - rafath
+    - raf
 title: Multi-language interface localization
 interfaceRequirementTemplate:
     condition: If an international student selects a preferred regional language setting in their profile
