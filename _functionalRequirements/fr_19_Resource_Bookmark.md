@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: resourceBookmark
 author:  
-    - rafath
+    - raf
 title: Coping strategy bookmarking system
 interfaceRequirementTemplate:
     condition: If a student selects the bookmark icon on an AI-recommended coping article or exercise
