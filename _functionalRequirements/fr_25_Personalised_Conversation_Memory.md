@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: personalizedConversationMemory
 author:  
-    - rafath
+    - raf
 title: Personalized AI conversation memory
 interfaceRequirementTemplate:
     condition: If the student continues using the AI chatbot over multiple sessions
