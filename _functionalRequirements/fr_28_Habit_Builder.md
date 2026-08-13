@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: habitBuilder
 author:  
-    - rafath
+    - raf
 title: Personalized habit builder
 interfaceRequirementTemplate:
     condition: If the student sets personal well-being or study goals
