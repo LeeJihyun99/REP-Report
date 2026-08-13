@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: peerPostModeration
 author:  
-    - rafath
+    - raf
 title: Automated peer post moderation filter
 interfaceRequirementTemplate:
     condition: If a student submits an anonymous message to the peer community space
