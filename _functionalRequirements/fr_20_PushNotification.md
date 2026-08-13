@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: pushNotificationDispatcher
 author:  
-    - rafath
+    - raf
 title: Contextual push notification dispatcher
 interfaceRequirementTemplate:
     condition: If a scheduled check-in time or smart study break threshold is reached
