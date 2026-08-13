@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: customCheckinSchedule
 author:  
-    - rafath
+    - raf
 title: Custom check-in schedule configuration
 interfaceRequirementTemplate:
     condition: If a student modifies their notification preferences for daily check-ins
