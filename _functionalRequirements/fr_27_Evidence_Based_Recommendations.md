@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: evidenceBasedRecommendations
 author:  
-    - rafath
+    - raf
 title: Evidence-based coping recommendations
 interfaceRequirementTemplate:
     condition: If the student requests mental health advice
