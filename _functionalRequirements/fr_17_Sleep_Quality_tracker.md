@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: sleepQualityTracker
 author:  
-    - rafath
+    - raf
 title: Sleep quality and duration logger
 interfaceRequirementTemplate:
     condition: If a student inputs their nightly sleep hours during the daily check-in routine
