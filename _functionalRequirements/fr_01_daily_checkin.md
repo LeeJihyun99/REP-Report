@@ -2,7 +2,7 @@
 type: functionalRequirement
 acronym: fr_01_daily_checkin
 author:    
-    - nora
+    - n
 title: Daily Emotional Check-In Prompt
 userInteractionTemplate:
     condition: When the student opens the application
