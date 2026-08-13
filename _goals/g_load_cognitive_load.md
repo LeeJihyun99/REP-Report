@@ -1,6 +1,6 @@
 ---
 type: goal
-acronym: G_LOW_COGNITIVE_LOAD
+acronym: G_LOAD_COGNITIVE_LOAD
 author:
   - nora
 title: Minimize Cognitive Load During High-Stress States
