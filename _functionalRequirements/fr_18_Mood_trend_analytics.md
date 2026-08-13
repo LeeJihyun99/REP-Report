@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: moodTrendAnalytics
 author:  
-    - rafath
+    - raf
 title: Longitudinal mood trend visualization
 interfaceRequirementTemplate:
     condition: If a student opens their personal analytics tab over a weekly or monthly interval
