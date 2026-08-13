@@ -3,7 +3,7 @@
 type: functionalRequirement
 acronym: accountDeletion
 author:  
-    - rafath
+    - raf
 title: Complete account and data purging
 interfaceRequirementTemplate:
     condition: If a student submits a formal request to delete their account via privacy settings
