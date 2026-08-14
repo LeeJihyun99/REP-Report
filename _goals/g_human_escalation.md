@@ -1,6 +1,8 @@
 ---
 type: goal
 acronym: G_HUMAN_ESCALATION
+author:
+  - nora
 title: Seamless Escalation to Professional Human Support
 goalText: >
   The system shall immediately connect the user to university psychological services or emergency hotlines upon detecting signs of severe emotional crisis.
