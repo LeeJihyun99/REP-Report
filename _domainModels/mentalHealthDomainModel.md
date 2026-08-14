@@ -1,7 +1,7 @@
 ---
 type: domainModel
 acronym: mentalHealthDomainModel
-isTemplate: true
+
 author: 
     - raf
 title: Overview on Key Terms for Mental Health and Student Support Domain
