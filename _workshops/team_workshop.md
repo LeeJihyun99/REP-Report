@@ -1,5 +1,5 @@
 ---
-acronym: student
+acronym: team_workshop
 type: workshop
 # isTemplate: true
 author: 
