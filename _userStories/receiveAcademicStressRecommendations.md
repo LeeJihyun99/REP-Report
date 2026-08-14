@@ -8,7 +8,7 @@ author:
 
 title: Receive personalized academic stress recommendations
 
-functionalRequirement: calendarSync
+functionalRequirement: fr_06_calendar_sync
 
 asA: User
 

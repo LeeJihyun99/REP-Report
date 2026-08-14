@@ -5,7 +5,7 @@ acronym: peerCommunity
 author:
     - vanshita
 
-functionalRequirement: anonymousForumPost
+functionalRequirement: fr_08_anonymous_forum_post
 
 title: Participate in Anonymous Peer Community
 

@@ -5,7 +5,7 @@ acronym: burnoutMonitoring
 author:
     - vanshita
 
-functionalRequirement: burnoutDetection
+functionalRequirement: fr_03_burnout_detection
 
 title: Detect Burnout and Monitor Wellbeing
 

@@ -8,7 +8,7 @@ author:
 
 title: Personalize my application language and interface settings
 
-functionalRequirement: homesicknessModule
+functionalRequirement: fr_07_homesickness_module
 
 asA: User
 

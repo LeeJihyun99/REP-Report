@@ -8,7 +8,7 @@ author:
 
 title: Report inappropriate community content
 
-functionalRequirement: anonymousForumPost
+functionalRequirement: fr_08_anonymous_forum_post
 
 asA: User
 

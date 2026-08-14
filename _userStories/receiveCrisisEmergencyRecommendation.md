@@ -8,7 +8,7 @@ author:
 
 title: Receive emergency support when crisis-related language is detected
 
-functionalRequirement: emergencyEscalation
+functionalRequirement: fr_05_emergency_escalation
 
 asA: User
 

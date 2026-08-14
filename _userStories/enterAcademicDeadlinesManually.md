@@ -8,7 +8,7 @@ author:
 
 title: Enter academic deadlines manually
 
-functionalRequirement: calendarSync
+functionalRequirement: fr_06_calendar_sync
 
 asA: User
 

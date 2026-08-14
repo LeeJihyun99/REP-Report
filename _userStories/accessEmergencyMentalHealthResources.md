@@ -8,7 +8,7 @@ author:
 
 title: Access emergency mental health resources
 
-functionalRequirement: emergencyEscalation
+functionalRequirement: fr_05_emergency_escalation
 
 asA: User
 

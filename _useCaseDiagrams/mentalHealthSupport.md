@@ -6,7 +6,7 @@ acronym: mentalHealthSupport
 author:
     - vanshita
 
-functionalRequirement: dailyCheckIn
+functionalRequirement: fr_01_daily_checkin
 
 diagram: ../sources/uc_mentalHealthSupport.png
 

@@ -4,7 +4,7 @@ acronym: dailyEmotionalCheckIn
 author:
   - vanshita
 
-functionalRequirement: dailyCheckIn
+functionalRequirement: fr_01_daily_checkin
 
 title: Complete Daily Emotional Check-In
 

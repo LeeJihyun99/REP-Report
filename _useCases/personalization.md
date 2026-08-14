@@ -5,7 +5,7 @@ acronym: personalization
 author:
     - vanshita
 
-functionalRequirement: homesicknessModule
+functionalRequirement: fr_07_homesickness_module
 
 title: Personalize Application Experience
 

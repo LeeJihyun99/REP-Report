@@ -8,7 +8,7 @@ author:
 
 title: View emotional wellbeing trends
 
-functionalRequirement: burnoutDetection
+functionalRequirement: fr_03_burnout_detection
 
 asA: User
 

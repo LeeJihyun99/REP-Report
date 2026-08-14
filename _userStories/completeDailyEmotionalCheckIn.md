@@ -8,7 +8,7 @@ author:
 
 title: Complete a daily emotional check-in
 
-functionalRequirement: dailyCheckIn
+functionalRequirement: fr_01_daily_checkin
 
 asA: User
 

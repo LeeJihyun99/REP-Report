@@ -5,7 +5,7 @@ acronym: academicStressSupport
 author:
     - vanshita
 
-functionalRequirement: calendarSync
+functionalRequirement: fr_06_calendar_sync
 
 title: Manage Academic Stress
 

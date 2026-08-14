@@ -8,7 +8,7 @@ author:
 
 title: Receive an early burnout alert
 
-functionalRequirement: burnoutDetection
+functionalRequirement: fr_03_burnout_detection
 
 asA: User
 

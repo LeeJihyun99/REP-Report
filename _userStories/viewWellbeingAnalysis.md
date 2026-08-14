@@ -8,7 +8,7 @@ author:
 
 title: View my wellbeing analysis
 
-functionalRequirement: burnoutDetection
+functionalRequirement: fr_03_burnout_detection
 
 asA: User
 

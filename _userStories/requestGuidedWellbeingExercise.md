@@ -8,7 +8,7 @@ author:
 
 title: Request a guided breathing or mindfulness exercise
 
-functionalRequirement: aiChatSupport
+functionalRequirement: fr_02_ai_chat_support
 
 asA: User
 

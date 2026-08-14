@@ -8,7 +8,7 @@ author:
 
 title: Receive personalized mental health recommendations
 
-functionalRequirement: aiChatSupport
+functionalRequirement: fr_02_ai_chat_support
 
 asA: User
 

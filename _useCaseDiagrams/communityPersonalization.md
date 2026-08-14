@@ -5,7 +5,7 @@ acronym: communityPersonalization
 author:
     - vanshita
 
-functionalRequirement: anonymousForumPost
+functionalRequirement: fr_08_anonymous_forum_post
 
 diagram: ../sources/uc_communityPersonalization.png
 

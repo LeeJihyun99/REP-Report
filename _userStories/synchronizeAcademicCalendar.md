@@ -8,7 +8,7 @@ author:
 
 title: Synchronize my academic calendar
 
-functionalRequirement: calendarSync
+functionalRequirement: fr_06_calendar_sync
 
 asA: User
 

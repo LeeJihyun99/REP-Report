@@ -8,7 +8,7 @@ author:
 
 title: Create an anonymous peer community post
 
-functionalRequirement: anonymousForumPost
+functionalRequirement: fr_08_anonymous_forum_post
 
 asA: User
 

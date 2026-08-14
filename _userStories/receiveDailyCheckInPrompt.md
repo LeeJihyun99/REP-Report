@@ -8,7 +8,7 @@ author:
 
 title: Receive a daily emotional check-in prompt
 
-functionalRequirement: dailyCheckIn
+functionalRequirement: fr_01_daily_checkin
 
 asA: User
 

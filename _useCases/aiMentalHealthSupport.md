@@ -5,7 +5,7 @@ acronym: aiMentalHealthSupport
 author:
     - vanshita
 
-functionalRequirement: aiChatSupport
+functionalRequirement: fr_02_ai_chat_support
 
 title: Receive AI Mental Health Support
 

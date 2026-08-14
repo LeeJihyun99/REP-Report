@@ -8,7 +8,7 @@ author:
 
 title: Create and track personal wellbeing habits
 
-functionalRequirement: homesicknessModule
+functionalRequirement: fr_07_homesickness_module
 
 asA: User
 

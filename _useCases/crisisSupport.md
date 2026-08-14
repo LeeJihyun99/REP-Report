@@ -5,7 +5,7 @@ acronym: crisisSupport
 author:
     - vanshita
 
-functionalRequirement: emergencyEscalation
+functionalRequirement: fr_05_emergency_escalation
 
 title: Access Emergency Mental Health Support
 
