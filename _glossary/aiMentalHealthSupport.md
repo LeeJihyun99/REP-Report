@@ -11,7 +11,7 @@ relevance: AI Mental Health Support is the central support function of the plann
 sources:
     - reference: [workshop, "team_workshop", "AI-assisted Emotional Support"]
       usedFor: Identification of AI-assisted emotional support as a central application concept.
-    - reference: [survey, diary, "AI Acceptance"]
+    - reference: [survey, users_survey, "AI Acceptance"]
       usedFor: Student expectations and acceptance of AI as an initial source of mental health support.
     - reference: [interview, user_interview, "Goals and Results"]
       usedFor: User expectations and concerns regarding AI-assisted mental health support.

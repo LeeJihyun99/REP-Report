@@ -11,7 +11,7 @@ relevance: Emergency Support allows the application to guide Users toward profes
 sources:
     - reference: [workshop, "team_workshop", "Safety & Professional Support"]
       usedFor: Identification of emergency support during critical conditions.
-    - reference: [survey, diary, "Desired Features"]
+    - reference: [survey, users_survey, "Desired Features"]
       usedFor: Evaluation of emergency support resources as a desired application feature.
     - reference: [interview, expert_interview, "Q12"]
       usedFor: Identification of emergency contacts, crisis hotlines, university counseling information, and referral pathways.

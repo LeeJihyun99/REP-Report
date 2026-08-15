@@ -12,7 +12,7 @@ relevance: Supporting User wellbeing is the overall purpose of the application's
 sources:
     - reference: [workshop, "team_workshop", "Mental Well-being"]
       usedFor: Identification of mental well-being, stress monitoring, mood tracking, and habit building as central project concepts.
-    - reference: [survey, diary, "Student Well-being"]
+    - reference: [survey, users_survey, "Student Well-being"]
       usedFor: Identification of student well-being as a central survey topic.
     - reference: [interview, expert_interview, "Q1-Q17"]
       usedFor: Literature-review findings concerning student mental health and wellbeing support.

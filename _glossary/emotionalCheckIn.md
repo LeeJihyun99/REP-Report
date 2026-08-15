@@ -12,7 +12,7 @@ relevance: Emotional Check-Ins allow the application to collect regular informat
 sources:
     - reference: [workshop, "team_workshop", "Mental Well-being"]
       usedFor: Identification of daily check-ins as a mental well-being feature.
-    - reference: [survey, diary, "Desired Features"]
+    - reference: [survey, users_survey, "Desired Features"]
       usedFor: Evaluation of daily mood check-ins as a desired application feature.
     - reference: [interview, expert_interview, "Q8"]
       usedFor: Literature-review recommendation of daily mood check-ins.

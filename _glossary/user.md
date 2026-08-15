@@ -11,7 +11,7 @@ relevance: The User is the primary stakeholder and recipient of the planned appl
 sources:
     - reference: [interview, user_interview, "Details"]
       usedFor: Identification of the university student as the primary stakeholder group.
-    - reference: [survey, diary, "Demographics"]
+    - reference: [survey, users_survey, "Demographics"]
       usedFor: Definition and classification of the intended stakeholder group as university students.
     - reference: [workshop, "team_workshop", "Student Support"]
       usedFor: Identification of student needs and support expectations.

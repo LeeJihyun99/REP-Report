@@ -12,7 +12,7 @@ relevance: The application is intended to complement professional counseling and
 sources:
     - reference: [workshop, "team_workshop", "Safety & Professional Support"]
       usedFor: Identification of human counselors and professional support as important elements of the system.
-    - reference: [survey, diary, "Usage Preferences"]
+    - reference: [survey, users_survey, "Usage Preferences"]
       usedFor: Evaluation of users' willingness to use an application that recommends contacting a counselor during severe emotional distress.
     - reference: [interview, user_interview, "Results"]
       usedFor: User expectation that professional counseling remains a complementary resource.

@@ -9,7 +9,7 @@ author:
 definition: An AI-based conversational interface through which a User can communicate with the application for mental health support.
 relevance: The AI Chatbot provides an accessible conversational entry point for emotional support and personalized guidance.
 sources:
-    - reference: [survey, diary, "AI Acceptance"]
+    - reference: [survey, users_survey, "AI Acceptance"]
       usedFor: Survey evaluation of students' willingness to use an AI chatbot as a first step for mental health support.
     - reference: [workshop, "team_workshop", "AI-assisted Emotional Support"]
       usedFor: Identification of a personalized AI chatbot as a desired feature.

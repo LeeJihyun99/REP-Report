@@ -12,7 +12,7 @@ relevance: Personalized recommendations are intended to provide more relevant su
 sources:
     - reference: [workshop, "team_workshop", "AI Personalization"]
       usedFor: Identification of personalized recommendations and adaptation to previous conversations and emotional states.
-    - reference: [survey, diary, "User Expectations and Desired Features"]
+    - reference: [survey, users_survey, "User Expectations and Desired Features"]
       usedFor: Identification of personalized and practical support as a user expectation.
     - reference: [interview, user_interview, "Results"]
       usedFor: User expectation for personalized support instead of generic AI advice.

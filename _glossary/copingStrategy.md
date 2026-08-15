@@ -11,7 +11,7 @@ relevance: The application can provide personalized coping strategies to help st
 sources:
     - reference: [workshop, "team_workshop", "AI-assisted Emotional Support"]
       usedFor: Identification of personalized coping strategies as an important application feature.
-    - reference: [survey, diary, "Desired Features"]
+    - reference: [survey, users_survey, "Desired Features"]
       usedFor: Identification of personalized coping strategies as a desired feature.
     - reference: [interview, user_interview, "Goals and Results"]
       usedFor: Exploration of students' existing coping strategies.

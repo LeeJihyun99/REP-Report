@@ -9,7 +9,7 @@ author:
 definition: Stress experienced by students in connection with academic activities and demands, such as examinations, assignments, and workload.
 relevance: Academic Stress is a central concern of the application and is used to provide student-specific mental health and study support.
 sources:
-    - reference: [survey, diary, "Student Well-being"]
+    - reference: [survey, users_survey, "Student Well-being"]
       usedFor: Identification of academic stress as a significant challenge among university students.
     - reference: [workshop, "team_workshop", "Student Support"]
       usedFor: Identification of academic stress management as a required area of support.

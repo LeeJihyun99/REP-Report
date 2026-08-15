@@ -9,7 +9,7 @@ author:
 definition: The protection and controlled handling of a User's personal and mental health information.
 relevance: Privacy is essential because the application processes sensitive personal and mental health information.
 sources:
-    - reference: [survey, diary, "Privacy & Trust"]
+    - reference: [survey, users_survey, "Privacy & Trust"]
       usedFor: Identification of privacy and protection of personal and mental health data as important user concerns.
     - reference: [workshop, "team_workshop", "Trust & Transparency"]
       usedFor: Identification of privacy protection as an essential trust requirement.

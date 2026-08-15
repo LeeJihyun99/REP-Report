@@ -12,7 +12,7 @@ relevance: Mindfulness Exercises can provide practical techniques for managing s
 sources:
     - reference: [workshop, "team_workshop", "Mental Health & Emotional Support"]
       usedFor: Identification of scientifically validated exercises and meditation sessions as desired support.
-    - reference: [survey, diary, "Desired Features"]
+    - reference: [survey, users_survey, "Desired Features"]
       usedFor: Evaluation of mindfulness exercises as a desired mental health application feature.
     - reference: [interview, expert_interview, "Q11"]
       usedFor: Literature-review identification of mindfulness exercises among valuable features.

@@ -13,7 +13,7 @@ sources:
       usedFor: Identification of stress monitoring as a desired mental well-being feature.
     - reference: [interview, expert_interview, "Q8 and Q11"]
       usedFor: Literature-review recommendation of stress monitoring as a useful application capability.
-    - reference: [survey, diary, "Student Well-being"]
+    - reference: [survey, users_survey, "Student Well-being"]
       usedFor: Collection of information about the frequency and causes of students' stress.
 history:
     v1:

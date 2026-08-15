@@ -11,7 +11,7 @@ relevance: The application uses information about the User's emotional state to 
 sources:
     - reference: [workshop, "team_workshop", "AI Personalization"]
       usedFor: Identification of AI awareness of Users' emotional states as a desired capability.
-    - reference: [survey, diary, "Student Well-being"]
+    - reference: [survey, users_survey, "Student Well-being"]
       usedFor: Collection of information about students' emotional experiences and stress.
     - reference: [interview, user_interview, "Goals and Results"]
       usedFor: Identification of students' emotional challenges and expectations for support.
