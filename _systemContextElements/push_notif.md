@@ -9,7 +9,7 @@ description: >
 author:
     - raf
 sources:
-    - reference: [survey, diary, "Usage Preferences"]
+    - reference: [survey, users_survey, "Usage Preferences"]
       usedFor: Defines notification mechanism for daily check-ins and study breaks
 history:
     v1:

@@ -9,7 +9,7 @@ description: >
 author:
     - raf
 sources:
-    - reference: [survey, diary, "Demographics"]
+    - reference: [survey, users_survey, "Demographics"]
       usedFor: Defines the core student user base experiencing burnout and exam stress
     - reference: [interview, user_interview, "Challenges and Coping"]
       usedFor: Identifies student stress patterns and emotional support needs

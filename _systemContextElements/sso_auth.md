@@ -9,7 +9,7 @@ description: >
 author:
     - raf
 sources:
-    - reference: [survey, diary, "Privacy & Trust"]
+    - reference: [survey, users_survey, "Privacy & Trust"]
       usedFor: Specifies secure login and enrollment verification requirements
 history:
     v1:

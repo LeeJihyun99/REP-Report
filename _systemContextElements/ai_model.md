@@ -11,7 +11,7 @@ author:
 sources:
     - reference: [workshop, team_workshop, "AI Chatbot Module"]
       usedFor: Specifies AI chat functionality for daily check-ins and support
-    - reference: [survey, diary, "AI Acceptance"]
+    - reference: [survey, users_survey, "AI Acceptance"]
       usedFor: Validates student acceptance of AI conversational support for mental health
 history:
     v1:

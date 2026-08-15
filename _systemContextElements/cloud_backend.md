@@ -9,7 +9,7 @@ description: >
 author:
     - raf
 sources:
-    - reference: [survey, diary, "Privacy & Trust"]
+    - reference: [survey, users_survey, "Privacy & Trust"]
       usedFor: Outlines encrypted storage for privacy and historical data management
 history:
     v1:

@@ -10,7 +10,7 @@ scenarioTypes:
 author: 
     - raf
 sources: 
-    - reference: [survey, diary, "Usage Preferences"]
+    - reference: [survey, users_survey, "Usage Preferences"]
       usedFor: Illustrates double-burden of working students and scheduling stress
 history:
     v1:
