@@ -4,9 +4,9 @@ type: stakeholderRole
 # isTemplate: true
 author: 
     - lee
-name: User
+name: Student User
 description: > 
-    The primary user who interacts with the application to monitor mental well-being, communicate with the AI chatbot, and receive personalized mental health support.
+    Students as primary users who interacts with the application to monitor mental well-being, communicate with the AI chatbot, and receive personalized mental health support.
 # history:
 #     v1:
 #         date: 2021-05-04
@@ -20,7 +20,7 @@ ignore:
 
 ## Profile
 
-The User is a university student who uses the application to manage stress, anxiety, burnout, and other mental health challenges. Users interact with the AI chatbot, complete daily check-ins, monitor their emotional well-being, and receive personalized recommendations to support their mental health and academic success.
+The Student User is a university student who uses the application to manage stress, anxiety, burnout, and other mental health challenges.Users interact with the AI chatbot, complete daily check-ins, monitor their emotional well-being, and receive personalized recommendations to support their mental health and academic success.
 
 ## Typical Tasks
 

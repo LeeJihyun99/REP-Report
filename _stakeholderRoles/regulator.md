@@ -26,7 +26,7 @@ ignore:
 
 ## Profile
 
-The Regulator represents governmental authorities, legal bodies, or institutional organizations responsible for ensuring that the application complies with applicable laws, ethical guidelines, and AI regulations. This stakeholder helps ensure that the system operates responsibly and protects users' rights.
+The Regulator represents governmental authorities, legal bodies, or institutional organizations responsible for ensuring that the application complies with applicable laws, ethical guidelines, and AI regulations. This stakeholder helps ensure that the system operates responsibly and protects users' rights. Unlike the Data Protection Officer, the Regulator represents external orformally independent oversight and does not manage the project's day-to-day personal-data processing activities.
 
 ## Typical Tasks
 

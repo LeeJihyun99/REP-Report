@@ -33,5 +33,5 @@ The Data Protection Officer ensures that the application complies with data prot
 * Ensure compliance with GDPR and applicable privacy regulations.
 * Review the collection, storage, and processing of personal data.
 * Assess privacy risks related to sensitive mental health information.
-* Approve privacy policies and consent mechanisms.
 * Monitor compliance with data protection requirements throughout the system lifecycle.
+* Review and advise on privacy policies and consent mechanisms.

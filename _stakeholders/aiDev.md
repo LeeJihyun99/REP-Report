@@ -7,7 +7,7 @@ author:
     - lee
 name: AI Development Team
 stakeholderRole: 
-    - domainExpert
+    - aiDevelopmentTeam
 relationshipToProject: >
     Developers translate stakeholder needs into technical solutions and continuously enhance the system based on user feedback, testing results, and new AI technologies.
 # sources:

@@ -1,7 +1,7 @@
 ---
 acronym: validationThroughPrototyping
 type: review
-isTemplate: true
+# isTemplate: true
 author: 
     - ili
 artefact: [functionalRequirement, checkForPlagiarism] 
