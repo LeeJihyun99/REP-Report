@@ -7,7 +7,7 @@ author:
     - lee
 name: University Administration
 stakeholderRole: 
-    - Customer / Project Sponsor
+    - customerProjectSponsor
 relationshipToProject: >
     The university administration supports the implementation and long-term operation of the application. They evaluate its effectiveness in improving student well-being and reducing academic stress.
 # sources:

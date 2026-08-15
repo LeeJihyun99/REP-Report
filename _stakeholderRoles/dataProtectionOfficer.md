@@ -1,5 +1,5 @@
 ---
-acronym: Data Protection Officer
+acronym: dataProtectionOfficer
 type: stakeholderRole
 # belongsTo: lecturer
 # isTemplate: true

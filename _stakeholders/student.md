@@ -8,7 +8,7 @@ author:
 name: Student
 anonymous: true
 stakeholderRole: 
-    - User
+    - user
 relationshipToProject: >
     Students are the primary users of the project. Their needs and feedback directly influence the system requirements, user experience, and future improvements of the application
 # history:

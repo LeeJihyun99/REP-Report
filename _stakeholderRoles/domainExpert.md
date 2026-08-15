@@ -1,5 +1,5 @@
 ---
-acronym: Domain Expert
+acronym: domainExpert
 type: stakeholderRole
 # isTemplate: true
 author:

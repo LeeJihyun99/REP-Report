@@ -1,5 +1,5 @@
 ---
-acronym: User
+acronym: user
 type: stakeholderRole
 # isTemplate: true
 author: 

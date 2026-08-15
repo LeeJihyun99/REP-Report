@@ -1,5 +1,5 @@
 ---
-acronym: System Maintainer
+acronym: systeMaintainer
 type: stakeholderRole
 # belongsTo: lecturer
 # isTemplate: true

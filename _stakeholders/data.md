@@ -1,15 +1,15 @@
 ---
 type: stakeholder
 subtype: person
-acronym: aiDev
+acronym: data
 # isTemplate: true
 author: 
     - lee
-name: AI Development Team
+name: Data Protection Officer (DPO)
 stakeholderRole: 
-    - Domain Expert
+    - dataProtectionOfficer
 relationshipToProject: >
-    Developers translate stakeholder needs into technical solutions and continuously enhance the system based on user feedback, testing results, and new AI technologies.
+    The DPO oversees how personal information is collected, processed, stored, and shared. They ensure the project complies with regulations such as GDPR and university privacy policies.
 # sources:
 #     - reference: [literatureReference, thk_archilab]
 #       usedFor: Reference for the overall lab purpose, and the lab members
@@ -27,18 +27,18 @@ ignore:
 
 ## Profile
 
-AI engineers, software developers, UX/UI designers, and machine learning specialists responsible for developing the platform.
+Privacy and compliance specialist with expertise in data protection laws, cybersecurity policies, and ethical handling of personal information.
 
 ## Areas of activity
 
-* Develop AI chatbot functionality
-* Implement new features
-* Test and debug the system
-* Improve AI accuracy and personalization
-* Maintain software quality
+* Review consent procedures
+* Monitor GDPR compliance
+* Conduct privacy impact assessments
+* Define data retention policies
+* Approve data processing activities
 
 
 ## Relevance as a stakeholder
 
-They are responsible for transforming requirements into a functional, reliable, and user-friendly application that meets stakeholder expectations.
+Because the application processes highly sensitive mental health information, protecting user privacy is essential for legal compliance and maintaining user trust.
 

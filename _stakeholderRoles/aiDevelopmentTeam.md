@@ -1,5 +1,5 @@
 ---
-acronym: AI Development Team
+acronym: aiDevelopmentTeam
 type: stakeholderRole
 # belongsTo: lecturer
 # isTemplate: true

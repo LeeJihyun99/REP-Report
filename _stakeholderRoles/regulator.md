@@ -1,5 +1,5 @@
 ---
-acronym: Regulator
+acronym: regulator
 type: stakeholderRole
 # belongsTo: lecturer
 # isTemplate: true

@@ -7,7 +7,7 @@ author:
     - lee
 name: University Mental Health Counselor
 stakeholderRole: 
-    - Domain Expert
+    - domainExpert
 relationshipToProject: >
     Counselors collaborate with the development team to ensure the application's content aligns with clinical practices and university counseling services. They also serve as a bridge between AI support and professional care.
 # sources:

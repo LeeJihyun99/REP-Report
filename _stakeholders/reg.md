@@ -7,7 +7,7 @@ author:
     - lee
 name: University Ethics Committee / Government Regulator
 stakeholderRole: 
-    - Regulator
+    - regulator
 relationshipToProject: >
     Regulators and ethics committees evaluate whether the application follows applicable laws, AI ethics guidelines, and university policies regarding student welfare and data protection.
 # sources:

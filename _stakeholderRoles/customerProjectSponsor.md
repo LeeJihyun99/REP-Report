@@ -1,5 +1,5 @@
 ---
-acronym: Customer / Project Sponsor
+acronym: customerProjectSponsor
 type: stakeholderRole
 # belongsTo: 
 # isTemplate: true

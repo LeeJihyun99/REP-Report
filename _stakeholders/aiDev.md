@@ -1,15 +1,15 @@
 ---
 type: stakeholder
 subtype: person
-acronym: sysAdmin
+acronym: aiDev
 # isTemplate: true
 author: 
     - lee
-name: System Administrator
+name: AI Development Team
 stakeholderRole: 
-    - System Maintainer
+    - domainExpert
 relationshipToProject: >
-    System administrators support the project after deployment by operating servers, databases, cloud services, and security mechanisms while minimizing downtime.
+    Developers translate stakeholder needs into technical solutions and continuously enhance the system based on user feedback, testing results, and new AI technologies.
 # sources:
 #     - reference: [literatureReference, thk_archilab]
 #       usedFor: Reference for the overall lab purpose, and the lab members
@@ -27,18 +27,18 @@ ignore:
 
 ## Profile
 
-IT professionals responsible for infrastructure management, cybersecurity, and cloud operations.
+AI engineers, software developers, UX/UI designers, and machine learning specialists responsible for developing the platform.
 
 ## Areas of activity
 
-* Manage user accounts
-* Monitor system performance
-* Perform backups and updates
-* Maintain cloud infrastructure
-* Respond to technical incidents
-* Protect system availability
+* Develop AI chatbot functionality
+* Implement new features
+* Test and debug the system
+* Improve AI accuracy and personalization
+* Maintain software quality
+
 
 ## Relevance as a stakeholder
 
-Reliable operation is essential because users depend on the application for continuous mental health support. Administrators also safeguard sensitive user information.
+They are responsible for transforming requirements into a functional, reliable, and user-friendly application that meets stakeholder expectations.
 
