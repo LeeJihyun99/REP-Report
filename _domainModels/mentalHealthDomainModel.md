@@ -5,7 +5,7 @@ acronym: mentalHealthDomainModel
 author: 
     - raf
 title: Overview on Key Terms for Mental Health and Student Support Domain
-diagram: /sources/mentalHealthDomainModel.jpg
+diagram: /sources/Domainmodel.png
 sources:
     - reference: [workshop, "Glossary"]
       usedFor: Origin of core terminology defining the student well-being and AI mental health support domain
