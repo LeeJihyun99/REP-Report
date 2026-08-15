@@ -11,7 +11,7 @@ relevance: Privacy is essential because the application processes sensitive pers
 sources:
     - reference: [survey, diary, "Privacy & Trust"]
       usedFor: Identification of privacy and protection of personal and mental health data as important user concerns.
-    - reference: [workshop, student, "Trust & Transparency"]
+    - reference: [workshop, "team_workshop", "Trust & Transparency"]
       usedFor: Identification of privacy protection as an essential trust requirement.
     - reference: [interview, expert_interview, "Q10 and Q14-Q16"]
       usedFor: Literature-review findings concerning privacy risks, consent, secure storage, transparency, and user control.

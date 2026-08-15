@@ -9,7 +9,7 @@ author:
 definition: A recommendation based on scientifically validated exercises, research findings, or professional knowledge rather than unsupported advice.
 relevance: Evidence-based recommendations are intended to make the application's mental health guidance more trustworthy and transparent.
 sources:
-    - reference: [workshop, student, "Scientific & Evidence-based Guidance"]
+    - reference: [workshop, "team_workshop", "Scientific & Evidence-based Guidance"]
       usedFor: Identification of scientifically validated exercises, research findings, professional knowledge, and transparent recommendations.
     - reference: [interview, user_interview, "Results"]
       usedFor: User expectation for personalized, evidence-based support instead of generic AI advice.

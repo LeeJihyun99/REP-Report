@@ -11,7 +11,7 @@ relevance: The AI Chatbot provides an accessible conversational entry point for 
 sources:
     - reference: [survey, diary, "AI Acceptance"]
       usedFor: Survey evaluation of students' willingness to use an AI chatbot as a first step for mental health support.
-    - reference: [workshop, student, "AI-assisted Emotional Support"]
+    - reference: [workshop, "team_workshop", "AI-assisted Emotional Support"]
       usedFor: Identification of a personalized AI chatbot as a desired feature.
     - reference: [interview, user_interview, "Goals and Results"]
       usedFor: User expectations and concerns regarding AI-assisted mental health support.

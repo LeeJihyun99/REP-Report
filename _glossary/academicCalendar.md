@@ -9,7 +9,7 @@ author:
 definition: A calendar containing the User's Academic Events, including examinations, assignments, and deadlines.
 relevance: The Academic Calendar can be synchronized with the application to support personalized Academic Stress management.
 sources:
-    - reference: [workshop, student, "Phase 2 - Brainstorming"]
+    - reference: [workshop, "team_workshop", "Phase 2 - Brainstorming"]
       usedFor: Project-specific use of academic events and schedules for stress management.
 history:
     v1:

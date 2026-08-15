@@ -11,7 +11,7 @@ relevance: Academic Stress is a central concern of the application and is used t
 sources:
     - reference: [survey, diary, "Student Well-being"]
       usedFor: Identification of academic stress as a significant challenge among university students.
-    - reference: [workshop, student, "Student Support"]
+    - reference: [workshop, "team_workshop", "Student Support"]
       usedFor: Identification of academic stress management as a required area of support.
     - reference: [interview, user_interview, "Goals and Results"]
       usedFor: Identification of academic stress as an important student challenge.

@@ -9,7 +9,7 @@ author:
 definition: Conversational and personalized support provided by an AI-powered application to help Users manage emotional and mental health concerns.
 relevance: AI Mental Health Support is the central support function of the planned application and is intended to complement professional mental health services.
 sources:
-    - reference: [workshop, student, "AI-assisted Emotional Support"]
+    - reference: [workshop, "team_workshop", "AI-assisted Emotional Support"]
       usedFor: Identification of AI-assisted emotional support as a central application concept.
     - reference: [survey, diary, "AI Acceptance"]
       usedFor: Student expectations and acceptance of AI as an initial source of mental health support.

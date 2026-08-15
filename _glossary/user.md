@@ -13,7 +13,7 @@ sources:
       usedFor: Identification of the university student as the primary stakeholder group.
     - reference: [survey, diary, "Demographics"]
       usedFor: Definition and classification of the intended stakeholder group as university students.
-    - reference: [workshop, student, "Student Support"]
+    - reference: [workshop, "team_workshop", "Student Support"]
       usedFor: Identification of student needs and support expectations.
 history:
     v1:

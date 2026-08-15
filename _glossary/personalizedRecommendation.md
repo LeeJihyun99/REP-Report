@@ -10,7 +10,7 @@ author:
 definition: A recommendation adapted to the User's individual emotional, mental health, or academic situation.
 relevance: Personalized recommendations are intended to provide more relevant support than generic mental health advice.
 sources:
-    - reference: [workshop, student, "AI Personalization"]
+    - reference: [workshop, "team_workshop", "AI Personalization"]
       usedFor: Identification of personalized recommendations and adaptation to previous conversations and emotional states.
     - reference: [survey, diary, "User Expectations and Desired Features"]
       usedFor: Identification of personalized and practical support as a user expectation.

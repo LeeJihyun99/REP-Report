@@ -10,7 +10,7 @@ author:
 definition: A guided activity intended to help a User focus attention on the present moment and manage stress or emotional experiences.
 relevance: Mindfulness Exercises can provide practical techniques for managing stressful or emotionally overwhelming situations.
 sources:
-    - reference: [workshop, student, "Mental Health & Emotional Support"]
+    - reference: [workshop, "team_workshop", "Mental Health & Emotional Support"]
       usedFor: Identification of scientifically validated exercises and meditation sessions as desired support.
     - reference: [survey, diary, "Desired Features"]
       usedFor: Evaluation of mindfulness exercises as a desired mental health application feature.

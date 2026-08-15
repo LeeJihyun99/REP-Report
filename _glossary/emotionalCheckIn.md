@@ -10,7 +10,7 @@ author:
 definition: A brief interaction in which a User records or communicates their current emotional state.
 relevance: Emotional Check-Ins allow the application to collect regular information about a User's emotional state and support ongoing wellbeing monitoring.
 sources:
-    - reference: [workshop, student, "Mental Well-being"]
+    - reference: [workshop, "team_workshop", "Mental Well-being"]
       usedFor: Identification of daily check-ins as a mental well-being feature.
     - reference: [survey, diary, "Desired Features"]
       usedFor: Evaluation of daily mood check-ins as a desired application feature.

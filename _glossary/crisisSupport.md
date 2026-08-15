@@ -9,7 +9,7 @@ author:
 definition: Support provided to a User during a severe emotional or mental health crisis, including guidance toward appropriate professional or emergency assistance.
 relevance: Crisis Support provides a safety mechanism when the application identifies situations that may require professional intervention.
 sources:
-    - reference: [workshop, student, "Safety & Professional Support"]
+    - reference: [workshop, "team_workshop", "Safety & Professional Support"]
       usedFor: Identification of emergency support and professional support during crises.
     - reference: [interview, expert_interview, "Q9 and Q12"]
       usedFor: Literature-review findings concerning professional referral and crisis resources.

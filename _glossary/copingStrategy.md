@@ -9,7 +9,7 @@ author:
 definition: A method or activity used by a User to manage stress or difficult emotional situations.
 relevance: The application can provide personalized coping strategies to help students manage stress and emotional challenges.
 sources:
-    - reference: [workshop, student, "AI-assisted Emotional Support"]
+    - reference: [workshop, "team_workshop", "AI-assisted Emotional Support"]
       usedFor: Identification of personalized coping strategies as an important application feature.
     - reference: [survey, diary, "Desired Features"]
       usedFor: Identification of personalized coping strategies as a desired feature.
