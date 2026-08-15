@@ -9,7 +9,7 @@ description: >
     The University Academic Calendar System is an external database providing semester dates, 
     exam schedules, and submission deadlines to trigger academic stress detection within the app.
 sources:
-    - reference: [survey, diary, "Student Well-being"]
+    - reference: [survey, users_survey, "Student Well-being"]
       usedFor: Mentions academic calendar integration for exam stress management
 history:
     v1:
