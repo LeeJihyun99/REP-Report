@@ -14,4 +14,4 @@ history:
 
 ## Reasoning
 
-When experiencing severe stress or cognitive fatigue, complex navigation structures increase user frustration and abandonment[cite: 2]. An accessible, minimal interface ensures usability when the user's capacity is lowest.
+When experiencing severe stress or cognitive fatigue, complex navigation structures increase user frustration and abandonment. An accessible, minimal interface ensures usability when the user's capacity is lowest.
