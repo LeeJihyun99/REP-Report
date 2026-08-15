@@ -27,8 +27,7 @@ participants:
         the Requirements Engineering project work.
 
 stakeholderRoles:
-    - domesticStudent
-    - internationalStudent
+    - user
 
 method:
     name: Kano model
