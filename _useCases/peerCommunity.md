@@ -15,7 +15,7 @@ description: >
     and allows users to report inappropriate posts to maintain a safe and
     supportive environment.
 
-primaryActor: User
+primaryActor: user
 
 trigger: >
     The user decides to create a new anonymous post or interact with existing

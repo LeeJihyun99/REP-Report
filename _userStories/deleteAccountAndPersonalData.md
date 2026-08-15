@@ -10,7 +10,7 @@ title: Permanently delete my account and personal data
 
 functionalRequirement: journalExport
 
-asA: User
+asA: user
 
 iWantTo: >
     permanently delete my account and associated personal data

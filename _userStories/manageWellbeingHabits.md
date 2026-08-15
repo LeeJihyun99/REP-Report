@@ -10,7 +10,7 @@ title: Create and track personal wellbeing habits
 
 functionalRequirement: fr_07_homesickness_module
 
-asA: User
+asA: user
 
 iWantTo: >
     create and track personal wellbeing habits and goals

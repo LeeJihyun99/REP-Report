@@ -10,7 +10,7 @@ title: Report inappropriate community content
 
 functionalRequirement: fr_08_anonymous_forum_post
 
-asA: User
+asA: user
 
 iWantTo: >
     report inappropriate content in the peer community

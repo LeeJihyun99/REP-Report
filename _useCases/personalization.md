@@ -15,7 +15,7 @@ description: >
     wellbeing activities. The system adapts the user experience to provide
     more effective and personalized mental health support.
 
-primaryActor: User
+primaryActor: user
 
 trigger: >
     The user accesses the application settings or chooses to personalize

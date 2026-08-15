@@ -14,7 +14,7 @@ description: >
     personalized, evidence-based emotional support, coping strategies,
     and recommendations based on their current emotional state and previous interactions.
 
-primaryActor: User
+primaryActor: user
 
 trigger: >
     The user opens the AI chat and requests mental health support or asks

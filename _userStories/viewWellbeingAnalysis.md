@@ -10,7 +10,7 @@ title: View my wellbeing analysis
 
 functionalRequirement: fr_03_burnout_detection
 
-asA: User
+asA: user
 
 iWantTo: >
     view an updated analysis of my emotional wellbeing and burnout risk

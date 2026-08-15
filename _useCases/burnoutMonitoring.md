@@ -14,7 +14,7 @@ description: >
     emotional check-ins and sleep patterns to detect early signs of burnout
     and provides timely notifications and visual trend analysis.
 
-primaryActor: User
+primaryActor: user
 
 trigger: >
     The user completes daily emotional check-ins over a period of time or

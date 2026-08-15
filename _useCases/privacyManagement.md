@@ -14,7 +14,7 @@ description: >
     records or permanently deleting their account and all associated
     information to maintain privacy and data ownership.
 
-primaryActor: User
+primaryActor: user
 
 trigger: >
     The user accesses the privacy settings to export personal data or

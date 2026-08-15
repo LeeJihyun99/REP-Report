@@ -10,7 +10,7 @@ title: Receive emergency support when crisis-related language is detected
 
 functionalRequirement: fr_05_emergency_escalation
 
-asA: User
+asA: user
 
 iWantTo: >
     receive an emergency support recommendation when crisis-related language is detected

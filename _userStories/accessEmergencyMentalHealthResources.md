@@ -10,7 +10,7 @@ title: Access emergency mental health resources
 
 functionalRequirement: fr_05_emergency_escalation
 
-asA: User
+asA: user
 
 iWantTo: >
     access emergency mental health resources

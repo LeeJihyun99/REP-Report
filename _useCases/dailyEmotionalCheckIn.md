@@ -13,7 +13,7 @@ description: >
     daily check-in. The information is stored and used to monitor wellbeing,
     detect burnout patterns, and personalize future recommendations.
 
-primaryActor: User
+primaryActor: user
 
 trigger: >
     The student opens the application or receives a scheduled reminder to

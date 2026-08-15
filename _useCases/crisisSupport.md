@@ -14,7 +14,7 @@ description: >
     support. The system provides emergency assistance by displaying crisis
     resources, hotlines, and local mental health services.
 
-primaryActor: User
+primaryActor: user
 
 trigger: >
     The user presses the emergency support button or the system detects

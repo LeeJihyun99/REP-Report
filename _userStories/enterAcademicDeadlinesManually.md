@@ -10,7 +10,7 @@ title: Enter academic deadlines manually
 
 functionalRequirement: fr_06_calendar_sync
 
-asA: User
+asA: user
 
 iWantTo: >
     enter my academic deadlines manually

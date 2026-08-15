@@ -10,7 +10,7 @@ title: Cancel an account deletion request
 
 functionalRequirement: journalExport
 
-asA: User
+asA: user
 
 iWantTo: >
     cancel an account deletion request before it is completed

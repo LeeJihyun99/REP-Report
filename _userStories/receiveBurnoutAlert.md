@@ -10,7 +10,7 @@ title: Receive an early burnout alert
 
 functionalRequirement: fr_03_burnout_detection
 
-asA: User
+asA: user
 
 iWantTo: >
     receive an alert when potential burnout indicators are detected

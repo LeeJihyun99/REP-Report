@@ -10,7 +10,7 @@ title: Receive a daily emotional check-in prompt
 
 functionalRequirement: fr_01_daily_checkin
 
-asA: User
+asA: user
 
 iWantTo: >
     receive a daily prompt to complete my emotional check-in

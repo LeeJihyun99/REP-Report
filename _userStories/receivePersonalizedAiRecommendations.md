@@ -10,7 +10,7 @@ title: Receive personalized mental health recommendations
 
 functionalRequirement: fr_02_ai_chat_support
 
-asA: User
+asA: user
 
 iWantTo: >
     receive personalized coping strategies and mental health recommendations

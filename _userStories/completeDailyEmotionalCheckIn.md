@@ -10,7 +10,7 @@ title: Complete a daily emotional check-in
 
 functionalRequirement: fr_01_daily_checkin
 
-asA: User
+asA: user
 
 iWantTo: >
     complete a daily emotional check-in and record my current emotional state

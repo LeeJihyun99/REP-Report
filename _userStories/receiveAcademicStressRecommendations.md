@@ -10,7 +10,7 @@ title: Receive personalized academic stress recommendations
 
 functionalRequirement: fr_06_calendar_sync
 
-asA: User
+asA: user
 
 iWantTo: >
     receive personalized study and time-management recommendations

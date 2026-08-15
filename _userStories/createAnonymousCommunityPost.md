@@ -10,7 +10,7 @@ title: Create an anonymous peer community post
 
 functionalRequirement: fr_08_anonymous_forum_post
 
-asA: User
+asA: user
 
 iWantTo: >
     create an anonymous post in the peer community

@@ -14,7 +14,7 @@ description: >
     personalized recommendations, study strategies, and stress management
     support based on upcoming deadlines and examinations.
 
-primaryActor: User
+primaryActor: user
 
 trigger: >
     The user chooses to import their academic calendar or requests assistance

@@ -10,7 +10,7 @@ title: Request a guided breathing or mindfulness exercise
 
 functionalRequirement: fr_02_ai_chat_support
 
-asA: User
+asA: user
 
 iWantTo: >
     request a guided breathing or mindfulness exercise from the AI assistant

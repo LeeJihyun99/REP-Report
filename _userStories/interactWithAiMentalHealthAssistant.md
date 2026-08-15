@@ -10,7 +10,7 @@ title: Interact with the AI mental health assistant
 
 functionalRequirement: fr_02_ai_chat_support
 
-asA: User
+asA: user
 
 iWantTo: >
     interact with the AI-powered mental health assistant

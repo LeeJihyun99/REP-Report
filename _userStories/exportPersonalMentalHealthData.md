@@ -10,7 +10,7 @@ title: Export my personal mental health data
 
 functionalRequirement: journalExport
 
-asA: User
+asA: user
 
 iWantTo: >
     export my personal mental health data

@@ -10,7 +10,7 @@ title: View emotional wellbeing trends
 
 functionalRequirement: fr_03_burnout_detection
 
-asA: User
+asA: user
 
 iWantTo: >
     view my emotional trends over time

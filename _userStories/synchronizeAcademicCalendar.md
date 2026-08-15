@@ -10,7 +10,7 @@ title: Synchronize my academic calendar
 
 functionalRequirement: fr_06_calendar_sync
 
-asA: User
+asA: user
 
 iWantTo: >
     synchronize my academic calendar with the application
