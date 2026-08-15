@@ -38,7 +38,7 @@ ignore:
 
 ## Review Scope
 
-This review encompasses all functional requirement artefacts (`fr_01` through `fr_13`) covering daily check-ins, burnout alerts, peer exchange, mood analytics, and emergency escalation workflows.
+This review encompasses all functional requirement artefacts covering daily check-ins, burnout alerts, peer exchange, mood analytics, and emergency escalation workflows.
 
 ## Reviewed Artefacts
 
