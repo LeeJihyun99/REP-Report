@@ -17,7 +17,7 @@ kano:
         Supporting multiple languages significantly aids international students navigating language barriers alongside academic stress.
 prioScore: 7
 sources:
-    - reference: [survey, diary, "Student Needs"]
+    - reference: [survey, users_survey, "Student Needs"]
       usedFor: Addresses language and cultural barriers for international students
 history:
     v1:

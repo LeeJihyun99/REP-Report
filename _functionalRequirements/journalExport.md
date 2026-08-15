@@ -17,7 +17,7 @@ kano:
         Data export empowers students with ownership of their personal mental health records.
 prioScore: 8.5
 sources:
-    - reference: [survey, diary, "Privacy & Trust"]
+    - reference: [survey, users_survey, "Privacy & Trust"]
       usedFor: Outlines export of emotional journal entries for student personal ownership and offline review
 history:
     v1:

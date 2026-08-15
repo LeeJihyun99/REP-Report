@@ -17,7 +17,7 @@ kano:
         Allowing students to set optimal check-in times prevents notification fatigue and increases long-term app engagement.
 prioScore: 8.5
 sources:
-    - reference: [survey, diary, "Usage Preferences"]
+    - reference: [survey, users_survey, "Usage Preferences"]
       usedFor: Defines customizable reminder settings for daily check-in prompts
 history:
     v1:

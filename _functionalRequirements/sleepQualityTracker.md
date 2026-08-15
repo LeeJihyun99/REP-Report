@@ -17,7 +17,7 @@ kano:
         Tracking sleep patterns alongside emotional well-being uncovers critical physical links to academic burnout.
 prioScore: 8
 sources:
-    - reference: [survey, diary, "Desired Features"]
+    - reference: [survey, users_survey, "Desired Features"]
       usedFor: Tracks sleep patterns and healthy habit metrics for students
 history:
     v1:

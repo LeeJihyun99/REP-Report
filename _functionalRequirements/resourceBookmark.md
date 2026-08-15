@@ -17,7 +17,7 @@ kano:
         Bookmarking favorite exercises enhances user convenience and creates a personalized toolkit of coping mechanisms.
 prioScore: 6.5
 sources:
-    - reference: [survey, diary, "Desired Features"]
+    - reference: [survey, users_survey, "Desired Features"]
       usedFor: Outlines personal resource saving and bookmarking functionality
 history:
     v1:

@@ -17,7 +17,7 @@ kano:
         Total data deletion capability is a mandatory compliance standard for modern privacy regulations and user trust.
 prioScore: 9.5
 sources:
-    - reference: [survey, diary, "Privacy & Trust"]
+    - reference: [survey, users_survey, "Privacy & Trust"]
       usedFor: Specifies complete data erasure and account closure protocols
 history:
     v1:

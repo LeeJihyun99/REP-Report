@@ -17,7 +17,7 @@ kano:
         Providing tailored academic support directly targets the root cause of student burnout.
 prioScore: 9
 sources:
-    - reference: [survey, diary, "Student Well-being"]
+    - reference: [survey, users_survey, "Student Well-being"]
       usedFor: Outlines support workflows for exam anxiety and coursework stress
 history:
     v1:

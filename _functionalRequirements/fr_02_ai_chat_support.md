@@ -13,7 +13,7 @@ userInteractionTemplate:
     inWhatWay: within an interactive chat interface within 3 seconds
 goals: 
     - G_EXAM_STRESS
-    - G_LOW_COGNITIVE_LOAD
+    - G_LOAD_COGNITIVE_LOAD
 kano:
     type: performance
     reasoning: >

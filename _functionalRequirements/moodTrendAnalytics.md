@@ -17,7 +17,7 @@ kano:
         Visualizing emotional trends over time helps students recognize behavioral patterns and evaluate their coping strategies.
 prioScore: 8
 sources:
-    - reference: [survey, diary, "Desired Features"]
+    - reference: [survey, users_survey, "Desired Features"]
       usedFor: Details mood history tracking and visual analytics for students
 history:
     v1:

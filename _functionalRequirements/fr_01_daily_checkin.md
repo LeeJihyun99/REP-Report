@@ -2,7 +2,7 @@
 type: functionalRequirement
 acronym: fr_01_daily_checkin
 author:    
-    - n
+    - raf
 title: Daily Emotional Check-In Prompt
 userInteractionTemplate:
     condition: When the student opens the application
@@ -13,7 +13,7 @@ userInteractionTemplate:
     inWhatWay: using a minimal two-tap quick interface
 goals: 
     - G_EXAM_STRESS
-    - G_LOW_COGNITIVE_LOAD
+    - G_LOAD_COGNITIVE_LOAD
 kano:
     type: basic
     reasoning: >

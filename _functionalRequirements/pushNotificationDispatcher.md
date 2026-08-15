@@ -17,7 +17,7 @@ kano:
         Reliable notification dispatching is required to prompt timely check-ins and break reminders throughout the day.
 prioScore: 9
 sources:
-    - reference: [survey, diary, "Usage Preferences"]
+    - reference: [survey, users_survey, "Usage Preferences"]
       usedFor: Specifies notification delivery mechanisms for daily check-ins and breaks
 history:
     v1:

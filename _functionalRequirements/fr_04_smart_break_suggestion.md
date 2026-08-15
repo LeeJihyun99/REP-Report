@@ -13,7 +13,7 @@ userInteractionTemplate:
   inWhatWay: via unobtrusive push notifications
 goals:
   - G_EXAM_STRESS
-  - G_LOW_COGNITIVE_LOAD
+  - G_LOAD_COGNITIVE_LOAD
 kano:
   type: performance
   reasoning: >
