@@ -32,15 +32,51 @@ layout: default
 
   <h2>Document Overview</h2>
 
-  <ul>
-    <li>Project goals and system context</li>
-    <li>Stakeholders and stakeholder roles</li>
-    <li>Personas and usage scenarios</li>
-    <li>Elicitation activities and results</li>
-    <li>Functional and non-functional requirements</li>
-    <li>Privacy, safety, and crisis-escalation considerations</li>
-    <li>Reviews for validating the documented artefacts</li>
-  </ul>
+<p>
+  This Requirements Engineering document contains the following artefact types:
+</p>
+
+<ul>
+  <li>
+    <strong>Project Foundation:</strong>
+    project goals, glossary, domain model, and system-context elements
+  </li>
+  <li>
+    <strong>Stakeholder Analysis:</strong>
+    stakeholders, stakeholder roles, and personas representing the main
+    perspectives of the project
+  </li>
+  <li>
+    <strong>Requirements Elicitation:</strong>
+    interviews, workshops, and surveys used to identify user needs,
+    expectations, risks, and constraints
+  </li>
+  <li>
+    <strong>Usage Analysis:</strong>
+    scenarios describing realistic environments, user activities, alternative
+    flows, and exceptional situations
+  </li>
+  <li>
+    <strong>System Requirements:</strong>
+    functional and non-functional requirements derived from the elicitation
+    results, scenarios, goals, and stakeholder needs
+  </li>
+  <li>
+    <strong>Prioritization:</strong>
+    evaluation of functional requirements according to their importance,
+    stakeholder value, and implementation priority
+  </li>
+  <li>
+    <strong>System Interaction:</strong>
+    use cases, use-case diagrams, and user stories describing expected
+    interactions between users, external systems, and the application
+  </li>
+  <li>
+    <strong>Validation:</strong>
+    formal reviews of the documented artefacts to identify issues, verify
+    traceability, and ensure consistency and completeness
+  </li>
+</ul>
 
   <p>
     The overall objective is to define a safe, trustworthy, privacy-conscious,
