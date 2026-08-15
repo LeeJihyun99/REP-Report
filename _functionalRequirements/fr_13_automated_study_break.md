@@ -1,6 +1,6 @@
 ---
 type: functionalRequirement
-acronym: smartBreakSuggestion
+acronym: fr_13_automated_study_break
 author:    
     - nora
 title: Automated Study Break Trigger
@@ -19,7 +19,8 @@ kano:
         Proactive break reminders based on active study duration surprise users positively and prevent sudden cognitive exhaustion.
 prioScore: 6
 sources:
-    - reference: [workshop, team_workshop, "Phase 4 - Prioritization"]
+  - reference: [workshop, team_workshop, "Phase 4 - Prioritization"]
+    usedFor: "Identified automated break triggers during study phases"
 history:
     v1:
         date: 2026-07-30

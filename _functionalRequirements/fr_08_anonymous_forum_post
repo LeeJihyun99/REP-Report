@@ -6,7 +6,7 @@ author:
 title: Anonymous Peer Community Posting
 userInteractionTemplate:
     condition: When a student publishes a message in the peer community forum
-    theSystem: shall
+    theSystem: should
     provideTheAbilityTo: the student
     toDoWhat: post
     object: thoughts, study struggles, and encouragement anonymously
@@ -20,7 +20,8 @@ kano:
         Anonymity is a mandatory prerequisite for students to share sensitive mental health struggles without fear of social judgment.
 prioScore: 9
 sources:
-    - reference: ["workshop", "team_workshop", "Phase 3 - Brainstorming Paradox"]
+  - reference: [workshop, team_workshop, "Phase 3 - Brainstorming Paradox"]
+    usedFor: "Derived anonymous posting mechanism to ensure student privacy"
 history:
     v1:
         date: 2026-07-30

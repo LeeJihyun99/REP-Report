@@ -19,7 +19,8 @@ kano:
         Tailored features for international students create delight and strong user loyalty for this specific stakeholder group.
 prioScore: 7
 sources:
-    - reference: ["workshop", "team_workshop", "General Questions"]
+  - reference: [workshop, team_workshop, "General Questions"]
+    usedFor: "Derived international student adaptation and homesickness support features"
 history:
     v1:
         date: 2026-07-30

@@ -6,7 +6,7 @@ author:
 title: Smart Study Break Suggestion Engine
 userInteractionTemplate:
   condition: When continuous intense study activity or high stress is detected
-  theSystem: shall
+  theSystem: should
   provideTheAbilityTo: the student
   toDoWhat: receive
   object: automated suggestions for short, high-impact relaxation breaks
@@ -20,7 +20,8 @@ kano:
     Students often forget to take breaks during long study sessions, leading to fatigue.
 prioScore: 8
 sources:
-  - reference: ["workshop", "team_workshop", "Phase 2 - Brainstorming"]
+  - reference: [workshop, team_workshop, "Phase 2 - Brainstorming"]
+    usedFor: "Identified automated break suggestion engine during intense study phases"
 history:
   v1:
     date: 2026-07-30

@@ -12,14 +12,15 @@ userInteractionTemplate:
     object: the application visual layout
     inWhatWay: to a simplified high-contrast view with muted colors and hidden non-essential navigation
 goals: 
-    - G_LOW_COGNITIVE_LOAD
+    - G_LOAD_COGNITIVE_LOAD
 kano:
     type: excitement
     reasoning: >
         An adaptive UI tailored to current emotional states offers a unique user experience during burnout phases.
 prioScore: 6
 sources:
-    - reference: ["workshop", "team_workshop", "General Questions"]
+  - reference: [workshop, team_workshop, "General Questions"]
+    usedFor: "Derived requirement for adaptive low-stimulation interface mode"
 history:
     v1:
         date: 2026-07-30

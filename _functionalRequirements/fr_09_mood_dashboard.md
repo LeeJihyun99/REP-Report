@@ -6,7 +6,7 @@ author:
 title: Emotional Trend History Display
 userInteractionTemplate:
     condition: When the student opens the analytics navigation view
-    theSystem: shall
+    theSystem: should
     provideTheAbilityTo: the student
     toDoWhat: view
     object: a visual graphical trend chart summarizing logged stress states over the previous 30 days
@@ -20,7 +20,8 @@ kano:
         Visual mood analytics provide insight into personal progress and enable self-reflection.
 prioScore: 8
 sources:
-    - reference: ["workshop", "team_workshop", "Phase 4 - Prioritization"]
+  - reference: [workshop, team_workshop, "Phase 4 - Prioritization"]
+    usedFor: "Derived visual mood trend history display and analytics features"
 history:
     v1:
         date: 2026-07-30

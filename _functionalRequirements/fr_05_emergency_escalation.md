@@ -18,7 +18,8 @@ kano:
         User safety in emergency situations is a mandatory basic requirement for any mental health platform.
 prioScore: 10
 sources:
-    - reference: ["workshop", "team_workshop", "Phase 4 - Prioritization"]
+  - reference: [workshop, team_workshop, "Phase 4 - Prioritization"]
+    usedFor: "Derived immediate crisis escalation and emergency hotline trigger"
 history:
     v1:
         date: 2026-07-30
