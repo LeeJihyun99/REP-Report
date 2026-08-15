@@ -24,7 +24,7 @@ description: Tool to manage requirements for software systems
 # The base hostname & protocol for your site, e.g. http://example.com
 # You can look that up in your Gitlab repo (left menu, under "Pages")
 url: "https://archi-lab.gitlab.io/requirements-engineering/re-tool"
-hyperlinkify_glossary_base_url: "/requirements-engineering/re-tool"
+hyperlinkify_glossary_base_url: ""
 
 # teacherMode is used for grading - you usually don't need this. Default is false.
 teacherMode: false
