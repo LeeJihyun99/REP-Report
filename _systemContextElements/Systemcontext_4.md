@@ -9,7 +9,7 @@ description: >
     University Counseling Services and emergency hotlines form the external human support 
     infrastructure to which the application can escalate severe emotional distress cases.
 author:
-    - rafath
+    - raf
 sources:
     - reference: [project_description, "Support Escalation"]
       usedFor: Identifies human counselor escalation channels for severe distress

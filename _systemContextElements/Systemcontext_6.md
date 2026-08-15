@@ -9,7 +9,7 @@ description: >
     The Student Authentication System uses university credentials or a secure login provider to 
     verify active student enrollment status.
 author:
-    - rafath
+    - raf
 sources:
     - reference: [project_description, "User Verification"]
       usedFor: Specifies secure login and enrollment verification requirements

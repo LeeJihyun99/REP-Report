@@ -9,7 +9,7 @@ description: >
     The Push Notification Service is the operating system notification channel used to deliver 
     daily check-in reminders and smart study break alerts.
 author:
-    - rafath
+    - raf
 sources:
     - reference: [project_description, "Reminders and Alerts"]
       usedFor: Defines notification mechanism for daily check-ins and study breaks

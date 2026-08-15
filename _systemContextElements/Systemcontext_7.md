@@ -9,7 +9,7 @@ description: >
     The secure, encrypted data storage backend manages user mental health privacy preferences 
     and historical mood logs.
 author:
-    - rafath
+    - raf
 sources:
     - reference: [project_description, "Privacy Dashboard"]
       usedFor: Outlines encrypted storage for privacy and historical data management

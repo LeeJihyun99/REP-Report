@@ -8,7 +8,7 @@ description: >
     The Student User is the primary actor experiencing university exam stress or burnout who 
     interacts with the mobile application interface.
 author:
-    - Rafath
+    - raf
 sources:
     - reference: [Project description, Target user ]
       usedFor: Defines the core student user base experiencing burnout and exam stress
