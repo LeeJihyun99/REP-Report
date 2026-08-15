@@ -1,9 +1,8 @@
 ---
 type: scenario
 acronym: internationalStudentStressNavigation
-isTemplate: true
 title: Low-barrier stress navigation and anonymity for international students
-persona: msilva
+persona: persona_mateo
 scenarioTypes: 
     - main
     - alternative

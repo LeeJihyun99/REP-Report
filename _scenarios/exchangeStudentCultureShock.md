@@ -1,9 +1,8 @@
 ---
 type: scenario
 acronym: exchangeStudentCultureShock
-isTemplate: true
 title: Overcoming culture shock and academic isolation via micro-interventions
-persona: akhan
+persona: persona_aisha
 scenarioTypes: 
     - main
     - alternative

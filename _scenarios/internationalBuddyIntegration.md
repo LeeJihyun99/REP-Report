@@ -1,9 +1,8 @@
 ---
 type: scenario
 acronym: internationalBuddyIntegration
-isTemplate: true
 title: Buddy-led cultural integration and peer support groups for international students
-persona: dchen
+persona: persona_david
 scenarioTypes: 
     - main
     - alternative
