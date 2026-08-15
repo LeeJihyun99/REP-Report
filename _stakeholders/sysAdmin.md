@@ -7,7 +7,7 @@ author:
     - lee
 name: System Administrator
 stakeholderRole: 
-    - systeMaintainer
+    - systemMaintainer
 relationshipToProject: >
     System administrators support the project after deployment by operating servers, databases, cloud services, and security mechanisms while minimizing downtime.
 # sources:
