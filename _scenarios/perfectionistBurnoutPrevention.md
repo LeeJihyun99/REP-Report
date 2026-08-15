@@ -1,7 +1,6 @@
 ---
 type: scenario
 acronym: perfectionistBurnoutPrevention
-isTemplate: true
 title: Gamified burn-out spiral prevention for perfectionist undergraduates
 persona: lweber
 scenarioTypes: 
