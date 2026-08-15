@@ -1,5 +1,5 @@
 ---
-acronym: diary
+acronym: users_survey
 type: survey
 # isTemplate: true
 intention: Survey for identifying students' mental health needs and expectations for an AI-supported mental health application
@@ -9,7 +9,7 @@ conducting:
     from: 2026-07-22
     until: 2026-07-28
     distribution: >
-        The survey was provided as diary templates via ILIAS (to be uploaded after completion by the participants).
+        The survey was provided as a google form to be submitted.
 participants: 
     numberOfParticipants: 11
     referenceGroupDefinition: students in 'Digital Sciences Master' or 'Medieninformatik Master' at TH Köln that are currently enrolled
@@ -17,16 +17,16 @@ participants:
     approachedBy: > 
         The target group was approached by an whatsapp.
 stakeholderRoles: 
-    - User
+    - user
 additionalDocuments:
     - purpose: Survey results in csv
       url: /sources/Survey on  AI Mental Health Support App .csv
     - purpose: Survey Questions in pdf
       url: sources/Survey on AI Mental Health Support App - Google Forms.pdf
 history:
-    v1:
-        date: 2022-04-16
-        comment: adapted as template
+    # v1:
+    #     date: 2022-04-16
+    #     comment: adapted as template
 ignore: 
 todo:
 ---

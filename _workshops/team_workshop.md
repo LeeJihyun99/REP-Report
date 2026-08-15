@@ -25,7 +25,7 @@ additionalDocuments:
     - purpose: Documentation of the Miro boards used in the workshop
       url: sources/workshop miroboard.pdf
 stakeholderRoles: 
-    - User
+    - user
 ignore: 
 ---
 
