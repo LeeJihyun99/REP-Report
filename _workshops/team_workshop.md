@@ -6,7 +6,7 @@ author:
     - lee
 intention: Collecting ideas for features of an AI-assisted mental health application for students and prioritizing user needs
 conducting:
-    date: 2026-07-24
+    date: 24-07-2026
     timeFrom: "15:00"
     timeUntil: "16:00"
     location: f2f
