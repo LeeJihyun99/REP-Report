@@ -1,9 +1,8 @@
 ---
 type: scenario
 acronym: counselorPreventativeWorkflow
-isTemplate: true
 title: Preventative digital self-help and counseling escalation workflow
-persona: evoss
+persona: persona_elena
 scenarioTypes: 
     - main
     - alternative

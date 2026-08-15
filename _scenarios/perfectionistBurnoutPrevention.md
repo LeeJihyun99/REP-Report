@@ -2,7 +2,7 @@
 type: scenario
 acronym: perfectionistBurnoutPrevention
 title: Gamified burn-out spiral prevention for perfectionist undergraduates
-persona: lweber
+persona: persona_lukas
 scenarioTypes: 
     - main
     - alternative

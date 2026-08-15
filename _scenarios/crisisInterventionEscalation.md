@@ -1,9 +1,8 @@
 ---
 type: scenario
 acronym: crisisInterventionEscalation
-isTemplate: true
 title: Safe crisis detection and single-tap emergency escalation protocol
-persona: mhoffmann
+persona: persona_markus
 scenarioTypes: 
     - main
     - alternative

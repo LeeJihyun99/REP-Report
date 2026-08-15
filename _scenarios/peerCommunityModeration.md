@@ -1,9 +1,8 @@
 ---
 type: scenario
 acronym: peerCommunityModeration
-isTemplate: true
 title: Moderated peer community support and toxic content filtering
-persona: jbecker
+persona: persona_julia
 scenarioTypes: 
     - main
     - alternative

@@ -1,9 +1,8 @@
 ---
 type: scenario
 acronym: workingStudentBreakManagement
-isTemplate: true
 title: Automated break management for working students during high-density workload periods
-persona: smeyer
+persona: persona_sarah
 scenarioTypes: 
     - main
     - alternative
@@ -11,7 +10,7 @@ scenarioTypes:
 author: 
     - raf
 sources: 
-    - reference: [persona]
+    - reference: [survey, diary, "Usage Preferences"]
       usedFor: Illustrates double-burden of working students and scheduling stress
 history:
     v1:
