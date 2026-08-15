@@ -1,7 +1,7 @@
 ---
 type: persona
 acronym: persona_elena
-stakeholderRole: universityCounselor
+stakeholderRole: domainExpert
 author: 
     - nora
 name: Dr. Elena Voss

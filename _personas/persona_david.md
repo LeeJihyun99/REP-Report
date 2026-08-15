@@ -1,7 +1,7 @@
 ---
 type: persona
 acronym: persona_david
-stakeholderRole: peerSupporter
+stakeholderRole: user
 author: 
     - nora
 name: David Chen

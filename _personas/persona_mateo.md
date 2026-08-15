@@ -1,7 +1,7 @@
 ---
 type: persona
 acronym: persona_mateo
-stakeholderRole: internationalStudent
+stakeholderRole: user
 author: 
     - nora
 name: Mateo Silva

@@ -1,7 +1,7 @@
 ---
 type: persona
 acronym: persona_aisha
-stakeholderRole: internationalStudent
+stakeholderRole: user
 author: 
     - nora
 name: Aisha Khan

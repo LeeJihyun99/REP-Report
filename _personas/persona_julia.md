@@ -1,7 +1,7 @@
 ---
 type: persona
 acronym: persona_julia
-stakeholderRole: peerSupporter
+stakeholderRole: user
 author: 
     - nora
 name: Julia Becker

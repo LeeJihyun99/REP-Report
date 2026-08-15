@@ -1,7 +1,7 @@
 ---
 type: persona
 acronym: persona_markus
-stakeholderRole: universityCounselor
+stakeholderRole: domainExpert
 author: 
     - nora
 name: Markus Hoffmann

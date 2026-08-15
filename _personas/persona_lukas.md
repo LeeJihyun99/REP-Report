@@ -1,7 +1,7 @@
 ---
 type: persona
 acronym: persona_lukas
-stakeholderRole: domesticStudent
+stakeholderRole: user
 author: 
     - nora
 name: Lukas Weber

@@ -1,7 +1,7 @@
 ---
 type: persona
 acronym: persona_sarah
-stakeholderRole: domesticStudent
+stakeholderRole: user
 author: 
     - nora
 name: Sarah Meyer
